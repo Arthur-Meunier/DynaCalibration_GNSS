@@ -1,0 +1,199 @@
+Structure du dossier pour le volume Windows
+Le numéro de série du volume est 922A-CDBE
+C:.
+¦   .gitignore
+¦   inventaire_projet.txt
+¦   README.md
+¦   requirements.txt
+¦   
++---data
+¦   +---processed
+¦   +---raw
+¦       +---00
+¦       ¦       AntBFixe.txt
+¦       ¦       B_Port.txt
+¦       ¦       B_Starboard.txt
+¦       ¦       dimcon.txt
+¦       ¦       Octans.txt
+¦       ¦       
+¦       +---01
+¦       ¦       B_Port.txt
+¦       ¦       B_Starboard.txt
+¦       ¦       comparaison_octans.txt
+¦       ¦       comparaison_resultats.csv
+¦       ¦       fichier2.txt
+¦       ¦       fichier3.txt
+¦       ¦       Gyro_17-02-2025_4.csv
+¦       ¦       Octans.txt
+¦       ¦       resultats_angles.txt
+¦       ¦       
+¦       +---DonneeCHUANGLI
+¦       ¦       B_Port.txt
+¦       ¦       B_Starboard.txt
+¦       ¦       filtered_orientation_results.csv
+¦       ¦       Octans.txt
+¦       ¦       
+¦       +---DonneeTASMAN
+¦       ¦   ¦   AFT.txt
+¦       ¦   ¦   CalculCinematique03.vce
+¦       ¦   ¦   CalculCinematique03.vce~
+¦       ¦   ¦   capteur.xlsx
+¦       ¦   ¦   DIMCON_TASMAN.txt
+¦       ¦   ¦   jeu.xlsx
+¦       ¦   ¦   
+¦       ¦   +---CalculCinematique03
+¦       ¦   ¦       263615 - Report - DCS - SW TASMAN - 02.pdf
+¦       ¦   ¦       50643311.T02
+¦       ¦   ¦       52923311.T01
+¦       ¦   ¦       67663311.T01
+¦       ¦   ¦       aft.txt
+¦       ¦   ¦       comparaison_octans.txt
+¦       ¦   ¦       LOADSTAR_hdg_p_r.txt
+¦       ¦   ¦       Octans.txt
+¦       ¦   ¦       port.txt
+¦       ¦   ¦       Port_AftFixe.csv
+¦       ¦   ¦       resultats_angles.txt
+¦       ¦   ¦       Session_S5_1.res
+¦       ¦   ¦       Session_S6_1.res
+¦       ¦   ¦       stb.txt
+¦       ¦   ¦       Stb_AftFixe.csv
+¦       ¦   ¦       test.vce
+¦       ¦   ¦       test.vce,lk
+¦       ¦   ¦       ThumbNail.png
+¦       ¦   ¦       tport.txt
+¦       ¦   ¦       tstb.txt
+¦       ¦   ¦       
+¦       ¦   +---s1
+¦       ¦   ¦       50643291.T02
+¦       ¦   ¦       52923291.T01
+¦       ¦   ¦       67663291.T01
+¦       ¦   ¦       aft.txt
+¦       ¦   ¦       c.vce
+¦       ¦   ¦       c.vce~
+¦       ¦   ¦       comparaison_octans.txt
+¦       ¦   ¦       octans.txt
+¦       ¦   ¦       port.csv
+¦       ¦   ¦       port.txt
+¦       ¦   ¦       resultats_angles.txt
+¦       ¦   ¦       Session_S5_1.res
+¦       ¦   ¦       Session_S6_1.res
+¦       ¦   ¦       stb.csv
+¦       ¦   ¦       stb.txt
+¦       ¦   ¦       ThumbNail.png
+¦       ¦   ¦       
+¦       ¦   +---s2
+¦       ¦           50643311.T02
+¦       ¦           52923311.T01
+¦       ¦           67663311.T01
+¦       ¦           comparaison_octans.txt
+¦       ¦           octans.txt
+¦       ¦           port.csv
+¦       ¦           port.txt
+¦       ¦           resultats_angles.txt
+¦       ¦           stb.csv
+¦       ¦           stb.txt
+¦       ¦           
+¦       +---Jeu_Test
+¦               DIMcon0.txt
+¦               DIMcon2.txt
+¦               GNSS1.txt
+¦               GNSS2.txt
+¦               GNSS3.txt
+¦               GNSS4.txt
+¦               P1_gnss.txt
+¦               P2_gnss.txt
+¦               P3_gnss.txt
+¦               P4_gnss.txt
+¦               Pts_origeGNSS.txt
+¦               resultats_orientation.csv
+¦               ValeurTheorique.txt
+¦               ValeurTheorique2.txt
+¦               
++---docs
+¦       axes_conventions_doc.html
+¦       Guide de Développement GNSS _ Implémentation Complète d'un Système Multi-Antennes avec Python.pdf
+¦       NL-MAI-TCH-WI-037-Dynamic Calibration.pdf
+¦       Procédure Complète de Développement Python pour Conversion GNSS Multi-Antennes en Attitude Marine.pdf
+¦       
++---notebooks
+¦   ¦   Test_calcul.py
+¦   ¦   Test_calcul_creation.py
+¦   ¦   Test_calcul_TASMAN.py
+¦   ¦   
+¦   +---Test_calcul
+¦   +---Test_GNSS
+¦   ¦       Calcul_RTKLIB1.py
+¦   ¦       gnss_analysis.png
+¦   ¦       Optimisation RTKLIB pour positionnement relatif haute précision.pdf
+¦   ¦       Positionnement RTK Multi-Rovers avec RTKLIB_ Limites, Solutions et Applications Professionnelles.pdf
+¦   ¦       Produits d'Orbites Précises NASA Earthdata _ Guide Technique Complet.pdf
+¦   ¦       
+¦   +---Test_sp3
+¦       ¦   doc_sp3-downloader.html
+¦       ¦   sp3.py
+¦       ¦   sp3exe.py
+¦       ¦   sp3exeV2.py
+¦       ¦   sp3_config.json
+¦       ¦   sp3_downloader.log
+¦       ¦   sp3_utility.py
+¦       ¦   
+¦       +---dist
+¦           ¦   COD0MGXFIN_20242580000_01D_05M_ORB.SP3
+¦           ¦   README.md
+¦           ¦   sp3_config.json
+¦           ¦   SP3_Downloader.exe
+¦           ¦   sp3_downloader.log
+¦           ¦   
+¦           +---SP3_Data
+¦           ¦       COD0MGXFIN_20250460000_01D_05M_ORB.SP3.gz
+¦           ¦       
+¦           +---SP3_Downloads
++---src
+¦   +---app
+¦   ¦   ¦   main.py
+¦   ¦   ¦   
+¦   ¦   +---assets
+¦   ¦   +---gui
+¦   ¦           app_data.py
+¦   ¦           menu_vertical.py
+¦   ¦           page_accueil.py
+¦   ¦           page_Dimcon.py
+¦   ¦           page_GNSS.py
+¦   ¦           page_observation.py
+¦   ¦           
+¦   +---core
+¦   ¦   +---calculations
+¦   ¦   +---importers
+¦   ¦           import_gnss.py
+¦   ¦           import_observation.py
+¦   ¦           
+¦   +---utils
++---tests
+    +---Test_calcul
+    +---Test_GNSS
+    ¦       Calcul_RTKLIB1.py
+    ¦       gnss_analysis.png
+    ¦       Optimisation RTKLIB pour positionnement relatif haute précision.pdf
+    ¦       Positionnement RTK Multi-Rovers avec RTKLIB_ Limites, Solutions et Applications Professionnelles.pdf
+    ¦       Produits d'Orbites Précises NASA Earthdata _ Guide Technique Complet.pdf
+    ¦       
+    +---Test_sp3
+        ¦   doc_sp3-downloader.html
+        ¦   sp3.py
+        ¦   sp3exe.py
+        ¦   sp3exeV2.py
+        ¦   sp3_config.json
+        ¦   sp3_downloader.log
+        ¦   sp3_utility.py
+        ¦   
+        +---dist
+            ¦   COD0MGXFIN_20242580000_01D_05M_ORB.SP3
+            ¦   README.md
+            ¦   sp3_config.json
+            ¦   SP3_Downloader.exe
+            ¦   sp3_downloader.log
+            ¦   
+            +---SP3_Data
+            ¦       COD0MGXFIN_20250460000_01D_05M_ORB.SP3.gz
+            ¦       
+            +---SP3_Downloads

@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SP3 Downloader Python - Guide Technique Géomatique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .company-logo:hover {
+            opacity: 1;
+        }
+
+        .company-logo svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .logo {
+            display: inline-block;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav {
+            background: #34495e;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 100%;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 80px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d6eaf8 100%);
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fdf2e9 0%, #fbeee6 100%);
+            border-left: 4px solid #e67e22;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #eafaf1 0%, #d5f4e6 100%);
+            border-left: 4px solid #27ae60;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .code-block.powershell {
+            background: #012456;
+            border-left: 4px solid #0078d4;
+        }
+
+        .code-block.python {
+            background: #1e3a8a;
+            border-left: 4px solid #3776ab;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tr:hover {
+            background: #e8f4f8;
+            transition: background 0.3s;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+
+        .screenshot-placeholder {
+            background: #ecf0f1;
+            border: 2px dashed #bdc3c7;
+            padding: 3rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            color: #7f8c8d;
+        }
+
+        .workflow-step {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .workflow-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: -15px;
+            top: -15px;
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .workflow-container {
+            counter-reset: step-counter;
+        }
+
+        .precision-chart {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .precision-bar {
+            display: inline-block;
+            width: 200px;
+            height: 30px;
+            margin: 0.5rem;
+            border-radius: 15px;
+            position: relative;
+            color: white;
+            line-height: 30px;
+            font-weight: bold;
+        }
+
+        .precision-final {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        }
+
+        .precision-rapid {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+
+        .precision-ultra {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .precision-bar {
+                width: 150px;
+                display: block;
+                margin: 0.5rem auto;
+            }
+
+            .company-logo {
+                width: 60px;
+                height: 60px;
+                top: 15px;
+                left: 15px;
+            }
+
+            header {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="company-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1361.000000pt" height="1361.000000pt" viewBox="0 0 1361.000000 1361.000000" preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,1361.000000) scale(0.100000,-0.100000)" fill="#ffffff" stroke="none">
+                        <path d="M2354 9711 c-51 -23 -107 -78 -136 -134 -22 -41 -23 -51 -26 -384 l-3 -343 -759 0 -760 0 0 -180 0 -180 760 0 760 0 0 -1778 0 -1777 203 -347 c111 -191 206 -346 211 -345 5 2 100 158 212 347 l204 345 0 1778 0 1777 265 0 264 0 3 -487 3 -488 29 -53 c33 -60 76 -101 139 -134 l42 -23 779 -3 c903 -3 852 -8 946 86 95 95 90 55 90 809 l0 653 -400 0 -399 0 -3 -537 -3 -538 -24 -48 c-49 -99 -146 -140 -239 -102 -47 20 -78 50 -105 100 -22 39 -22 49 -25 583 l-3 542 -684 0 -685 0 0 160 c0 170 8 208 49 230 13 6 240 10 660 10 l641 0 0 240 0 240 -982 0 c-937 0 -985 -1 -1024 -19z"/>
+                        <path d="M6124 8826 c-66 -31 -120 -86 -151 -152 l-24 -52 3 -559 3 -558 27 -47 c15 -25 49 -64 74 -87 79 -69 94 -71 548 -71 244 0 415 4 438 10 20 6 62 33 92 61 l54 50 33 -61 34 -60 372 0 373 0 0 440 0 440 -510 0 -510 0 0 -135 0 -135 105 0 105 0 0 -68 c0 -160 -107 -248 -269 -221 -66 10 -113 41 -143 94 -23 39 -23 45 -23 345 0 297 1 306 22 340 30 49 89 79 166 87 117 11 214 -36 233 -113 l6 -24 404 0 404 0 0 138 c0 123 -3 142 -24 188 -30 65 -85 120 -150 150 l-51 24 -795 0 -795 0 -51 -24z"/>
+                        <path d="M8330 8075 l0 -775 415 0 415 0 2 259 3 258 224 -258 224 -259 504 0 c277 0 503 2 503 4 0 2 -108 136 -239 298 l-239 293 101 6 c161 9 267 63 320 163 21 39 22 51 22 311 0 260 -1 272 -22 311 -29 55 -93 108 -162 136 l-56 23 -1007 3 -1008 2 0 -775z m1215 444 c22 -6 56 -28 76 -48 94 -93 72 -279 -40 -338 -42 -22 -55 -23 -233 -23 l-188 0 0 210 0 210 173 0 c94 0 190 -5 212 -11z"/>
+                        <path d="M11084 8826 c-65 -30 -120 -85 -150 -150 l-24 -51 0 -551 0 -550 26 -52 c14 -28 48 -72 76 -97 88 -79 53 -76 920 -73 l763 3 53 24 c66 30 144 113 166 177 23 69 24 1063 1 1141 -18 60 -79 132 -143 171 l-47 27 -795 3 -795 2 -51 -24z m943 -341 c48 -20 70 -41 97 -90 20 -37 21 -57 24 -305 4 -307 -2 -352 -55 -410 -41 -47 -84 -62 -168 -62 -94 1 -153 32 -192 105 -16 28 -18 67 -21 296 -2 166 1 282 8 315 23 109 95 166 208 166 34 0 79 -7 99 -15z"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="logo">
+                <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Orbites -->
+                    <circle cx="50" cy="50" r="35" fill="none" stroke="#3498db" stroke-width="1.5" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="20s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="50" cy="50" r="25" fill="none" stroke="#e74c3c" stroke-width="1.5" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 50 50;-360 50 50" dur="15s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="50" cy="50" r="15" fill="none" stroke="#f39c12" stroke-width="1.5" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="10s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- Terre centrale -->
+                    <circle cx="50" cy="50" r="8" fill="#27ae60"/>
+                    <circle cx="50" cy="50" r="8" fill="none" stroke="#2ecc71" stroke-width="0.5"/>
+                    
+                    <!-- Satellites -->
+                    <g>
+                        <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="20s" repeatCount="indefinite"/>
+                        <rect x="83" y="48" width="4" height="4" fill="#3498db" rx="1">
+                            <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+                        </rect>
+                        <line x1="85" y1="46" x2="85" y2="44" stroke="#3498db" stroke-width="0.5"/>
+                        <line x1="85" y1="54" x2="85" y2="56" stroke="#3498db" stroke-width="0.5"/>
+                    </g>
+                    
+                    <g>
+                        <animateTransform attributeName="transform" type="rotate" values="0 50 50;-360 50 50" dur="15s" repeatCount="indefinite"/>
+                        <rect x="23" y="48" width="4" height="4" fill="#e74c3c" rx="1">
+                            <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+                        </rect>
+                        <line x1="25" y1="46" x2="25" y2="44" stroke="#e74c3c" stroke-width="0.5"/>
+                        <line x1="25" y1="54" x2="25" y2="56" stroke="#e74c3c" stroke-width="0.5"/>
+                    </g>
+                    
+                    <g>
+                        <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="10s" repeatCount="indefinite"/>
+                        <rect x="48" y="33" width="4" height="4" fill="#f39c12" rx="1">
+                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+                        </rect>
+                        <line x1="50" y1="31" x2="50" y2="29" stroke="#f39c12" stroke-width="0.5"/>
+                        <line x1="50" y1="39" x2="50" y2="41" stroke="#f39c12" stroke-width="0.5"/>
+                    </g>
+                    
+                    <!-- Signaux -->
+                    <g opacity="0.4">
+                        <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="25s" repeatCount="indefinite"/>
+                        <path d="M 85 50 Q 67 35 50 50" fill="none" stroke="#3498db" stroke-width="0.5" stroke-dasharray="2,2">
+                            <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M 25 50 Q 37 65 50 50" fill="none" stroke="#e74c3c" stroke-width="0.5" stroke-dasharray="2,2">
+                            <animate attributeName="stroke-dashoffset" values="0;4" dur="1.2s" repeatCount="indefinite"/>
+                        </path>
+                    </g>
+                    
+                    <!-- Texte SP3 -->
+                    <text x="50" y="85" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">SP3</text>
+                    <text x="50" y="95" text-anchor="middle" fill="#3498db" font-family="Arial, sans-serif" font-size="6" opacity="0.8">LACIENAS</text>
+                </svg>
+            </div>
+            <h1>SP3 Downloader Python</h1>
+            <p class="subtitle">Guide Technique pour Ingénieurs Géomatique</p>
+        </header>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#configuration">Configuration</a></li>
+                <li><a href="#utilisation">Utilisation</a></li>
+                <li><a href="#depannage">Dépannage</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="introduction" class="section">
+                <h2>🎯 Introduction Technique</h2>
+                
+                <p>Le <strong>SP3 Downloader Python</strong> est un outil professionnel développé spécifiquement pour automatiser l'acquisition des fichiers d'orbites précises GNSS depuis les serveurs NASA CDDIS. Conçu pour répondre aux exigences de précision des applications géomatiques modernes, il intègre les dernières évolutions des standards IGS et supporte les formats IGS20 en vigueur depuis 2025.</p>
+
+                <div class="info-box">
+                    <h3>🛰️ Contexte Géomatique</h3>
+                    <p>Dans le domaine de la géomatique de précision, l'utilisation d'orbites précises est cruciale pour atteindre les performances requises en levé topographique, monitoring géodynamique, et applications d'ingénierie. Les orbites diffusées en temps réel présentent des erreurs de l'ordre de 1-5 mètres, tandis que les orbites précises SP3 permettent d'atteindre des précisions centimétriques à millimétriques selon le délai d'acquisition.</p>
+                </div>
+
+                <h3>⚡ Hiérarchie des Produits Orbitaux</h3>
+                <div class="precision-chart">
+                    <div class="precision-bar precision-final">Final IGS (2-3 cm)</div><br>
+                    <div class="precision-bar precision-rapid">Rapid IGR (2,5 cm)</div><br>
+                    <div class="precision-bar precision-ultra">Ultra-rapid IGU (3-5 cm)</div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type de Produit</th>
+                                <th>Précision Orbitale</th>
+                                <th>Délai de Disponibilité</th>
+                                <th>Applications Géomatiques</th>
+                                <th>Fréquence de Mise à Jour</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Final (IGS)</strong></td>
+                                <td>2-3 cm (1σ)</td>
+                                <td>12-19 jours</td>
+                                <td>Levés de référence, géodésie, recherche</td>
+                                <td>Hebdomadaire</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rapid (IGR)</strong></td>
+                                <td>2,5 cm (1σ)</td>
+                                <td>17 heures</td>
+                                <td>Levés commerciaux, cartographie</td>
+                                <td>Quotidienne</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ultra-rapid (IGU)</strong></td>
+                                <td>3-5 cm (1σ)</td>
+                                <td>3 heures</td>
+                                <td>Monitoring temps réel, applications urgentes</td>
+                                <td>4 fois/jour (06h, 12h, 18h, 00h UTC)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>🌐 Support Multi-Constellations</h3>
+                <p>L'outil gère nativement les quatre constellations GNSS principales avec leurs spécificités géométriques :</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Constellation</th>
+                                <th>Satellites Actifs</th>
+                                <th>Inclinaison</th>
+                                <th>Optimisation Géographique</th>
+                                <th>Avantage Géomatique</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>GPS</strong> (G01-G32)</td>
+                                <td>~30</td>
+                                <td>55°</td>
+                                <td>Globale</td>
+                                <td>Référence de précision, maturité</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GLONASS</strong> (R01-R27)</td>
+                                <td>~24</td>
+                                <td>64,8°</td>
+                                <td>Hautes latitudes</td>
+                                <td>Couverture polaire, robustesse</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Galileo</strong> (E01-E36)</td>
+                                <td>~28</td>
+                                <td>56°</td>
+                                <td>Europe</td>
+                                <td>Précision accrue, intégrité</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BeiDou</strong> (C01-C63)</td>
+                                <td>~55</td>
+                                <td>Variable</td>
+                                <td>Asie-Pacifique</td>
+                                <td>Haute disponibilité, satellites GEO</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="installation" class="section">
+                <h2>⚙️ Installation et Prérequis</h2>
+
+                <h3>📋 Prérequis Système</h3>
+                <div class="info-box">
+                    <ul>
+                        <li><strong>Connexion Internet</strong> stable (bande passante minimale : 1 Mbps)</li>
+                        <li><strong>Espace disque</strong> : 100 MB + espace pour données SP3</li>
+                        <li><strong>Compte NASA Earthdata Login</strong> (gratuit, obligatoire)</li>
+                        <li><strong>Permissions d'écriture</strong> sur le répertoire de travail</li>
+                    </ul>
+                </div>
+
+                <h3>🔐 Création du Compte NASA Earthdata</h3>
+                <div class="workflow-container">
+                    <div class="workflow-step">
+                        <h4>Enregistrement sur le portail NASA</h4>
+                        <p>Rendez-vous sur <a href="https://urs.earthdata.nasa.gov/users/new" target="_blank">NASA Earthdata Registration</a> et créez votre compte professionnel. Utilisez votre adresse email institutionnelle pour faciliter l'identification.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <h4>Génération du Token JWT</h4>
+                        <p>Une fois connecté, accédez à votre profil et générez un token JWT dans la section "Applications". Ce token remplace l'ancienne authentification par mot de passe depuis 2020.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <h4>Autorisation d'accès CDDIS</h4>
+                        <p>Assurez-vous d'autoriser l'accès aux données CDDIS dans les paramètres de votre compte. Cette étape est cruciale pour l'accès aux fichiers SP3.</p>
+                    </div>
+                </div>
+
+                <h3>💻 Installation du Logiciel</h3>
+                
+                <h4>Méthode 1 : Installation .exe (Recommandée)</h4>
+                <div class="success-box">
+                    <h4>🏢 Déploiement Serveur Réseau</h4>
+                    <p>L'exécutable SP3 Downloader est disponible sur le serveur d'entreprise pour un déploiement simplifié :</p>
+                </div>
+                
+                <div class="code-block powershell">
+# Accéder au serveur réseau
+\\Lacienas\DocsAppDivers\TECHNIQUE\00_LOGICIEL\01_LOGICIELS_FABRICATION_GEOID\
+
+# Copier l'exécutable sur votre poste
+copy "\\Lacienas\DocsAppDivers\TECHNIQUE\00_LOGICIEL\01_LOGICIELS_FABRICATION_GEOID\SP3_Downloader.exe" "C:\Applications\SP3_Downloader\"
+
+# Lancer directement l'application
+C:\Applications\SP3_Downloader\SP3_Downloader.exe
+                </div>
+
+                <h4>Méthode 2 : Création d'un raccourci bureau</h4>
+                <div class="code-block powershell">
+# Créer un raccourci sur le bureau pointant vers le serveur
+# Clic droit sur le bureau > Nouveau > Raccourci
+# Cible : \\Lacienas\DocsAppDivers\TECHNIQUE\00_LOGICIEL\01_LOGICIELS_FABRICATION_GEOID\SP3_Downloader.exe
+# Nom : SP3 Downloader - Orbites GNSS
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Considérations Réseau d'Entreprise</h4>
+                    <p>Dans un environnement d'entreprise avec proxy ou firewall :</p>
+                    <ul>
+                        <li>L'exécutable réseau est déjà configuré pour l'environnement Lacienas</li>
+                        <li>Les paramètres proxy sont automatiquement appliqués</li>
+                        <li>Les domaines *.nasa.gov et *.earthdata.nasa.gov sont pré-autorisés</li>
+                        <li>Le port HTTPS (443) est ouvert pour les connexions CDDIS</li>
+                    </ul>
+                </div>
+
+
+                
+                
+
+                <h4>Logs et Diagnostic</h4>
+                <div class="code-block">
+# Emplacement des logs utilisateur
+C:\Users\[username]\AppData\Local\SP3_Downloader\logs\
+
+# Logs centralisés serveur (pour support IT)
+\\Lacienas\DocsAppDivers\TECHNIQUE\00_LOGICIEL\01_LOGICIELS_FABRICATION_GEOID\logs\
+
+# Diagnostic automatique
+SP3_Downloader.exe --diagnostic
+                </div>
+                <h2>🔧 Configuration Initiale</h2>
+
+                <h3>🚀 Premier Lancement</h3>
+                
+                <div class="code-block powershell">
+# Lancer directement depuis le serveur (première fois)
+\\Lacienas\DocsAppDivers\TECHNIQUE\00_LOGICIEL\01_LOGICIELS_FABRICATION_GEOID\SP3_Downloader.exe
+
+# Ou depuis votre copie locale
+C:\Applications\SP3_Downloader\SP3_Downloader.exe
+                </div>
+
+                <div class="info-box">
+                    <p>Au premier lancement, l'assistant de configuration vous guidera pour :</p>
+                    <ul>
+                        <li>Définir le répertoire de stockage des données SP3</li>
+                        <li>Configurer l'authentification NASA Earthdata</li>
+                        <li>Personnaliser les paramètres selon vos projets</li>
+                        <li>Adapter les préférences de centres d'analyse</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h4>🏢 Configuration d'Entreprise</h4>
+                    <p>L'exécutable réseau peut inclure des paramètres pré-configurés :</p>
+                    <ul>
+                        <li><strong>Répertoires par défaut</strong> selon standards entreprise</li>
+                        <li><strong>Paramètres proxy</strong> réseau automatiques</li>
+                        <li><strong>Politiques de sécurité</strong> pré-appliquées</li>
+                        <li><strong>Logging centralisé</strong> pour support technique</li>
+                    </ul>
+                </div>
+
+                <h3>⚙️ Configuration Avancée</h3>
+                
+                <h4>Structure du Fichier de Configuration</h4>
+                <div class="code-block python">
+{
+  "jwt_token": "eyJ0eXAiOiJKV1QiLCJvcmlnaW4iOiJFYXJ0aGRhdGEgTG9naW4i...",
+  "output_directory": "C:/Data/GNSS/SP3",
+  "user_name": "Jean Dupont - Géomètre Expert",
+  "auto_cleanup": true,
+  "timeout_seconds": 120,
+  "retry_attempts": 3,
+  "preferred_centers": ["IGS", "COD", "GFZ", "JPL"]
+}
+                </div>
+
+                <h4>Paramètres Spécialisés pour la Géomatique</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Paramètre</th>
+                                <th>Valeur Recommandée</th>
+                                <th>Impact Géomatique</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>auto_cleanup</code></td>
+                                <td>true</td>
+                                <td>Économise l'espace disque en supprimant les archives</td>
+                            </tr>
+                            <tr>
+                                <td><code>timeout_seconds</code></td>
+                                <td>120-300</td>
+                                <td>Adapte aux connexions terrain variables</td>
+                            </tr>
+                            <tr>
+                                <td><code>retry_attempts</code></td>
+                                <td>3-5</td>
+                                <td>Robustesse face aux coupures réseau</td>
+                            </tr>
+                            <tr>
+                                <td><code>preferred_centers</code></td>
+                                <td>["IGS", "COD", "GFZ"]</td>
+                                <td>Priorise les centres de qualité reconnue</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="success-box">
+                    <h4>💡 Conseil Professionnel</h4>
+                    <p>Pour les projets géomatiques critiques, configurez un répertoire de stockage sur un disque dédié avec sauvegarde automatique. La traçabilité des données orbitales est essentielle pour la certification des levés.</p>
+                </div>
+            </section>
+
+            <section id="utilisation" class="section">
+                <h2>🎯 Guide d'Utilisation Pratique</h2>
+
+                <h3>🖥️ Interface Utilisateur</h3>
+                <p>L'interface est conçue pour l'efficacité opérationnelle avec un menu principal intuitif :</p>
+
+                <div class="screenshot-placeholder">
+                    🛰️ SP3 DOWNLOADER v2.1 (ULTRA-RAPIDES CORRIGÉS)<br>
+                    👤 Jean Dupont - Géomètre Expert<br>
+                    📁 C:\Data\GNSS\SP3<br><br>
+                    📋 MENU PRINCIPAL:<br>
+                    1. Télécharger fichier SP3<br>
+                    2. ⚙️ Paramètres<br>
+                    3. ❌ Quitter
+                </div>
+
+                <h3>📅 Sélection Intelligente des Dates</h3>
+                <div class="info-box">
+                    <h4>Stratégie de Sélection par Application</h4>
+                    <ul>
+                        <li><strong>Levés de précision</strong> : Utilisez les produits Final (délai 12+ jours)</li>
+                        <li><strong>Levés commerciaux</strong> : Produits Rapid suffisants (délai 1+ jour)</li>
+                        <li><strong>Monitoring urgent</strong> : Ultra-rapid disponibles (délai 3+ heures)</li>
+                        <li><strong>Post-traitement différé</strong> : Toujours privilégier les Final</li>
+                    </ul>
+                </div>
+
+                <h3>🔄 Logique de Fallback Automatique</h3>
+                <p>L'outil implémente une stratégie de fallback intelligente :</p>
+                
+                <div class="workflow-container">
+                    <div class="workflow-step">
+                        <h4>Analyse Temporelle</h4>
+                        <p>Le système calcule automatiquement le produit optimal selon l'âge des données et la disponibilité probable.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <h4>Tentative Produit Optimal</h4>
+                        <p>Recherche prioritaire du produit le plus précis disponible selon les seuils temporels.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <h4>Fallback Automatique</h4>
+                        <p>En cas d'échec : Ultra-rapid → Rapid → Final, garantissant l'obtention de données exploitables.</p>
+                    </div>
+                </div>
+
+                <h3>📊 Exemple de Session de Travail</h3>
+                <div class="code-block">
+🚀 Début téléchargement...
+🔍 Téléchargement ULTRA_RAPID...
+   Recherche de 12 variantes de fichiers...
+   📅 Semaine GPS: 2375, Format: IGS20
+   📋 Exemples recherchés:
+      1. IGS0OPSULT_20251960000_02D_15M_ORB.SP3.gz
+      2. COD0OPSULT_20251960000_02D_15M_ORB.SP3.gz
+   📂 Répertoire: https://cddis.nasa.gov/archive/gnss/products/mgex/2375/
+   ❌ 404: Fichier non disponible
+🔄 Fallback automatique vers RAPID...
+   ✅ Trouvé: COD0OPSRAP_20251960000_01D_05M_ORB.SP3.gz
+   📥 Téléchargement: 625.5 KB
+   📦 Décompression automatique...
+✅ Succès RAPID (fallback)
+
+📊 ANALYSE FICHIER SP3
+💾 Taille: 2.1 MB
+🛰️ Satellites: 87
+🌐 Constellations: 4
+   GPS: 31 satellites
+   GLONASS: 24 satellites
+   Galileo: 22 satellites
+   BeiDou: 10 satellites
+                </div>
+
+                <h3>🎛️ Utilisation Programmatique</h3>
+                <p>Pour l'intégration dans des workflows automatisés :</p>
+
+                <div class="code-block python">
+from sp3_downloader import SP3CombinedDownloader, ConfigManager
+from datetime import datetime, timedelta
+
+# Configuration
+config = ConfigManager()
+downloader = SP3CombinedDownloader(config)
+
+# Téléchargement automatique pour une campagne de mesure
+dates_campagne = [
+    datetime.now() - timedelta(days=i) 
+    for i in range(1, 8)  # Semaine de levés
+]
+
+for date in dates_campagne:
+    date_str = date.strftime("%d/%m/%Y")
+    fichier = downloader.smart_download_sp3(date_str)
+    
+    if fichier:
+        print(f"✅ {date_str}: {fichier}")
+        # Intégration dans votre chaîne de traitement
+        post_process_sp3(fichier)
+    else:
+        print(f"❌ {date_str}: Échec téléchargement")
+                </div>
+            </section>
+
+            <section id="depannage" class="section">
+                <h2>🔧 Dépannage et Optimisation</h2>
+
+                <h3>❌ Erreurs Courantes et Solutions</h3>
+
+                <h4>Problème 1 : Erreur d'Authentification (401)</h4>
+                <div class="code-block">
+🔐 401 Authentification requise
+💡 Vérifiez votre token JWT dans les paramètres
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>Causes possibles :</strong></p>
+                    <ul>
+                        <li>Token JWT expiré ou invalide</li>
+                        <li>Compte NASA Earthdata non activé</li>
+                        <li>Restrictions d'accès CDDIS non autorisées</li>
+                    </ul>
+                    <p><strong>Solutions :</strong></p>
+                    <ul>
+                        <li>Régénérer un nouveau token JWT sur votre compte NASA</li>
+                        <li>Vérifier l'autorisation d'accès CDDIS dans votre profil</li>
+                        <li>Contrôler la validité de votre compte (pas de suspension)</li>
+                    </ul>
+                </div>
+
+                <h4>Problème 2 : Aucun Fichier Trouvé</h4>
+                <div class="code-block">
+❌ Aucun fichier ultra_rapid trouvé dans 2 répertoires
+🔄 Fallback automatique vers RAPID...
+                </div>
+
+                <div class="warning-box">
+                    <p><strong>Analyse temporelle :</strong></p>
+                    <ul>
+                        <li><strong>Date trop récente</strong> : Les ultra-rapides nécessitent 3h minimum</li>
+                        <li><strong>Weekend/Férié</strong> : Délais de production parfois allongés</li>
+                        <li><strong>Maintenance CDDIS</strong> : Indisponibilité temporaire des serveurs</li>
+                    </ul>
+                    <p><strong>Stratégies d'adaptation :</strong></p>
+                    <ul>
+                        <li>Utiliser les produits de fallback automatique (Normal)</li>
+                        <li>Reporter le téléchargement de quelques heures</li>
+                        <li>Consulter les annonces IGS sur les perturbations</li>
+                    </ul>
+                </div>
+
+                <h4>Problème 3 : Erreurs Réseau / Timeout</h4>
+                <div class="code-block">
+⚠️ Erreur réseau: ConnectionTimeout
+⏱️ Timeout pour fichier_exemple.sp3.gz
+                </div>
+
+                <div class="success-box">
+                    <p><strong>Optimisations réseau :</strong></p>
+                    <ul>
+                        <li>Augmenter la valeur <code>timeout_seconds</code> dans la configuration</li>
+                        <li>Utiliser une connexion filaire plutôt que WiFi si possible</li>
+                        <li>Programmer les téléchargements en heures creuses</li>
+                        <li>Configurer un proxy d'entreprise si nécessaire</li>
+                    </ul>
+                </div>
+
+                <h3>📊 Monitoring et Validation des Données</h3>
+
+                <h4>Contrôles de Qualité Automatiques</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Contrôle</th>
+                                <th>Critère de Validation</th>
+                                <th>Action si Échec</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Intégrité du fichier</td>
+                                <td>Taille > 500 KB</td>
+                                <td>Re-téléchargement automatique</td>
+                            </tr>
+                            <tr>
+                                <td>Nombre de satellites</td>
+                                <td>GPS ≥ 28, GLONASS ≥ 20</td>
+                                <td>Alerte qualité dégradée</td>
+                            </tr>
+                            <tr>
+                                <td>Couverture temporelle</td>
+                                <td>24h continues</td>
+                                <td>Vérification manuelle requise</td>
+                            </tr>
+                            <tr>
+                                <td>Format SP3-c</td>
+                                <td>En-têtes conformes</td>
+                                <td>Rejet du fichier</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 SP3 Downloader Python - Outil professionnel pour la géomatique de précision</p>
+            <p>Développé pour la communauté géomatique - Support des standards IGS20 et NASA Earthdata</p>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mise en surbrillance navigation active
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav a');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    currentSection = section.id;
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.background = link.getAttribute('href') === '#' + currentSection ? 
+                    'rgba(255,255,255,0.3)' : '';
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+    </script>
+</body>
+</html>

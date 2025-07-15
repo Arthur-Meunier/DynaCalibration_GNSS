@@ -1,0 +1,24 @@
+Comparaison des résultats calculés vs Octans (après filtrage)
+----------------------------------------------------------------------
+
+Nombre de points après filtrage: 589 sur 689
+
+Statistiques des différences:
+
+heading:
+  Différence moyenne: 21.626°
+  Écart-type: 0.010°
+  Variance: 0.000°²
+  Différence maximale: 21.651°
+
+pitch:
+  Différence moyenne: -1.652°
+  Écart-type: 0.009°
+  Variance: 0.000°²
+  Différence maximale: 1.672°
+
+roll:
+  Différence moyenne: -2.226°
+  Écart-type: 0.023°
+  Variance: 0.001°²
+  Différence maximale: 2.276°

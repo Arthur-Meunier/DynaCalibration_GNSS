@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convention d'Axes GNSS - ENU (East North Up)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #27ae60;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 25px;
+        }
+        .axes-diagram {
+            background-color: #e8f5e8;
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-line;
+            text-align: center;
+        }
+        .rotation-example {
+            background-color: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background-color: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .gnss-info {
+            background-color: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .code-block {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .matrix {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+        }
+        .highlight {
+            background-color: #e8f5e8;
+            border: 1px solid #4caf50;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison div {
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .maritime {
+            background-color: #e3f2fd;
+            border: 2px solid #2196f3;
+        }
+        .gnss {
+            background-color: #e8f5e8;
+            border: 2px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛰️ Convention d'Axes GNSS - ENU (East North Up)</h1>
+        
+        <div class="gnss-info">
+            <strong>🎯 Convention utilisée :</strong> <br>
+            • <strong>Système ENU</strong> : East-North-Up (standard géodésique/GNSS)<br>
+            • <strong>Z vers le haut</strong> (vers le ciel)<br>
+            • <strong>Roll + = Port Up</strong> (gîte sur bâbord)<br>
+            • <strong>Pitch + = Bow Up</strong> (proue vers le haut)
+        </div>
+        
+        <h2>1. Système de Coordonnées ENU (East-North-Up)</h2>
+        
+        <div class="axes-diagram">
+<strong>Vue du dessus du navire (Convention GNSS ENU) :</strong>
+
+         ▲ Y (Nord géographique, vers la proue)
+         │
+         │     🚢 PROUE (BOW)
+         │   ┌─────────┐
+         │   │    ▲    │   ⊙ Z (Up - vers le ciel)
+         │   │    │    │  
+         │   │◄──┼──►  │ ◄─── X (Est géographique, vers tribord)
+         │   │    │    │
+         │   │    ▼    │
+         │   └─────────┘
+         │     POUPE (STERN)
+         │
+         └──────────────────► X (Est)
+        
+        PORT ◄────────────────► STARBOARD (STB)
+       (BÂBORD)                 (TRIBORD)
+
+<strong>Axes ENU :</strong>
+• X : Est géographique (Bâbord ← → Tribord)
+• Y : Nord géographique (Poupe ← → Proue)  
+• Z : Up - Vertical vers le haut (Bas ← → Ciel)
+        </div>
+
+        <h2>2. Définition des Rotations (Convention GNSS)</h2>
+
+        <table>
+            <tr>
+                <th>Rotation</th>
+                <th>Axe</th>
+                <th>Mouvement</th>
+                <th>Signe positif</th>
+                <th>Exemple pratique</th>
+            </tr>
+            <tr>
+                <td><strong>Cap (Heading)</strong></td>
+                <td>Z (vertical Up)</td>
+                <td>Rotation horizontale</td>
+                <td>Vers l'Est (horaire vue du ciel)</td>
+                <td>0° = Nord, 90° = Est, 180° = Sud</td>
+            </tr>
+            <tr>
+                <td><strong>Tangage (Pitch)</strong></td>
+                <td>Y (transversal)</td>
+                <td>Cabrement</td>
+                <td><strong>Bow Up</strong> (proue vers le haut)</td>
+                <td>+5° = proue surélevée, navire cabre</td>
+            </tr>
+            <tr>
+                <td><strong>Roulis (Roll)</strong></td>
+                <td>X (longitudinal)</td>
+                <td>Gîte</td>
+                <td><strong>Port Up</strong> (bâbord vers le haut)</td>
+                <td>+10° = gîte sur bâbord</td>
+            </tr>
+        </table>
+
+        <div class="warning">
+            <strong>⚠️ Attention - Différence avec convention maritime :</strong><br>
+            La convention GNSS utilise <strong>Roll + = Port Up</strong> alors que la convention maritime classique utilise souvent <strong>Roll + = Starboard Up</strong>. Cette différence est critique pour les calculs !
+        </div>
+
+        <h2>3. Comparaison des Conventions</h2>
+
+        <div class="comparison">
+            <div class="maritime">
+                <h4>🚢 Convention Maritime Classique</h4>
+                • Z vers le bas (dans la coque)<br>
+                • Roll + = Starboard Up<br>
+                • Ordre : Yaw-Pitch-Roll<br>
+                • Usage : Navigation traditionnelle
+            </div>
+            <div class="gnss">
+                <h4>🛰️ Convention GNSS/Géodésique</h4>
+                • Z vers le haut (vers le ciel)<br>
+                • Roll + = Port Up<br>
+                • Ordre : Heading-Pitch-Roll (ZYX)<br>
+                • Usage : GPS, IMU, calibration
+            </div>
+        </div>
+
+        <h2>4. Matrices de Rotation (Convention ENU)</h2>
+
+        <h3>Ordre des rotations : Z → Y → X</h3>
+        <div class="code-block">
+R_total = R_z(heading) × R_y(pitch) × R_x(roll)
+        </div>
+
+        <h3>Matrices élémentaires avec convention ENU :</h3>
+
+        <div class="matrix">
+<strong>R_z(h) - Rotation du cap (autour de Z↑) :</strong>
+┌                    ┐
+│  cos(h)  -sin(h)  0│
+│  sin(h)   cos(h)  0│
+│    0        0     1│
+└                    ┘
+        </div>
+
+        <div class="matrix">
+<strong>R_y(p) - Rotation du tangage (Bow Up +) :</strong>
+┌                    ┐
+│  cos(p)    0   sin(p)│
+│    0       1     0   │
+│ -sin(p)    0   cos(p)│
+└                    ┘
+        </div>
+
+        <div class="matrix">
+<strong>R_x(r) - Rotation du roulis (Port Up +) :</strong>
+┌                    ┐
+│    1       0       0  │
+│    0    cos(r) -sin(r)│
+│    0    sin(r)  cos(r)│
+└                    ┘
+        </div>
+
+        <h2>5. Implémentation avec Scipy (Convention ENU)</h2>
+
+        <div class="code-block">
+from scipy.spatial.transform import Rotation as R
+
+# Création de la rotation ENU (ordre ZYX, angles en degrés)
+# heading : cap, pitch : tangage (Bow Up +), roll : roulis (Port Up +)
+rotation = R.from_euler('ZYX', [heading, pitch, roll], degrees=True)
+
+# Obtenir la matrice de rotation
+matrix = rotation.as_matrix()
+
+# Application à un point dans le repère bateau
+point_bateau_enu = np.array([x_est, y_nord, z_up])
+point_transforme = matrix @ point_bateau_enu
+        </div>
+
+        <div class="highlight">
+            <strong>🎯 Avantage de la convention ENU :</strong><br>
+            • Compatible avec tous les systèmes GNSS<br>
+            • Standard géodésique mondial<br>
+            • Intégration facile avec les données GPS<br>
+            • Cohérence avec les référentiels terrestres (WGS84, etc.)
+        </div>
+
+        <h2>6. Exemples Pratiques avec Convention ENU</h2>
+
+        <h3>🧭 Exemple 1 : Navigation vers le Sud-Est</h3>
+        <div class="rotation-example">
+            <strong>Conditions :</strong> Cap 150°, mer calme<br>
+            <strong>Angles ENU :</strong> heading=150°, pitch=0°, roll=0°<br>
+            <strong>Résultat :</strong> Le navire pointe vers 150° (Sud-Est), parfaitement horizontal
+        </div>
+
+        <h3>🌊 Exemple 2 : Mer agitée avec gîte sur bâbord</h3>
+        <div class="rotation-example">
+            <strong>Conditions :</strong> Navigation par gros temps, gîte à bâbord<br>
+            <strong>Angles ENU :</strong> heading=150°, pitch=+2° (Bow Up), roll=+5° (Port Up)<br>
+            <strong>Résultat :</strong> Navire remonte une vague avec la proue haute et gîte sur bâbord
+        </div>
+
+        <h3>⚓ Exemple 3 : Virage à tribord avec tangage</h3>
+        <div class="rotation-example">
+            <strong>Conditions :</strong> Virage et passage de vague<br>
+            <strong>Angles ENU :</strong> heading=170°, pitch=-1° (Bow Down), roll=-3° (Stb Up)<br>
+            <strong>Résultat :</strong> Navire tourne vers tribord, proue basse, légère gîte tribord
+        </div>
+
+        <h2>7. Validation du Système ENU</h2>
+
+        <div class="gnss-info">
+            <strong>🧪 Test de cohérence (cycle complet) :</strong><br>
+            Pour valider l'implémentation ENU, on teste :<br>
+            <code>Angles ENU → Coordonnées antennes → Estimation → Angles ENU</code>
+        </div>
+
+        <h3>Résultats de validation attendus :</h3>
+        <div class="code-block">
+# Test sans bruit (doit être parfait)
+Entrée: (150.0°, +0.5°, +0.3°) → Sortie: (150.0°, +0.5°, +0.3°) ✓
+                  BowUp  PortUp              BowUp  PortUp
+
+# Test avec bruit 1mm GPS (doit être très proche)
+Entrée: (150.0°, +0.5°, +0.3°) → Sortie: (150.0°, +0.501°, +0.299°) ✓
+        </div>
+
+        <h2>8. Applications GNSS Spécifiques</h2>
+
+        <table>
+            <tr>
+                <th>Application</th>
+                <th>Usage de la convention ENU</th>
+                <th>Avantage</th>
+            </tr>
+            <tr>
+                <td><strong>Calibration multi-antennes</strong></td>
+                <td>Calcul des baselines GNSS</td>
+                <td>Compatibilité directe avec récepteurs GPS</td>
+            </tr>
+            <tr>
+                <td><strong>Fusion GNSS/IMU</strong></td>
+                <td>Alignement des référentiels</td>
+                <td>Pas de conversion de coordonnées</td>
+            </tr>
+            <tr>
+                <td><strong>Positionnement RTK</strong></td>
+                <td>Corrections différentielles</td>
+                <td>Précision centimétrique conservée</td>
+            </tr>
+            <tr>
+                <td><strong>Navigation autonome</strong></td>
+                <td>Planification de trajectoire</td>
+                <td>Référentiel géographique direct</td>
+            </tr>
+        </table>
+
+        <h2>9. Points Critiques de l'Implémentation</h2>
+
+        <div class="warning">
+            <strong>🚨 Pièges à éviter :</strong>
+            <ul>
+                <li><strong>Inversion Roll :</strong> Vérifier que Roll + = Port Up (pas Starboard Up)</li>
+                <li><strong>Ordre des rotations :</strong> Respecter ZYX (Heading, Pitch, Roll)</li>
+                <li><strong>Cohérence génération/estimation :</strong> Utiliser la même convention partout</li>
+                <li><strong>Unités :</strong> Angles en degrés, coordonnées en mètres</li>
+            </ul>
+        </div>
+
+        <div class="code-block">
+# Vérification rapide de la convention
+def test_convention():
+    # Roll +5° doit faire monter le port (bâbord)
+    angles = [0, 0, 5]  # heading=0, pitch=0, roll=+5°(Port Up)
+    
+    # Le point Port doit avoir un Z plus élevé que Starboard
+    coords = compute_antenna_coordinates(*angles)
+    assert coords['Port'][2] > coords['Stb'][2], "Roll + doit faire Port Up !"
+    
+    print("✓ Convention ENU validée : Roll + = Port Up")
+        </div>
+
+        <h2>10. Justification des Choix Algorithmiques</h2>
+
+        <div class="gnss-info">
+            <strong>🤔 Pourquoi ces choix techniques spécifiques ?</strong><br>
+            Cette section explique les raisons scientifiques et pratiques qui ont guidé l'implémentation.
+        </div>
+
+        <h3>10.1. Choix de scipy.spatial.transform.Rotation</h3>
+
+        <div class="comparison">
+            <div class="maritime">
+                <h4>❌ Matrices manuelles (non recommandé)</h4>
+                <strong>Problèmes :</strong><br>
+                • Risque d'erreur dans l'ordre des rotations<br>
+                • Gestion manuelle des cas limites<br>
+                • Accumulation d'erreurs numériques<br>
+                • Convention d'axes incohérente<br>
+                • Problème de gimbal lock non traité
+            </div>
+            <div class="gnss">
+                <h4>✅ scipy.spatial.transform (recommandé)</h4>
+                <strong>Avantages :</strong><br>
+                • Convention standardisée et testée<br>
+                • Optimisations numériques intégrées<br>
+                • Gestion automatique des singularités<br>
+                • Support quaternions (pas de gimbal lock)<br>
+                • Cohérence génération/estimation garantie
+            </div>
+        </div>
+
+        <div class="code-block">
+# Comparaison de robustesse numérique
+import numpy as np
+from scipy.spatial.transform import Rotation as R
+
+# Approche manuelle (fragile)
+def rotation_manual(h, p, r):
+    # Risque d'erreur dans l'ordre, conventions...
+    Rz = np.array([[np.cos(h), -np.sin(h), 0], ...])  # Erreur probable ici
+    return Rz @ Ry @ Rx  # Ordre peut être incorrect
+
+# Approche scipy (robuste)
+def rotation_scipy(h, p, r):
+    return R.from_euler('ZYX', [h, p, r], degrees=True).as_matrix()
+
+# Résultat : scipy garantit la cohérence
+        </div>
+
+        <h3>10.2. Algorithme Kabsch/SVD pour l'estimation d'attitude</h3>
+
+        <table>
+            <tr>
+                <th>Méthode</th>
+                <th>Principe</th>
+                <th>Avantages</th>
+                <th>Inconvénients</th>
+                <th>Verdict</th>
+            </tr>
+            <tr>
+                <td><strong>Kabsch + SVD</strong><br>(choisi)</td>
+                <td>Décomposition en valeurs singulières</td>
+                <td>• Optimal au sens des moindres carrés<br>• Pas d'itération<br>• Stable numériquement<br>• Solution unique</td>
+                <td>• Nécessite ≥3 points<br>• Complexité O(n³)</td>
+                <td>🏆 <strong>Optimal</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Procrustes</strong></td>
+                <td>Analyse de Procrustes classique</td>
+                <td>• Bien documenté<br>• Solution fermée</td>
+                <td>• Moins robuste au bruit<br>• Cas dégénérés possibles</td>
+                <td>⚠️ <strong>Acceptable</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Quaternions + Optimisation</strong></td>
+                <td>Minimisation itérative</td>
+                <td>• Pas de gimbal lock<br>• Contraintes naturelles</td>
+                <td>• Convergence non garantie<br>• Plus lent<br>• Initialisation critique</td>
+                <td>🔄 <strong>Complexe</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Angles d'Euler directs</strong></td>
+                <td>Calcul trigonométrique</td>
+                <td>• Simple conceptuellement</td>
+                <td>• Instable près des singularités<br>• Gimbal lock<br>• Bruit amplifié</td>
+                <td>❌ <strong>Déconseillé</strong></td>
+            </tr>
+        </table>
+
+        <div class="warning">
+            <strong>🎯 Pourquoi Kabsch + SVD est optimal :</strong><br>
+            <ol>
+                <li><strong>Théorème d'optimalité :</strong> Solution exacte au problème des moindres carrés pour l'alignement de nuages de points</li>
+                <li><strong>Stabilité numérique :</strong> La SVD est l'une des décompositions les plus stables</li>
+                <li><strong>Robustesse :</strong> Fonctionne même avec du bruit important sur les coordonnées</li>
+                <li><strong>Unicité :</strong> Solution unique (pas d'ambiguïté comme avec les angles d'Euler)</li>
+            </ol>
+        </div>
+
+        <h3>10.3. Ordre des rotations ZYX vs alternatives</h3>
+
+        <div class="rotation-example">
+            <h4>🔄 Comparaison des ordres de rotation possibles :</h4>
+            
+            <table>
+                <tr>
+                    <th>Ordre</th>
+                    <th>Convention</th>
+                    <th>Domaine d'usage</th>
+                    <th>Avantages navigation</th>
+                    <th>Problèmes</th>
+                </tr>
+                <tr style="background-color: #e8f5e8;">
+                    <td><strong>ZYX</strong><br>(choisi)</td>
+                    <td>Heading-Pitch-Roll<br>(Tait-Bryan)</td>
+                    <td>Aéronautique<br>Navigation maritime<br>GNSS</td>
+                    <td>• Ordre naturel pilotage<br>• Compatible GNSS<br>• Standard aéro/maritime</td>
+                    <td>• Gimbal lock à ±90° pitch</td>
+                </tr>
+                <tr>
+                    <td>XYZ</td>
+                    <td>Roll-Pitch-Yaw</td>
+                    <td>Robotique</td>
+                    <td>• Intuitif pour robots</td>
+                    <td>• Non standard maritime<br>• Confusion avec navigation</td>
+                </tr>
+                <tr>
+                    <td>ZXZ</td>
+                    <td>Angles d'Euler propres</td>
+                    <td>Mécanique classique</td>
+                    <td>• Pas de gimbal lock</td>
+                    <td>• Non intuitif navigation<br>• Conversion complexe</td>
+                </tr>
+                <tr>
+                    <td>YPR (custom)</td>
+                    <td>Yaw-Pitch-Roll</td>
+                    <td>Systèmes embarqués</td>
+                    <td>• Parfois utilisé en marine</td>
+                    <td>• Non standardisé<br>• Confusion terminologie</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="highlight">
+            <strong>💡 Justification du choix ZYX :</strong><br>
+            <ol>
+                <li><strong>Logique navigationnelle :</strong> On défini d'abord le cap (où va le navire), puis les mouvements secondaires</li>
+                <li><strong>Compatibilité GNSS :</strong> Les récepteurs GPS utilisent cette convention</li>
+                <li><strong>Standard aéronautique :</strong> Aviation civile et militaire utilisent ZYX</li>
+                <li><strong>Outils disponibles :</strong> Scipy, ROS, la plupart des bibliothèques supportent ZYX nativement</li>
+            </ol>
+        </div>
+
+        <h3>10.4. Convention ENU vs alternatives</h3>
+
+        <table>
+            <tr>
+                <th>Convention</th>
+                <th>Z direction</th>
+                <th>Usage principal</th>
+                <th>Avantages GNSS</th>
+                <th>Inconvénients</th>
+            </tr>
+            <tr style="background-color: #e8f5e8;">
+                <td><strong>ENU</strong><br>(East-North-Up)<br><em>choisi</em></td>
+                <td>↑ Vers le ciel</td>
+                <td>Géodésie, GNSS, topographie</td>
+                <td>• Compatible tous GNSS<br>• Standard WGS84<br>• Intuitif (Z = altitude)</td>
+                <td>• Différent nav maritime traditionnelle</td>
+            </tr>
+            <tr>
+                <td><strong>NED</strong><br>(North-East-Down)</td>
+                <td>↓ Vers le centre Terre</td>
+                <td>Aéronautique, INS</td>
+                <td>• Standard avionique<br>• Calculs inertiels</td>
+                <td>• Conversion nécessaire pour GNSS<br>• Z négatif pour altitude</td>
+            </tr>
+            <tr>
+                <td><strong>ECEF</strong><br>(Earth-Centered)</td>
+                <td>Variable (3D global)</td>
+                <td>Satellites, géodésie précise</td>
+                <td>• Pas de singularités polaires<br>• Global</td>
+                <td>• Non intuitif localement<br>• Calculs complexes</td>
+            </tr>
+            <tr>
+                <td><strong>Body</strong><br>(Repère bateau)</td>
+                <td>Variable selon navire</td>
+                <td>Systèmes embarqués</td>
+                <td>• Calculs simples embarqués</td>
+                <td>• Conversions constantes<br>• Dépendant du navire</td>
+            </tr>
+        </table>
+
+        <div class="gnss-info">
+            <strong>🛰️ Pourquoi ENU pour GNSS :</strong><br>
+            <ul>
+                <li><strong>Compatibilité native :</strong> Tous les récepteurs GNSS sortent des coordonnées en référentiel géodésique local (ENU)</li>
+                <li><strong>Précision :</strong> Pas de conversion → pas de perte de précision</li>
+                <li><strong>Standardisation :</strong> WGS84, ITRF, tous les référentiels terrestres utilisent Z↑</li>
+                <li><strong>Outils :</strong> Logiciels géodésiques (RTKLIB, etc.) travaillent en ENU</li>
+                <li><strong>Fusion capteurs :</strong> IMU modernes sortent souvent en ENU</li>
+            </ul>
+        </div>
+
+        <h3>10.5. Alternatives non retenues et leurs limitations</h3>
+
+        <div class="warning">
+            <h4>🚫 Méthodes écartées et pourquoi :</h4>
+            
+            <p><strong>1. Calcul d'angles par trigonométrie directe :</strong></p>
+            <div class="code-block">
+# Approche naive (instable)
+def angles_direct(p1, p2, p3):
+    # Calcul heading par atan2 des projections
+    heading = np.arctan2(p2[1]-p1[1], p2[0]-p1[0])  # Simpliste !
+    # Problèmes : sensible au bruit, cas dégénérés, pas optimal
+            </div>
+            <p><strong>Problèmes :</strong> Instable au bruit, ne minimise pas l'erreur globale, cas dégénérés multiples.</p>
+
+            <p><strong>2. Minimisation par optimiseur (scipy.optimize) :</strong></p>
+            <div class="code-block">
+# Approche par optimisation (lente)
+def estimate_by_optimization(coords):
+    def cost_function(angles):
+        predicted = forward_model(angles)
+        return np.sum((predicted - coords)**2)
+    
+    result = minimize(cost_function, initial_guess)  # Peut diverger !
+            </div>
+            <p><strong>Problèmes :</strong> Convergence non garantie, sensible à l'initialisation, plus lent, optimum local possible.</p>
+
+            <p><strong>3. Filtrage de Kalman étendu (EKF) :</strong></p>
+            <p><strong>Problèmes :</strong> Complexité excessive pour un problème statique, tuning difficile, hypothèses linéarité localement.</p>
+
+            <p><strong>4. Réseaux de neurones :</strong></p>
+            <p><strong>Problèmes :</strong> Overkill, pas d'interprétabilité, nécessite training data, pas de garantie physique.</p>
+        </div>
+
+        <h3>10.6. Analyse de performance comparative</h3>
+
+        <table>
+            <tr>
+                <th>Critère</th>
+                <th>Kabsch+SVD<br>(choisi)</th>
+                <th>Optimisation</th>
+                <th>Angles directs</th>
+                <th>EKF</th>
+            </tr>
+            <tr>
+                <td><strong>Précision</strong></td>
+                <td>🟢 Optimal (LSQ)</td>
+                <td>🟡 Dépend convergence</td>
+                <td>🔴 Sous-optimal</td>
+                <td>🟡 Bonne si bien réglé</td>
+            </tr>
+            <tr>
+                <td><strong>Robustesse</strong></td>
+                <td>🟢 Très stable</td>
+                <td>🔴 Peut diverger</td>
+                <td>🔴 Sensible bruit</td>
+                <td>🟡 Moyenne</td>
+            </tr>
+            <tr>
+                <td><strong>Vitesse</strong></td>
+                <td>🟢 O(n³) direct</td>
+                <td>🔴 Itératif lent</td>
+                <td>🟢 O(n) rapide</td>
+                <td>🔴 Complexe</td>
+            </tr>
+            <tr>
+                <td><strong>Simplicité</strong></td>
+                <td>🟢 1 ligne scipy</td>
+                <td>🔴 Setup complexe</td>
+                <td>🟡 Simple mais buggy</td>
+                <td>🔴 Très complexe</td>
+            </tr>
+            <tr>
+                <td><strong>Déterminisme</strong></td>
+                <td>🟢 Toujours même résultat</td>
+                <td>🔴 Dépend init</td>
+                <td>🟢 Déterministe</td>
+                <td>🔴 Stochastique</td>
+            </tr>
+        </table>
+
+        <div class="highlight">
+            <strong>🏆 Conclusion algorithmique :</strong><br>
+            La combinaison <strong>scipy.spatial.transform + Kabsch/SVD + convention ENU</strong> représente le meilleur compromis :<br>
+            • <strong>Scientifiquement optimal</strong> (solution des moindres carrés)<br>
+            • <strong>Industriellement robuste</strong> (utilisé dans l'aérospatial)<br>
+            • <strong>Pratiquement simple</strong> (quelques lignes de code)<br>
+            • <strong>Numériquement stable</strong> (SVD est référence)<br>
+            • <strong>Standard compatible</strong> (GNSS, géodésie, aviation)
+        </div>
+
+        <h2>11. Références Standards</h2>
+
+        <ul>
+            <li><strong>IERS Conventions</strong> : Standards géodésiques internationaux</li>
+            <li><strong>WGS84</strong> : Système géodésique mondial (GPS)</li>
+            <li><strong>ECEF vs ENU</strong> : Conversions entre référentiels</li>
+            <li><strong>IMO Resolution A.819(19)</strong> : Standards maritimes pour systèmes de positionnement</li>
+            <li><strong>ISO 19111</strong> : Référentiels de coordonnées spatiaux</li>
+            <li><strong>Kabsch W. (1976)</strong> : "A solution for the best rotation to relate two sets of vectors"</li>
+            <li><strong>Horn B.K.P. (1987)</strong> : "Closed-form solution of absolute orientation using unit quaternions"</li>
+        </ul>
+
+        <div class="highlight">
+            <strong>🌍 Cohérence mondiale :</strong> La convention ENU assure la compatibilité avec tous les systèmes GNSS mondiaux (GPS, GLONASS, Galileo, BeiDou) et les standards géodésiques internationaux.
+        </div>
+
+        <footer style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #ecf0f1; text-align: center; color: #7f8c8d;">
+            <p>🛰️ Documentation Convention GNSS ENU<br>
+            🔧 Système : Z↑, Roll+=Port Up, Pitch+=Bow Up<br>
+            📍 Compatible avec tous les systèmes de positionnement par satellite</p>
+        </footer>
+    </div>
+</body>
+</html>
