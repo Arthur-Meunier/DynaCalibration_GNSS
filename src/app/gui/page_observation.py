@@ -11,9 +11,8 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtCore import Qt, pyqtSignal, QTimer
 from PyQt5.QtGui import QFont, QColor
-from import_observation import ObservationImportDialog
-from calculs_observation import ObservationCalculator
-
+from core.importers.import_observation import ObservationImportDialog
+from core.calculations.calculs_observation import ObservationCalculator
 class ObservationWidget(QWidget):
     """Widget pour gérer les observations des capteurs et les calculs associés"""
     

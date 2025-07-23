@@ -6,6 +6,25 @@ C:.
 ¦   README.md
 ¦   requirements.txt
 ¦   
++---.spyproject
+¦   +---config
+¦       ¦   codestyle.ini
+¦       ¦   encoding.ini
+¦       ¦   vcs.ini
+¦       ¦   workspace.ini
+¦       ¦   
+¦       +---backups
+¦       ¦       codestyle.ini.bak
+¦       ¦       encoding.ini.bak
+¦       ¦       vcs.ini.bak
+¦       ¦       workspace.ini.bak
+¦       ¦       
+¦       +---defaults
+¦               defaults-codestyle-0.2.0.ini
+¦               defaults-encoding-0.2.0.ini
+¦               defaults-vcs-0.2.0.ini
+¦               defaults-workspace-0.2.0.ini
+¦               
 +---data
 ¦   +---processed
 ¦   +---raw
@@ -149,51 +168,48 @@ C:.
 ¦           ¦       
 ¦           +---SP3_Downloads
 +---src
+¦   ¦   check_imports.py
+¦   ¦   __init__.py
+¦   ¦   
 ¦   +---app
+¦   ¦   ¦   gui_app.py
 ¦   ¦   ¦   main.py
+¦   ¦   ¦   __init__.py
 ¦   ¦   ¦   
 ¦   ¦   +---assets
 ¦   ¦   +---gui
-¦   ¦           app_data.py
-¦   ¦           menu_vertical.py
-¦   ¦           page_accueil.py
-¦   ¦           page_Dimcon.py
-¦   ¦           page_GNSS.py
-¦   ¦           page_observation.py
+¦   ¦   ¦   ¦   app_data.py
+¦   ¦   ¦   ¦   menu_vertical.py
+¦   ¦   ¦   ¦   page_accueil.py
+¦   ¦   ¦   ¦   page_Dimcon.py
+¦   ¦   ¦   ¦   page_GNSS.py
+¦   ¦   ¦   ¦   page_observation.py
+¦   ¦   ¦   ¦   __init__.py
+¦   ¦   ¦   ¦   
+¦   ¦   ¦   +---__pycache__
+¦   ¦   ¦           app_data.cpython-311.pyc
+¦   ¦   ¦           menu_vertical.cpython-311.pyc
+¦   ¦   ¦           page_accueil.cpython-311.pyc
+¦   ¦   ¦           page_observation.cpython-311.pyc
+¦   ¦   ¦           __init__.cpython-311.pyc
+¦   ¦   ¦           
+¦   ¦   +---__pycache__
+¦   ¦           gui_app.cpython-311.pyc
+¦   ¦           __init__.cpython-311.pyc
 ¦   ¦           
 ¦   +---core
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
 ¦   ¦   +---calculations
+¦   ¦   ¦       calculs_observation.py
+¦   ¦   ¦       __init__.py
+¦   ¦   ¦       
 ¦   ¦   +---importers
 ¦   ¦           import_gnss.py
 ¦   ¦           import_observation.py
+¦   ¦           __init__.py
 ¦   ¦           
 ¦   +---utils
+¦           __init__.py
+¦           
 +---tests
-    +---Test_calcul
-    +---Test_GNSS
-    ¦       Calcul_RTKLIB1.py
-    ¦       gnss_analysis.png
-    ¦       Optimisation RTKLIB pour positionnement relatif haute précision.pdf
-    ¦       Positionnement RTK Multi-Rovers avec RTKLIB_ Limites, Solutions et Applications Professionnelles.pdf
-    ¦       Produits d'Orbites Précises NASA Earthdata _ Guide Technique Complet.pdf
-    ¦       
-    +---Test_sp3
-        ¦   doc_sp3-downloader.html
-        ¦   sp3.py
-        ¦   sp3exe.py
-        ¦   sp3exeV2.py
-        ¦   sp3_config.json
-        ¦   sp3_downloader.log
-        ¦   sp3_utility.py
-        ¦   
-        +---dist
-            ¦   COD0MGXFIN_20242580000_01D_05M_ORB.SP3
-            ¦   README.md
-            ¦   sp3_config.json
-            ¦   SP3_Downloader.exe
-            ¦   sp3_downloader.log
-            ¦   
-            +---SP3_Data
-            ¦       COD0MGXFIN_20250460000_01D_05M_ORB.SP3.gz
-            ¦       
-            +---SP3_Downloads

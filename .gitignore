@@ -1,0 +1,30 @@
+# Dossiers de cache Python
+__pycache__/
+*.pyc
+
+# Dossier de configuration Spyder
+.spyproject/
+
+# Fichiers de cache et bytecode Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dossiers de configuration d'IDE
+.spyproject/
+.vscode/
+
+# Fichiers de sauvegarde d'éditeurs
+*~
+*.swp
+*.bak
+*,lk
+
+# Fichiers générés localement
+/inventaire_projet.txt
+/output/
+
+# Fichiers système (macOS, Windows)
+.DS_Store
+Thumbs.db

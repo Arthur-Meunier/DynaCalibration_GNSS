@@ -10,7 +10,8 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtGui import QFont, QColor
-from import_gnss import GNSSImportDialog  # Importer le dialogue d'import
+# Import absolu depuis la racine 'src'
+from core.importers.import_gnss import GNSSImportDialog
 
 class GnssWidget(QWidget):
     """Widget pour configurer les paramètres GNSS et importer des données"""
