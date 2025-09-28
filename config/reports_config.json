@@ -1,0 +1,43 @@
+{
+  "reports": {
+    "output_directory": "reports/output",
+    "templates_directory": "reports/templates",
+    "assets_directory": "reports/assets",
+    "default_format": "PDF",
+    "default_style": "professional",
+    "auto_open_after_generation": true,
+    "include_charts_by_default": true,
+    "include_logs_by_default": true,
+    "max_log_entries_in_report": 100
+  },
+  "logging": {
+    "base_directory": "logs",
+    "max_memory_cache": 1000,
+    "auto_archive_days": 30,
+    "log_levels": [
+      "DEBUG",
+      "INFO",
+      "WARNING",
+      "ERROR",
+      "CRITICAL"
+    ],
+    "session_timeout_minutes": 60
+  },
+  "company": {
+    "default_name": "Société de Calibration",
+    "default_address": "",
+    "default_phone": "",
+    "default_email": "",
+    "default_website": "",
+    "logo_path": ""
+  },
+  "advanced": {
+    "pdf_compression": true,
+    "image_dpi": 150,
+    "chart_size_inches": [
+      8,
+      6
+    ],
+    "parallel_generation": false
+  }
+}

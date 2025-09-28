@@ -1,0 +1,2 @@
+# Fichier de test stbd_obs
+# Données simulées

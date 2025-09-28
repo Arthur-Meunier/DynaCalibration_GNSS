@@ -1,0 +1,93 @@
+Structure du dossier pour le volume Windows
+Le numéro de série du volume est 922A-CDBE
+C:.
+¦   architecture.txt
+¦   check_imports.py
+¦   setup_reports_system.py
+¦   __init__.py
+¦   
++---app
+¦   ¦   main.py
+¦   ¦   __init__.py
+¦   ¦   
+¦   +---assets
+¦   +---gui
+¦   ¦   ¦   circular_dashboard_widget.py
+¦   ¦   ¦   header_widget.py
+¦   ¦   ¦   log_widget.py
+¦   ¦   ¦   menu_vertical.py
+¦   ¦   ¦   page_accueil.py
+¦   ¦   ¦   page_Dimcon.py
+¦   ¦   ¦   page_GNSS.py
+¦   ¦   ¦   page_observation.py
+¦   ¦   ¦   project_info_widget.py
+¦   ¦   ¦   quick_actions_widget.py
+¦   ¦   ¦   settings_dialog.py
+¦   ¦   ¦   status_bar_widget.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           app_data.cpython-311.pyc
+¦   ¦           circular_dashboard_widget.cpython-311.pyc
+¦   ¦           header_widget.cpython-311.pyc
+¦   ¦           log_widget.cpython-311.pyc
+¦   ¦           menu_vertical.cpython-311.pyc
+¦   ¦           page_accueil.cpython-311.pyc
+¦   ¦           page_Dimcon.cpython-311.pyc
+¦   ¦           page_GNSS.cpython-311.pyc
+¦   ¦           page_observation.cpython-311.pyc
+¦   ¦           project_info_widget.cpython-311.pyc
+¦   ¦           quick_actions_widget.cpython-311.pyc
+¦   ¦           status_bar_widget.cpython-311.pyc
+¦   ¦           __init__.cpython-311.pyc
+¦   ¦           
+¦   +---SP3_Data
+¦   +---__pycache__
+¦           __init__.cpython-311.pyc
+¦           
++---core
+¦   ¦   app_data.py
+¦   ¦   project_manager.py
+¦   ¦   __init__.py
+¦   ¦   
+¦   +---calculations
+¦   ¦   ¦   calculs_observation.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           calculs_observation.cpython-311.pyc
+¦   ¦           __init__.cpython-311.pyc
+¦   ¦           
+¦   +---importers
+¦   ¦   ¦   import_gnss.py
+¦   ¦   ¦   import_observation.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           import_gnss.cpython-311.pyc
+¦   ¦           import_observation.cpython-311.pyc
+¦   ¦           __init__.cpython-311.pyc
+¦   ¦           
+¦   +---logs
+¦   ¦       log_manager.py
+¦   ¦       __init__.py
+¦   ¦       
+¦   +---reports
+¦   ¦   ¦   report_generator.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           report_generator.cpython-311.pyc
+¦   ¦           
+¦   +---__pycache__
+¦           app_data.cpython-311.pyc
+¦           project_manager.cpython-311.pyc
+¦           __init__.cpython-311.pyc
+¦           
++---reports
+¦   +---assets
+¦   +---output
+¦   +---templates
++---utils
+        __init__.py
+        

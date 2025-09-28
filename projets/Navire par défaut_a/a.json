@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-08-01T00:43:11.114619+00:00",
+    "last_modified": "2025-08-01T00:43:11.114619+00:00",
+    "company": "Société par défaut",
+    "vessel": "Navire par défaut",
+    "engineer": "Ingénieur par défaut",
+    "description": ""
+  },
+  "project_structure": {
+    "base_path": "C:\\1-Data\\01-Projet\\ProjetPY\\DynaCalibration_GNSS\\projets\\Navire par défaut_a",
+    "data_dir": "data",
+    "reports_dir": "reports",
+    "logs_dir": "logs",
+    "cache_dir": "cache",
+    "backup_dir": "backups"
+  },
+  "workflow_status": {
+    "dimcon": {
+      "completed": false,
+      "timestamp": null,
+      "progress": 0
+    },
+    "gnss": {
+      "completed": false,
+      "timestamp": null,
+      "progress": 0
+    },
+    "observation": {
+      "completed": false,
+      "timestamp": null,
+      "progress": 0
+    },
+    "qc": {
+      "completed": false,
+      "timestamp": null,
+      "progress": 0
+    }
+  },
+  "dimcon_data": {
+    "points": {
+      "Bow": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "Port": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "Stb": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    },
+    "validated": false
+  },
+  "gnss_config": {
+    "use_sp3": true,
+    "meridian_convergence": 0.0,
+    "scale_factor": 1.0,
+    "time_offset": 0.0,
+    "base_station": "",
+    "rovers": [],
+    "sp3_metadata": {
+      "downloaded": [],
+      "status": "pending"
+    },
+    "processing_stats": {}
+  },
+  "observation_sensors": [],
+  "qc_metrics": {
+    "global_score": 0.0,
+    "gnss_score": 0.0,
+    "sensors_score": 0.0,
+    "recommendations": []
+  }
+}

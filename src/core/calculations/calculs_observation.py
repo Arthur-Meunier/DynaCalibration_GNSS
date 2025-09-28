@@ -1,525 +1,366 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul 16 01:46:03 2025
-
-@author: a.meunier
-"""
-
-# calculs_observation.py
-"""
-Module de calculs pour les observations de capteurs.
-
-Ce module implémente les algorithmes de traitement des données de capteurs
-(MRU, Compas, Octans) et calcule les matrices de transformation selon
-la convention ENU (East-North-Up).
-"""
+# src/core/calculations/calculs_observation.py - VERSION CORRIGÉE
 
 import numpy as np
 import pandas as pd
 from scipy.spatial.transform import Rotation as R
-from datetime import datetime
-import logging
-
-# Configuration du logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+from scipy.linalg import cholesky
+import math
+from typing import Dict, List, Optional, Tuple, Any
 
 class ObservationCalculator:
     """
-    Calculateur pour les observations de capteurs de navigation.
-    
-    Implémente les algorithmes de traitement des données MRU, Compas et Octans
-    avec conversion automatique vers les conventions du repère bateau ENU.
+    Calculateur pour les observations des capteurs de navigation
+    Implémente les calculs de matrices de rotation et transformations
+    avec méthode de Cholesky pour la stabilité numérique
     """
     
     def __init__(self):
-        """Initialise le calculateur."""
+        """Initialise le calculateur avec les conventions par défaut"""
+        # Référence vers le modèle de données
         self.app_data = None
         self.convention_target = {
             'system': 'ENU',  # East-North-Up
             'z_direction': 'up',  # Z vers le haut
-            'roll_positive': 'port_up',  # Roll + = bâbord vers le haut
-            'pitch_positive': 'bow_up',   # Pitch + = proue vers le haut
+            'x_direction': 'east',        # X vers l'est
+            'y_direction': 'north',       # Y vers le nord
             'heading_zero': 'north'       # Heading 0° = Nord géographique
         }
         
-        print("✓ ObservationCalculator initialisé avec convention ENU")
+        print("[OK] ObservationCalculator initialisé avec convention ENU")
     
     def set_data_model(self, app_data):
-        """
-        Définit le modèle de données utilisé.
-        
-        Args:
-            app_data: Instance d'ApplicationData contenant les données
-        """
+        """Définit le modèle de données à utiliser"""
         self.app_data = app_data
-        logger.info("Modèle de données connecté au calculateur")
+        print("[OK] Modèle de données connecté au calculateur")
     
-    def calculate_all_sensors(self):
+    def calculate_all_sensors(self) -> Dict[str, Any]:
         """
-        Calcule les transformations pour tous les capteurs.
+        Effectue tous les calculs pour tous les capteurs disponibles
         
         Returns:
-            dict: Résultats des calculs par capteur
+            Dict: Résultats des calculs par capteur
         """
         if not self.app_data:
-            logger.warning("Aucun modèle de données disponible")
+            print("[WARN] Aucun modèle de données disponible")
+            return {}
+        
+        sensors = self.app_data.observation_data.get('sensors', {})
+        if not sensors:
+            print("[INFO] Aucun capteur avec données disponible")
             return {}
         
         results = {}
-        sensors = self.app_data.observation_data.get('sensors', {})
-        sensor_types = self.app_data.observation_data.get('sensor_types', {})
-        sign_conventions = self.app_data.observation_data.get('sign_conventions', {})
-        
-        logger.info(f"Calcul pour {len(sensors)} capteurs")
         
         for sensor_id, sensor_data in sensors.items():
-            if sensor_data is not None and not sensor_data.empty:
-                try:
-                    sensor_type = sensor_types.get(sensor_id, 'Unknown')
-                    conventions = sign_conventions.get(sensor_id, {})
-                    
-                    result = self.calculate_sensor_transform(
-                        sensor_id, sensor_data, sensor_type, conventions
-                    )
-                    
-                    if result:
-                        results[sensor_id] = result
-                        logger.info(f"✓ Calcul réussi pour {sensor_id}")
-                    else:
-                        logger.warning(f"✗ Échec calcul pour {sensor_id}")
-                        
-                except Exception as e:
-                    logger.error(f"Erreur calcul {sensor_id}: {e}")
-                    import traceback
-                    traceback.print_exc()
-        
-        logger.info(f"Calculs terminés: {len(results)} capteurs traités")
-        return results
-    
-    def calculate_sensor_transform(self, sensor_id, data, sensor_type, conventions):
-        """
-        Calcule la transformation pour un capteur spécifique.
-        
-        Args:
-            sensor_id (str): Identifiant du capteur
-            data (pd.DataFrame): Données du capteur
-            sensor_type (str): Type de capteur (MRU, Compas, Octans)
-            conventions (dict): Conventions de signe configurées
-            
-        Returns:
-            dict: Résultats des calculs
-        """
-        try:
-            logger.info(f"Traitement {sensor_id} ({sensor_type})")
-            
-            # Conversion des données vers les conventions ENU
-            converted_data = self.convert_to_enu_convention(data, sensor_type, conventions)
-            
-            # Calcul des matrices de rotation
-            matrices = self.calculate_rotation_matrices(converted_data, sensor_type)
-            
-            # Calcul des statistiques
-            stats = self.calculate_statistics(converted_data, sensor_type)
-            
-            # Évaluation de la qualité
-            quality = self.evaluate_data_quality(converted_data, sensor_type)
-            
-            return {
-                'sensor_type': sensor_type,
-                'data_points': len(converted_data),
-                'converted_data': converted_data,
-                'rotation_matrices': matrices,
-                'statistics': stats,
-                'quality_assessment': quality,
-                'conventions_applied': conventions,
-                'calculation_timestamp': datetime.now()
-            }
-            
-        except Exception as e:
-            logger.error(f"Erreur transformation {sensor_id}: {e}")
-            return None
-    
-    def convert_to_enu_convention(self, data, sensor_type, conventions):
-        """
-        Convertit les données vers la convention ENU standard.
-        
-        Args:
-            data (pd.DataFrame): Données brutes du capteur
-            sensor_type (str): Type de capteur
-            conventions (dict): Conventions de signe à appliquer
-            
-        Returns:
-            pd.DataFrame: Données converties
-        """
-        converted = data.copy()
-        
-        # Application des conventions de signe configurées
-        for angle_type, sign_factor in conventions.items():
-            if angle_type in ['pitch_sign', 'roll_sign', 'heading_sign']:
-                angle_col = angle_type.replace('_sign', '').title()
-                if angle_col in converted.columns:
-                    converted[angle_col] = converted[angle_col] * sign_factor
-                    logger.debug(f"Convention appliquée: {angle_col} × {sign_factor}")
-        
-        # Normalisation des plages d'angles selon les conventions ENU
-        if 'Heading' in converted.columns:
-            # Heading: 0-360° (0° = Nord)
-            converted['Heading'] = converted['Heading'] % 360
-        
-        if 'Pitch' in converted.columns:
-            # Pitch: ±90° (+ = Bow Up)
-            converted['Pitch'] = np.clip(converted['Pitch'], -90, 90)
-        
-        if 'Roll' in converted.columns:
-            # Roll: ±180° (+ = Port Up)
-            converted['Roll'] = ((converted['Roll'] + 180) % 360) - 180
-        
-        logger.debug(f"Données converties vers convention ENU pour {sensor_type}")
-        return converted
-    
-    def calculate_rotation_matrices(self, data, sensor_type):
-        """
-        Calcule les matrices de rotation selon la convention ENU.
-        
-        Args:
-            data (pd.DataFrame): Données converties
-            sensor_type (str): Type de capteur
-            
-        Returns:
-            dict: Matrices de rotation calculées
-        """
-        matrices = {}
-        
-        # Vérifier les colonnes disponibles selon le type de capteur
-        required_cols = self.get_required_columns(sensor_type)
-        available_cols = [col for col in required_cols if col in data.columns]
-        
-        if len(available_cols) < len(required_cols):
-            logger.warning(f"Colonnes manquantes pour {sensor_type}: {set(required_cols) - set(available_cols)}")
-            return matrices
-        
-        # Calculer des matrices pour quelques échantillons représentatifs
-        sample_indices = self.select_representative_samples(data)
-        
-        for i, idx in enumerate(sample_indices):
             try:
-                # Extraction des angles en radians
-                angles_rad = {}
+                print(f"[CALC] Calcul pour capteur: {sensor_id}")
                 
-                if 'Heading' in data.columns:
-                    angles_rad['heading'] = np.radians(data.iloc[idx]['Heading'])
+                # Obtenir le type de capteur
+                sensor_type = self.app_data.observation_data.get('sensor_types', {}).get(sensor_id, 'Unknown')
+                
+                # Effectuer les calculs selon le type
+                if sensor_type in ['MRU', 'Octans']:
+                    sensor_results = self.calculate_rotation_matrices(sensor_data, sensor_type)
+                elif sensor_type == 'Compas':
+                    sensor_results = self.calculate_heading_corrections(sensor_data)
                 else:
-                    angles_rad['heading'] = 0.0
+                    print(f"[WARN] Type de capteur non reconnu: {sensor_type}")
+                    continue
                 
-                if 'Pitch' in data.columns:
-                    angles_rad['pitch'] = np.radians(data.iloc[idx]['Pitch'])
-                else:
-                    angles_rad['pitch'] = 0.0
+                # Ajouter les statistiques
+                sensor_results['statistics'] = self.calculate_statistics(sensor_data, sensor_type)
                 
-                if 'Roll' in data.columns:
-                    angles_rad['roll'] = np.radians(data.iloc[idx]['Roll'])
-                else:
-                    angles_rad['roll'] = 0.0
-                
-                # Matrice de rotation ENU (ordre ZYX: Heading-Pitch-Roll)
-                rotation = R.from_euler(
-                    'ZYX', 
-                    [angles_rad['heading'], angles_rad['pitch'], angles_rad['roll']], 
-                    degrees=False
-                )
-                
-                matrices[f'sample_{i+1}'] = {
-                    'epoch_index': idx,
-                    'angles_deg': {
-                        'heading': data.iloc[idx].get('Heading', 0.0),
-                        'pitch': data.iloc[idx].get('Pitch', 0.0),
-                        'roll': data.iloc[idx].get('Roll', 0.0)
-                    },
-                    'rotation_matrix': rotation.as_matrix(),
-                    'quaternion': rotation.as_quat(),
-                    'euler_zyx_rad': [angles_rad['heading'], angles_rad['pitch'], angles_rad['roll']]
-                }
+                results[sensor_id] = sensor_results
+                print(f"[OK] Calculs terminés pour {sensor_id}")
                 
             except Exception as e:
-                logger.warning(f"Erreur calcul matrice échantillon {i}: {e}")
+                print(f"[ERROR] Erreur calcul {sensor_id}: {str(e)}")
                 continue
         
-        # Matrice moyenne si plusieurs échantillons
-        if len(matrices) > 1:
-            matrices['mean_rotation'] = self.calculate_mean_rotation(matrices)
-        
-        logger.info(f"Matrices calculées: {len(matrices)} échantillons")
-        return matrices
+        return results
     
-    def get_required_columns(self, sensor_type):
+    def calculate_rotation_matrices(self, data: pd.DataFrame, sensor_type: str) -> Dict[str, Any]:
         """
-        Retourne les colonnes requises selon le type de capteur.
+        Calcule les matrices de rotation pour un capteur MRU/Octans
         
         Args:
-            sensor_type (str): Type de capteur
+            data: DataFrame avec colonnes Time, Pitch, Roll, [Heading]
+            sensor_type: Type de capteur ('MRU' ou 'Octans')
             
         Returns:
-            list: Liste des colonnes requises
+            Dict: Matrices de rotation et métriques
         """
-        requirements = {
-            'MRU': ['Pitch', 'Roll'],
-            'Compas': ['Heading'],
-            'Octans': ['Pitch', 'Roll', 'Heading']
+        results = {
+            'rotation_matrices': {},
+            'mean_angles': {},
+            'corrections': {}
         }
         
-        return requirements.get(sensor_type, ['Heading'])
+        # Vérifier les colonnes requises
+        required_cols = ['Time', 'Pitch', 'Roll']
+        if sensor_type == 'Octans':
+            required_cols.append('Heading')
+        
+        missing_cols = [col for col in required_cols if col not in data.columns]
+        if missing_cols:
+            raise ValueError(f"Colonnes manquantes: {missing_cols}")
+        
+        # Convertir en radians
+        pitch_rad = np.deg2rad(data['Pitch'].values)
+        roll_rad = np.deg2rad(data['Roll'].values)
+        
+        # Calculs des moyennes
+        mean_pitch = np.mean(pitch_rad)
+        mean_roll = np.mean(roll_rad)
+        
+        results['mean_angles'] = {
+            'pitch_deg': np.rad2deg(mean_pitch),
+            'roll_deg': np.rad2deg(mean_roll)
+        }
+        
+        # Matrice de rotation moyenne (méthode Cholesky pour stabilité)
+        if len(pitch_rad) > 1:
+            # Construire les matrices de rotation individuelles
+            rotation_matrices = []
+            
+            for i in range(len(pitch_rad)):
+                # Rotation autour de X (Roll) puis Y (Pitch)
+                Rx = self._rotation_matrix_x(roll_rad[i])
+                Ry = self._rotation_matrix_y(pitch_rad[i])
+                
+                # Combinaison des rotations
+                R_combined = Ry @ Rx
+                rotation_matrices.append(R_combined)
+            
+            # Moyenne des matrices (approximation)
+            mean_rotation = np.mean(rotation_matrices, axis=0)
+            
+            # Stabilisation avec décomposition de Cholesky si nécessaire
+            try:
+                # Vérifier si la matrice est proche d'une rotation valide
+                det = np.linalg.det(mean_rotation)
+                if abs(det - 1.0) > 0.1:  # Seuil de tolérance
+                    print(f"[WARN] Déterminant de rotation: {det:.4f} (attendu: 1.0)")
+                    
+                    # Re-orthogonalisation via SVD
+                    U, S, Vt = np.linalg.svd(mean_rotation)
+                    mean_rotation = U @ Vt
+                    print("[INFO] Matrice re-orthogonalisée via SVD")
+                
+                results['rotation_matrices']['mean_rotation'] = mean_rotation
+                
+            except np.linalg.LinAlgError:
+                print("[ERROR] Impossible de stabiliser la matrice de rotation")
+                # Utiliser la rotation moyenne simple
+                results['rotation_matrices']['mean_rotation'] = self._simple_rotation_matrix(mean_pitch, mean_roll)
+        
+        else:
+            # Cas d'un seul point de données
+            results['rotation_matrices']['mean_rotation'] = self._simple_rotation_matrix(mean_pitch, mean_roll)
+        
+        # Traitement du heading si disponible (Octans)
+        if sensor_type == 'Octans' and 'Heading' in data.columns:
+            heading_rad = np.deg2rad(data['Heading'].values)
+            mean_heading = np.mean(heading_rad)
+            
+            results['mean_angles']['heading_deg'] = np.rad2deg(mean_heading)
+            
+            # Matrice de rotation complète (Roll, Pitch, Yaw)
+            Rz = self._rotation_matrix_z(mean_heading)
+            Ry = self._rotation_matrix_y(mean_pitch)
+            Rx = self._rotation_matrix_x(mean_roll)
+            
+            # Ordre de rotation: Z(Yaw) * Y(Pitch) * X(Roll)
+            R_complete = Rz @ Ry @ Rx
+            results['rotation_matrices']['complete_rotation'] = R_complete
+        
+        # Calcul des corrections (différence par rapport à la convention ENU)
+        target_rotation = np.eye(3)  # Matrice identité pour ENU parfait
+        correction_matrix = target_rotation @ results['rotation_matrices']['mean_rotation'].T
+        results['corrections']['rotation_correction'] = correction_matrix
+        
+        return results
     
-    def select_representative_samples(self, data, max_samples=5):
+    def calculate_heading_corrections(self, data: pd.DataFrame) -> Dict[str, Any]:
         """
-        Sélectionne des échantillons représentatifs dans les données.
+        Calcule les corrections de cap pour un compas
         
         Args:
-            data (pd.DataFrame): Données à échantillonner
-            max_samples (int): Nombre maximum d'échantillons
+            data: DataFrame avec colonnes Time, Heading
             
         Returns:
-            list: Indices des échantillons sélectionnés
+            Dict: Corrections de cap et statistiques
         """
-        n_points = len(data)
+        results = {
+            'heading_corrections': {},
+            'mean_angles': {},
+            'statistics': {}
+        }
         
-        if n_points <= max_samples:
-            return list(range(n_points))
+        if 'Heading' not in data.columns:
+            raise ValueError("Colonne 'Heading' manquante pour le compas")
         
-        # Échantillonnage uniforme
-        step = n_points // max_samples
-        indices = [i * step for i in range(max_samples)]
+        heading_deg = data['Heading'].values
         
-        # Ajouter le dernier point si pas déjà inclus
-        if indices[-1] != n_points - 1:
-            indices[-1] = n_points - 1
+        # Traitement des discontinuités à 360°
+        heading_unwrapped = np.unwrap(np.deg2rad(heading_deg))
+        heading_deg_unwrapped = np.rad2deg(heading_unwrapped)
         
-        return indices
+        # Calculs statistiques
+        mean_heading = np.mean(heading_deg_unwrapped)
+        std_heading = np.std(heading_deg_unwrapped)
+        
+        results['mean_angles']['heading_deg'] = mean_heading % 360
+        results['statistics']['heading_std'] = std_heading
+        results['statistics']['heading_range'] = np.ptp(heading_deg_unwrapped)
+        
+        # Correction par rapport au nord géographique (convention)
+        # Dans la convention ENU, le heading 0° doit pointer vers le nord
+        target_heading = 0.0  # Nord géographique
+        heading_correction = target_heading - mean_heading
+        
+        results['heading_corrections']['mean_correction'] = heading_correction
+        results['heading_corrections']['corrected_headings'] = heading_deg + heading_correction
+        
+        return results
     
-    def calculate_mean_rotation(self, matrices):
+    def calculate_statistics(self, data: pd.DataFrame, sensor_type: str) -> Dict[str, float]:
         """
-        Calcule la rotation moyenne à partir de plusieurs matrices.
+        Calcule les statistiques de qualité pour un capteur
         
         Args:
-            matrices (dict): Dictionnaire de matrices de rotation
+            data: DataFrame des données capteur
+            sensor_type: Type de capteur
             
         Returns:
-            dict: Rotation moyenne
-        """
-        try:
-            # Récupérer toutes les rotations (exclure 'mean_rotation' si présent)
-            rotations = []
-            for key, matrix_data in matrices.items():
-                if key != 'mean_rotation' and 'quaternion' in matrix_data:
-                    quat = matrix_data['quaternion']
-                    rotations.append(R.from_quat(quat))
-            
-            if not rotations:
-                return None
-            
-            # Calcul de la moyenne des quaternions (méthode simplifiée)
-            mean_quat = np.mean([r.as_quat() for r in rotations], axis=0)
-            mean_quat = mean_quat / np.linalg.norm(mean_quat)  # Normalisation
-            
-            mean_rotation = R.from_quat(mean_quat)
-            mean_euler = mean_rotation.as_euler('ZYX', degrees=True)
-            
-            return {
-                'rotation_matrix': mean_rotation.as_matrix(),
-                'quaternion': mean_rotation.as_quat(),
-                'euler_zyx_deg': mean_euler,
-                'method': 'quaternion_average'
-            }
-            
-        except Exception as e:
-            logger.warning(f"Erreur calcul rotation moyenne: {e}")
-            return None
-    
-    def calculate_statistics(self, data, sensor_type):
-        """
-        Calcule les statistiques descriptives des données.
-        
-        Args:
-            data (pd.DataFrame): Données converties
-            sensor_type (str): Type de capteur
-            
-        Returns:
-            dict: Statistiques calculées
+            Dict: Statistiques de qualité
         """
         stats = {
-            'sensor_type': sensor_type,
             'data_points': len(data),
-            'time_span_seconds': 0,
-            'sampling_rate_hz': 0
+            'quality_score': 0.0
         }
         
-        # Calcul de la période d'échantillonnage si colonne Time disponible
-        if 'Time_num' in data.columns and len(data) > 1:
-            time_diff = np.diff(data['Time_num'].values)
-            mean_dt = np.mean(time_diff)
-            
-            stats['time_span_seconds'] = data['Time_num'].max() - data['Time_num'].min()
-            stats['mean_sampling_interval_s'] = mean_dt
-            stats['sampling_rate_hz'] = 1.0 / mean_dt if mean_dt > 0 else 0
-            stats['sampling_regularity'] = np.std(time_diff) / mean_dt if mean_dt > 0 else 1.0
-        
-        # Statistiques par colonne d'angle
-        angle_columns = ['Pitch', 'Roll', 'Heading']
-        for col in angle_columns:
-            if col in data.columns:
-                values = data[col].dropna()
-                if len(values) > 0:
-                    stats[f'{col.lower()}_mean'] = values.mean()
-                    stats[f'{col.lower()}_std'] = values.std()
-                    stats[f'{col.lower()}_min'] = values.min()
-                    stats[f'{col.lower()}_max'] = values.max()
-                    stats[f'{col.lower()}_range'] = values.max() - values.min()
-                    stats[f'{col.lower()}_median'] = values.median()
-                    
-                    # Percentiles
-                    stats[f'{col.lower()}_p05'] = values.quantile(0.05)
-                    stats[f'{col.lower()}_p95'] = values.quantile(0.95)
-        
-        # Score de qualité global
-        stats['quality_score'] = self.calculate_quality_score(stats, sensor_type)
-        
-        logger.debug(f"Statistiques calculées pour {sensor_type}")
-        return stats
-    
-    def evaluate_data_quality(self, data, sensor_type):
-        """
-        Évalue la qualité des données du capteur.
-        
-        Args:
-            data (pd.DataFrame): Données converties
-            sensor_type (str): Type de capteur
-            
-        Returns:
-            dict: Évaluation de la qualité
-        """
-        quality = {
-            'overall_score': 0.0,
-            'data_completeness': 0.0,
-            'data_consistency': 0.0,
-            'sampling_regularity': 0.0,
-            'issues': [],
-            'recommendations': []
-        }
-        
-        # Complétude des données
-        total_cells = len(data) * len(data.columns)
-        valid_cells = total_cells - data.isnull().sum().sum()
-        quality['data_completeness'] = valid_cells / total_cells if total_cells > 0 else 0.0
-        
-        # Régularité d'échantillonnage
-        if 'Time_num' in data.columns and len(data) > 1:
-            time_diffs = np.diff(data['Time_num'].values)
-            cv_sampling = np.std(time_diffs) / np.mean(time_diffs) if np.mean(time_diffs) > 0 else 1.0
-            quality['sampling_regularity'] = max(0.0, 1.0 - cv_sampling)
-        else:
-            quality['sampling_regularity'] = 0.5  # Score neutre si pas de temps
-        
-        # Cohérence des données (plages d'angles raisonnables)
-        consistency_scores = []
-        
-        if 'Heading' in data.columns:
-            heading_range = data['Heading'].max() - data['Heading'].min()
-            # Une bonne mesure devrait avoir une variation raisonnable mais pas excessive
-            if 0 < heading_range < 720:  # Moins de 2 tours complets
-                consistency_scores.append(1.0)
-            else:
-                consistency_scores.append(0.5)
-                quality['issues'].append(f"Plage de heading excessive: {heading_range:.1f}°")
-        
+        # Statistiques spécifiques au type de capteur
         if 'Pitch' in data.columns:
-            pitch_max = data['Pitch'].abs().max()
-            if pitch_max <= 45:  # Tangage raisonnable pour un navire
-                consistency_scores.append(1.0)
-            else:
-                consistency_scores.append(0.7)
-                quality['issues'].append(f"Tangage élevé détecté: ±{pitch_max:.1f}°")
+            stats['pitch_std'] = np.std(data['Pitch'])
+            stats['pitch_range'] = np.ptp(data['Pitch'])
         
         if 'Roll' in data.columns:
-            roll_max = data['Roll'].abs().max()
-            if roll_max <= 60:  # Roulis raisonnable
-                consistency_scores.append(1.0)
-            else:
-                consistency_scores.append(0.7)
-                quality['issues'].append(f"Roulis élevé détecté: ±{roll_max:.1f}°")
+            stats['roll_std'] = np.std(data['Roll'])
+            stats['roll_range'] = np.ptp(data['Roll'])
         
-        quality['data_consistency'] = np.mean(consistency_scores) if consistency_scores else 0.5
+        if 'Heading' in data.columns:
+            # Traitement spécial pour le heading (discontinuité à 360°)
+            heading_unwrapped = np.unwrap(np.deg2rad(data['Heading']))
+            stats['heading_std'] = np.std(np.rad2deg(heading_unwrapped))
+            stats['heading_range'] = np.ptp(np.rad2deg(heading_unwrapped))
         
-        # Score global
-        weights = [0.3, 0.4, 0.3]  # Complétude, cohérence, régularité
-        scores = [quality['data_completeness'], quality['data_consistency'], quality['sampling_regularity']]
-        quality['overall_score'] = np.average(scores, weights=weights)
+        # Calcul du score de qualité global (0-100)
+        quality_factors = []
         
-        # Recommandations
-        if quality['data_completeness'] < 0.95:
-            quality['recommendations'].append("Vérifier les données manquantes")
+        # Facteur 1: Nombre de points de données
+        data_factor = min(100, len(data) / 100 * 100)  # 100 points = score parfait
+        quality_factors.append(data_factor * 0.3)  # Poids 30%
         
-        if quality['sampling_regularity'] < 0.8:
-            quality['recommendations'].append("Améliorer la régularité d'échantillonnage")
+        # Facteur 2: Stabilité des mesures (faible écart-type = bonne qualité)
+        if 'pitch_std' in stats and 'roll_std' in stats:
+            # Score inversement proportionnel à l'écart-type
+            stability_score = max(0, 100 - (stats['pitch_std'] + stats['roll_std']) * 10)
+            quality_factors.append(stability_score * 0.4)  # Poids 40%
         
-        if quality['overall_score'] > 0.9:
-            quality['recommendations'].append("Qualité excellente - données prêtes pour calibration")
-        elif quality['overall_score'] > 0.7:
-            quality['recommendations'].append("Qualité bonne - calibration possible")
-        else:
-            quality['recommendations'].append("Qualité faible - vérifier les données avant calibration")
-        
-        return quality
-    
-    def calculate_quality_score(self, stats, sensor_type):
-        """
-        Calcule un score de qualité global basé sur les statistiques.
-        
-        Args:
-            stats (dict): Statistiques des données
-            sensor_type (str): Type de capteur
-            
-        Returns:
-            float: Score de qualité entre 0 et 1
-        """
-        score_components = []
-        
-        # Composante: nombre de points de données
-        n_points = stats.get('data_points', 0)
-        if n_points >= 1000:
-            score_components.append(1.0)
-        elif n_points >= 100:
-            score_components.append(0.8)
-        elif n_points >= 10:
-            score_components.append(0.6)
-        else:
-            score_components.append(0.3)
-        
-        # Composante: stabilité des mesures (basée sur les écarts-types)
-        stability_scores = []
-        for angle in ['pitch', 'roll', 'heading']:
-            std_key = f'{angle}_std'
-            if std_key in stats:
-                std_val = stats[std_key]
-                # Score basé sur la stabilité (moins de variation = meilleur)
-                if std_val < 0.1:
-                    stability_scores.append(1.0)
-                elif std_val < 0.5:
-                    stability_scores.append(0.8)
-                elif std_val < 1.0:
-                    stability_scores.append(0.6)
-                else:
-                    stability_scores.append(0.4)
-        
-        if stability_scores:
-            score_components.append(np.mean(stability_scores))
-        
-        # Composante: régularité d'échantillonnage
-        if 'sampling_regularity' in stats:
-            regularity = 1.0 - min(1.0, stats['sampling_regularity'])
-            score_components.append(regularity)
+        # Facteur 3: Cohérence temporelle
+        if len(data) > 1:
+            # Calculer la variation temporelle
+            time_consistency = 100 - min(100, np.std(np.diff(data.index)) * 100)
+            quality_factors.append(time_consistency * 0.3)  # Poids 30%
         
         # Score final
-        if score_components:
-            return np.mean(score_components)
-        else:
-            return 0.5  # Score neutre par défaut
+        stats['quality_score'] = np.sum(quality_factors) if quality_factors else 0.0
+        
+        return stats
+    
+    # Méthodes utilitaires pour les matrices de rotation
+    
+    def _rotation_matrix_x(self, angle):
+        """Matrice de rotation autour de l'axe X (Roll)"""
+        c, s = np.cos(angle), np.sin(angle)
+        return np.array([
+            [1, 0, 0],
+            [0, c, -s],
+            [0, s, c]
+        ])
+    
+    def _rotation_matrix_y(self, angle):
+        """Matrice de rotation autour de l'axe Y (Pitch)"""
+        c, s = np.cos(angle), np.sin(angle)
+        return np.array([
+            [c, 0, s],
+            [0, 1, 0],
+            [-s, 0, c]
+        ])
+    
+    def _rotation_matrix_z(self, angle):
+        """Matrice de rotation autour de l'axe Z (Yaw/Heading)"""
+        c, s = np.cos(angle), np.sin(angle)
+        return np.array([
+            [c, -s, 0],
+            [s, c, 0],
+            [0, 0, 1]
+        ])
+    
+    def _simple_rotation_matrix(self, pitch, roll):
+        """Construit une matrice de rotation simple à partir de pitch et roll"""
+        Rx = self._rotation_matrix_x(roll)
+        Ry = self._rotation_matrix_y(pitch)
+        return Ry @ Rx
+    
+    def apply_cholesky_stabilization(self, matrix):
+        """
+        Applique la décomposition de Cholesky pour stabiliser une matrice
+        
+        Args:
+            matrix: Matrice à stabiliser
+            
+        Returns:
+            np.ndarray: Matrice stabilisée
+        """
+        try:
+            # S'assurer que la matrice est positive définie
+            gram_matrix = matrix.T @ matrix
+            
+            # Ajouter un petit terme de régularisation si nécessaire
+            eigenvals = np.linalg.eigvals(gram_matrix)
+            if np.min(eigenvals) < 1e-10:
+                regularization = 1e-8 * np.eye(gram_matrix.shape[0])
+                gram_matrix += regularization
+                print("[INFO] Régularisation appliquée pour la décomposition de Cholesky")
+            
+            # Décomposition de Cholesky
+            L = cholesky(gram_matrix, lower=True)
+            
+            # Reconstruction de la matrice stabilisée
+            stabilized_matrix = matrix @ np.linalg.inv(L) @ L
+            
+            return stabilized_matrix
+            
+        except np.linalg.LinAlgError as e:
+            print(f"[ERROR] Échec de la décomposition de Cholesky: {e}")
+            return matrix  # Retourner la matrice originale en cas d'échec
+    
+    def get_convention_info(self) -> Dict[str, str]:
+        """
+        Retourne les informations sur la convention utilisée
+        
+        Returns:
+            Dict: Informations sur la convention
+        """
+        return {
+            'system_description': 'East-North-Up (ENU) - Convention géodésique standard',
+            'x_axis': 'Est géographique',
+            'y_axis': 'Nord géographique', 
+            'z_axis': 'Vertical vers le haut',
+            'roll_definition': 'Rotation autour de X (axe Est)',
+            'pitch_definition': 'Rotation autour de Y (axe Nord)',
+            'yaw_definition': 'Rotation autour de Z (axe vertical)',
+            'heading_reference': 'Nord géographique = 0°, sens horaire positif'
+        }

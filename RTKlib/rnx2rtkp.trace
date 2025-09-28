@@ -1,0 +1,1019 @@
+3 postpos : ti=0 tu=0 n=6 outfile=test_debug89.pos
+3 openses :
+3 readpcv: file=C:\1-Data\01-Projet\ProjetPY\Thialf\2\igs20.atx
+3 readantex: file=C:\1-Data\01-Projet\ProjetPY\Thialf\2\igs20.atx
+4 sat= 1 type=           BLOCK IIA code=G01 off=  0.2790   0.0000   2.2535    0.2790   0.0000   2.2535
+4 sat= 1 type=           BLOCK IIA code=G01 off=  0.2790   0.0000   2.2206    0.2790   0.0000   2.2206
+4 sat= 1 type=         BLOCK IIR-M code=G01 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat= 1 type=           BLOCK IIA code=G01 off=  0.2790   0.0000   2.5128    0.2790   0.0000   2.5128
+4 sat= 1 type=           BLOCK IIF code=G01 off=  0.3940   0.0000   1.4215    0.3940   0.0000   1.4215
+4 sat= 1 type=         BLOCK IIR-M code=G01 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat= 1 type=          BLOCK IIIA code=G01 off= -0.0659   0.0204   1.1858   -0.0643   0.0203   0.6816
+4 sat= 2 type=            BLOCK II code=G02 off=  0.2790   0.0000   2.5809    0.2790   0.0000   2.5809
+4 sat= 2 type=         BLOCK IIR-B code=G02 off=  0.0013  -0.0011   0.6819    0.0013  -0.0011   0.6819
+4 sat= 3 type=             BLOCK I code=G03 off=  0.2100   0.0000   1.7460    0.2100   0.0000   1.7460
+4 sat= 3 type=           BLOCK IIA code=G03 off=  0.2790   0.0000   2.6926    0.2790   0.0000   2.6926
+4 sat= 3 type=           BLOCK IIA code=G03 off=  0.2790   0.0000   2.5128    0.2790   0.0000   2.5128
+4 sat= 3 type=           BLOCK IIF code=G03 off=  0.3940   0.0000   1.4823    0.3940   0.0000   1.4823
+4 sat= 4 type=             BLOCK I code=G04 off=  0.0000   0.0000   1.7750    0.0000   0.0000   1.7750
+4 sat= 4 type=           BLOCK IIA code=G04 off=  0.2790   0.0000   2.2989    0.2790   0.0000   2.2989
+4 sat= 4 type=         BLOCK IIR-M code=G04 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat= 4 type=           BLOCK IIA code=G04 off=  0.2790   0.0000   2.2535    0.2790   0.0000   2.2535
+4 sat= 4 type=           BLOCK IIA code=G04 off=  0.2790   0.0000   2.2989    0.2790   0.0000   2.2989
+4 sat= 4 type=         BLOCK IIR-M code=G04 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat= 4 type=           BLOCK IIA code=G04 off=  0.2790   0.0000   2.4632    0.2790   0.0000   2.4632
+4 sat= 4 type=           BLOCK IIA code=G04 off=  0.2790   0.0000   2.7739    0.2790   0.0000   2.7739
+4 sat= 4 type=         BLOCK IIR-M code=G04 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat= 4 type=           BLOCK IIA code=G04 off=  0.2790   0.0000   2.7739    0.2790   0.0000   2.7739
+4 sat= 4 type=          BLOCK IIIA code=G04 off= -0.0599   0.0175   1.1798   -0.0593   0.0156   0.6878
+4 sat= 4 type=           BLOCK IIA code=G04 off=  0.2790   0.0000   2.7739    0.2790   0.0000   2.7739
+4 sat= 4 type=          BLOCK IIIA code=G04 off= -0.0599   0.0175   1.1798   -0.0593   0.0156   0.6878
+4 sat= 5 type=             BLOCK I code=G05 off=  0.0000   0.0000   1.7750    0.0000   0.0000   1.7750
+4 sat= 5 type=           BLOCK IIA code=G05 off=  0.2790   0.0000   2.5128    0.2790   0.0000   2.5128
+4 sat= 5 type=         BLOCK IIR-M code=G05 off= -0.0033  -0.0003   0.7426   -0.0033  -0.0003   0.7426
+4 sat= 6 type=             BLOCK I code=G06 off=  0.0000   0.0000   1.7750    0.0000   0.0000   1.7750
+4 sat= 6 type=           BLOCK IIA code=G06 off=  0.2790   0.0000   2.7739    0.2790   0.0000   2.7739
+4 sat= 6 type=         BLOCK IIR-M code=G06 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat= 6 type=           BLOCK IIF code=G06 off=  0.3940   0.0000   1.4115    0.3940   0.0000   1.4115
+4 sat= 7 type=             BLOCK I code=G07 off=  0.0000   0.0000   1.7750    0.0000   0.0000   1.7750
+4 sat= 7 type=           BLOCK IIA code=G07 off=  0.2790   0.0000   2.2206    0.2790   0.0000   2.2206
+4 sat= 7 type=         BLOCK IIR-M code=G07 off= -0.0004   0.0050   0.7570   -0.0004   0.0050   0.7570
+4 sat= 8 type=             BLOCK I code=G08 off=  0.0000   0.0000   1.7750    0.0000   0.0000   1.7750
+4 sat= 8 type=           BLOCK IIA code=G08 off=  0.2790   0.0000   2.4632    0.2790   0.0000   2.4632
+4 sat= 8 type=         BLOCK IIR-M code=G08 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat= 8 type=           BLOCK IIF code=G08 off=  0.3940   0.0000   1.4277    0.3940   0.0000   1.4277
+4 sat= 9 type=             BLOCK I code=G09 off=  0.2100   0.0000   1.7750    0.2100   0.0000   1.7750
+4 sat= 9 type=           BLOCK IIA code=G09 off=  0.2790   0.0000   2.3283    0.2790   0.0000   2.3283
+4 sat= 9 type=           BLOCK IIF code=G09 off=  0.3940   0.0000   1.4601    0.3940   0.0000   1.4601
+4 sat=10 type=           BLOCK IIA code=G10 off=  0.2790   0.0000   2.4165    0.2790   0.0000   2.4165
+4 sat=10 type=           BLOCK IIA code=G10 off=  0.2790   0.0000   2.7739    0.2790   0.0000   2.7739
+4 sat=10 type=           BLOCK IIF code=G10 off=  0.3940   0.0000   1.4295    0.3940   0.0000   1.4295
+4 sat=11 type=             BLOCK I code=G11 off=  0.2100   0.0000   1.7750    0.2100   0.0000   1.7750
+4 sat=11 type=         BLOCK IIR-A code=G11 off= -0.0007  -0.0012   1.0539   -0.0007  -0.0012   1.0539
+4 sat=11 type=          BLOCK IIIA code=G11 off= -0.0659   0.0204   1.1858   -0.0643   0.0203   0.6816
+4 sat=12 type=             BLOCK I code=G12 off=  0.2100   0.0000   1.6887    0.2100   0.0000   1.6887
+4 sat=12 type=         BLOCK IIR-M code=G12 off=  0.0102  -0.0056   0.7107    0.0102  -0.0056   0.7107
+4 sat=13 type=             BLOCK I code=G13 off=  0.2100   0.0000   1.8922    0.2100   0.0000   1.8922
+4 sat=13 type=         BLOCK IIR-A code=G13 off= -0.0024  -0.0016   1.2871   -0.0024  -0.0016   1.2871
+4 sat=14 type=            BLOCK II code=G14 off=  0.2790   0.0000   2.7072    0.2790   0.0000   2.7072
+4 sat=14 type=         BLOCK IIR-A code=G14 off= -0.0025  -0.0017   1.2366   -0.0025  -0.0017   1.2366
+4 sat=14 type=          BLOCK IIIA code=G14 off= -0.0636   0.0232   1.1877   -0.0619   0.0258   0.7013
+4 sat=15 type=            BLOCK II code=G15 off=  0.2790   0.0000   2.3355    0.2790   0.0000   2.3355
+4 sat=15 type=         BLOCK IIR-M code=G15 off=  0.0045   0.0019   0.5756    0.0045   0.0019   0.5756
+4 sat=16 type=            BLOCK II code=G16 off=  0.2790   0.0000   2.3802    0.2790   0.0000   2.3802
+4 sat=16 type=         BLOCK IIR-A code=G16 off=  0.0126  -0.0069   1.3892    0.0126  -0.0069   1.3892
+4 sat=17 type=            BLOCK II code=G17 off=  0.2790   0.0000   2.2812    0.2790   0.0000   2.2812
+4 sat=17 type=         BLOCK IIR-M code=G17 off=  0.0030   0.0010   0.7115    0.0030   0.0010   0.7115
+4 sat=18 type=            BLOCK II code=G18 off=  0.2790   0.0000   2.4495    0.2790   0.0000   2.4495
+4 sat=18 type=         BLOCK IIR-A code=G18 off=  0.0139   0.0003   1.1821    0.0139   0.0003   1.1821
+4 sat=18 type=           BLOCK IIA code=G18 off=  0.2790   0.0000   2.2989    0.2790   0.0000   2.2989
+4 sat=18 type=          BLOCK IIIA code=G18 off= -0.0644   0.0195   1.1884   -0.0648   0.0221   0.7023
+4 sat=19 type=            BLOCK II code=G19 off=  0.2790   0.0000   2.8430    0.2790   0.0000   2.8430
+4 sat=19 type=         BLOCK IIR-B code=G19 off=  0.0086  -0.0006   0.7186    0.0086  -0.0006   0.7186
+4 sat=20 type=            BLOCK II code=G20 off=  0.2790   0.0000   2.3932    0.2790   0.0000   2.3932
+4 sat=20 type=         BLOCK IIR-A code=G20 off=  0.0010  -0.0032   1.2624    0.0010  -0.0032   1.2624
+4 sat=21 type=            BLOCK II code=G21 off=  0.2790   0.0000   2.3771    0.2790   0.0000   2.3771
+4 sat=21 type=         BLOCK IIR-A code=G21 off= -0.0034   0.0029   1.2903   -0.0034   0.0029   1.2903
+4 sat=21 type=          BLOCK IIIA code=G21 off= -0.0659   0.0204   1.1858   -0.0643   0.0203   0.6816
+4 sat=22 type=           BLOCK IIA code=G22 off=  0.2790   0.0000   2.3240    0.2790   0.0000   2.3240
+4 sat=22 type=         BLOCK IIR-B code=G22 off= -0.0022   0.0022   0.7710   -0.0022   0.0022   0.7710
+4 sat=22 type=         BLOCK IIR-A code=G22 off= -0.0025  -0.0017   1.2366   -0.0025  -0.0017   1.2366
+4 sat=22 type=         BLOCK IIR-A code=G22 off=  0.0014   0.0047   0.9362    0.0014   0.0047   0.9362
+4 sat=23 type=           BLOCK IIA code=G23 off=  0.2790   0.0000   2.6609    0.2790   0.0000   2.6609
+4 sat=23 type=         BLOCK IIR-B code=G23 off=  0.0154   0.0068   0.7019    0.0154   0.0068   0.7019
+4 sat=23 type=          BLOCK IIIA code=G23 off= -0.0665   0.0191   1.1838   -0.0649   0.0171   0.7073
+4 sat=24 type=           BLOCK IIA code=G24 off=  0.2790   0.0000   2.4850    0.2790   0.0000   2.4850
+4 sat=24 type=         BLOCK IIR-M code=G24 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat=24 type=           BLOCK IIA code=G24 off=  0.2790   0.0000   2.2535    0.2790   0.0000   2.2535
+4 sat=24 type=           BLOCK IIA code=G24 off=  0.2790   0.0000   2.2206    0.2790   0.0000   2.2206
+4 sat=24 type=         BLOCK IIR-M code=G24 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat=24 type=           BLOCK IIF code=G24 off=  0.3940   0.0000   1.3518    0.3940   0.0000   1.3518
+4 sat=25 type=           BLOCK IIA code=G25 off=  0.2790   0.0000   2.3716    0.2790   0.0000   2.3716
+4 sat=25 type=           BLOCK IIA code=G25 off=  0.2790   0.0000   2.5128    0.2790   0.0000   2.5128
+4 sat=25 type=           BLOCK IIF code=G25 off=  0.3940   0.0000   1.4542    0.3940   0.0000   1.4542
+4 sat=26 type=           BLOCK IIA code=G26 off=  0.2790   0.0000   2.3194    0.2790   0.0000   2.3194
+4 sat=26 type=           BLOCK IIA code=G26 off=  0.2790   0.0000   2.2535    0.2790   0.0000   2.2535
+4 sat=26 type=           BLOCK IIA code=G26 off=  0.2790   0.0000   2.5063    0.2790   0.0000   2.5063
+4 sat=26 type=           BLOCK IIF code=G26 off=  0.3940   0.0000   1.4336    0.3940   0.0000   1.4336
+4 sat=27 type=           BLOCK IIA code=G27 off=  0.2790   0.0000   2.5063    0.2790   0.0000   2.5063
+4 sat=27 type=         BLOCK IIR-M code=G27 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat=27 type=           BLOCK IIF code=G27 off=  0.3940   0.0000   1.4363    0.3940   0.0000   1.4363
+4 sat=28 type=           BLOCK IIA code=G28 off=  0.2790   0.0000   2.1562    0.2790   0.0000   2.1562
+4 sat=28 type=         BLOCK IIR-A code=G28 off=  0.0014   0.0047   0.9362    0.0014   0.0047   0.9362
+4 sat=28 type=         BLOCK IIR-M code=G28 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat=28 type=          BLOCK IIIA code=G28 off= -0.0669   0.0269   1.2018   -0.0666   0.0255   0.6905
+4 sat=29 type=           BLOCK IIA code=G29 off=  0.2790   0.0000   2.3935    0.2790   0.0000   2.3935
+4 sat=29 type=         BLOCK IIR-M code=G29 off=  0.0109  -0.0045   0.7228    0.0109  -0.0045   0.7228
+4 sat=30 type=           BLOCK IIA code=G30 off=  0.2790   0.0000   2.5017    0.2790   0.0000   2.5017
+4 sat=30 type=           BLOCK IIA code=G30 off=  0.2790   0.0000   2.5128    0.2790   0.0000   2.5128
+4 sat=30 type=         BLOCK IIR-M code=G30 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat=30 type=           BLOCK IIA code=G30 off=  0.2790   0.0000   2.2535    0.2790   0.0000   2.2535
+4 sat=30 type=           BLOCK IIA code=G30 off=  0.2790   0.0000   2.2206    0.2790   0.0000   2.2206
+4 sat=30 type=           BLOCK IIA code=G30 off=  0.2790   0.0000   2.5063    0.2790   0.0000   2.5063
+4 sat=30 type=         BLOCK IIR-M code=G30 off=  0.0000   0.0000   0.8654    0.0000   0.0000   0.8654
+4 sat=30 type=           BLOCK IIF code=G30 off=  0.3940   0.0000   1.4622    0.3940   0.0000   1.4622
+4 sat=31 type=           BLOCK IIA code=G31 off=  0.2790   0.0000   2.1212    0.2790   0.0000   2.1212
+4 sat=31 type=         BLOCK IIR-M code=G31 off= -0.0008   0.0058   0.8370   -0.0008   0.0058   0.8370
+4 sat=32 type=           BLOCK IIA code=G32 off=  0.2790   0.0000   2.6609    0.2790   0.0000   2.6609
+4 sat=32 type=           BLOCK IIF code=G32 off=  0.3940   0.0000   1.4717    0.3940   0.0000   1.4717
+4 sat=33 type=             GLONASS code=R01 off=  0.0000   0.0000   1.7996    0.0000   0.0000   1.7996
+4 sat=33 type=             GLONASS code=R01 off=  0.0000   0.0000   2.0048    0.0000   0.0000   2.0048
+4 sat=33 type=           GLONASS-M code=R01 off= -0.5450   0.0000   2.2695   -0.5450   0.0000   2.2695
+4 sat=33 type=           GLONASS-M code=R01 off= -0.5450   0.0000   2.3987   -0.5450   0.0000   2.3987
+4 sat=33 type=           GLONASS-M code=R01 off= -0.5450   0.0000   2.1295   -0.5450   0.0000   2.1295
+4 sat=33 type=           GLONASS-M code=R01 off= -0.5450   0.0000   2.0009   -0.5450   0.0000   2.0009
+4 sat=34 type=             GLONASS code=R02 off=  0.0000   0.0000   1.9252    0.0000   0.0000   1.9252
+4 sat=34 type=           GLONASS-M code=R02 off= -0.5450   0.0000   2.3332   -0.5450   0.0000   2.3332
+4 sat=34 type=           GLONASS-M code=R02 off= -0.5450   0.0000   2.3378   -0.5450   0.0000   2.3378
+4 sat=35 type=             GLONASS code=R03 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=35 type=             GLONASS code=R03 off=  0.0000   0.0000   1.9358    0.0000   0.0000   1.9358
+4 sat=35 type=           GLONASS-M code=R03 off= -0.5450   0.0000   2.2607   -0.5450   0.0000   2.2607
+4 sat=35 type=           GLONASS-M code=R03 off= -0.5450   0.0000   2.4545   -0.5450   0.0000   2.4545
+4 sat=35 type=           GLONASS-M code=R03 off= -0.5450   0.0000   2.2607   -0.5450   0.0000   2.2607
+4 sat=35 type=           GLONASS-M code=R03 off= -0.5450   0.0000   2.2236   -0.5450   0.0000   2.2236
+4 sat=35 type=          GLONASS-K1 code=R03 off=  0.0000   0.0000   1.9847    0.0000   0.0000   1.9847
+4 sat=35 type=           GLONASS-M code=R03 off= -0.5450   0.0000   2.4509   -0.5450   0.0000   2.4509
+4 sat=36 type=             GLONASS code=R04 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=36 type=             GLONASS code=R04 off=  0.0000   0.0000   1.9503    0.0000   0.0000   1.9503
+4 sat=36 type=           GLONASS-M code=R04 off= -0.5450   0.0000   2.3678   -0.5450   0.0000   2.3678
+4 sat=36 type=           GLONASS-M code=R04 off= -0.5450   0.0000   2.2607   -0.5450   0.0000   2.2607
+4 sat=36 type=          GLONASS-K1 code=R04 off=  0.0000   0.0000   1.9847    0.0000   0.0000   1.9847
+4 sat=36 type=           GLONASS-M code=R04 off= -0.5450   0.0000   2.2583   -0.5450   0.0000   2.2583
+4 sat=36 type=           GLONASS-M code=R04 off= -0.5450   0.0000   2.3867   -0.5450   0.0000   2.3867
+4 sat=37 type=             GLONASS code=R05 off=  0.0000   0.0000   1.9238    0.0000   0.0000   1.9238
+4 sat=37 type=           GLONASS-M code=R05 off= -0.5450   0.0000   2.3417   -0.5450   0.0000   2.3417
+4 sat=37 type=           GLONASS-M code=R05 off= -0.5460  -0.1440   2.3417   -0.5460  -0.1440   2.3417
+4 sat=37 type=           GLONASS-M code=R05 off= -0.5450   0.0000   2.1995   -0.5450   0.0000   2.1995
+4 sat=38 type=             GLONASS code=R06 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=38 type=             GLONASS code=R06 off=  0.0000   0.0000   1.8944    0.0000   0.0000   1.8944
+4 sat=38 type=           GLONASS-M code=R06 off= -0.5450   0.0000   2.1843   -0.5450   0.0000   2.1843
+4 sat=38 type=           GLONASS-M code=R06 off= -0.6690   0.0040   2.1843   -0.6690   0.0040   2.1843
+4 sat=38 type=           GLONASS-M code=R06 off= -0.3940  -0.0590   1.9859   -0.3940  -0.0590   1.9859
+4 sat=38 type=           GLONASS-M code=R06 off= -0.5450   0.0000   2.3678   -0.5450   0.0000   2.3678
+4 sat=38 type=          GLONASS-K2 code=R06 off=  1.1000   0.0000   0.9000    1.1000   0.0000   0.9000
+4 sat=38 type=           GLONASS-M code=R06 off= -0.5450   0.0000   2.3678   -0.5450   0.0000   2.3678
+4 sat=39 type=             GLONASS code=R07 off=  0.0000   0.0000   1.9263    0.0000   0.0000   1.9263
+4 sat=39 type=           GLONASS-M code=R07 off= -0.5450   0.0000   2.2932   -0.5450   0.0000   2.2932
+4 sat=39 type=           GLONASS-M code=R07 off= -0.5450   0.0000   2.5172   -0.5450   0.0000   2.5172
+4 sat=40 type=             GLONASS code=R08 off=  0.0000   0.0000   1.7855    0.0000   0.0000   1.7855
+4 sat=40 type=             GLONASS code=R08 off=  0.0000   0.0000   1.8260    0.0000   0.0000   1.8260
+4 sat=40 type=           GLONASS-M code=R08 off= -0.5450   0.0000   2.4319   -0.5450   0.0000   2.4319
+4 sat=40 type=           GLONASS-M code=R08 off= -0.5450   0.0000   2.2807   -0.5450   0.0000   2.2807
+4 sat=40 type=           GLONASS-M code=R08 off= -0.5450   0.0000   2.2932   -0.5450   0.0000   2.2932
+4 sat=40 type=           GLONASS-M code=R08 off= -0.5450   0.0000   2.2807   -0.5450   0.0000   2.2807
+4 sat=40 type=          GLONASS-K1 code=R08 off=  0.0000   0.0000   1.9847    0.0000   0.0000   1.9847
+4 sat=40 type=           GLONASS-M code=R08 off= -0.5450   0.0000   2.2807   -0.5450   0.0000   2.2807
+4 sat=41 type=             GLONASS code=R09 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=41 type=           GLONASS-M code=R09 off= -0.5450   0.0000   2.4545   -0.5450   0.0000   2.4545
+4 sat=41 type=           GLONASS-M code=R09 off= -0.5450   0.0000   2.3153   -0.5450   0.0000   2.3153
+4 sat=41 type=           GLONASS-M code=R09 off= -0.3860  -0.0170   2.3153   -0.3860  -0.0170   2.3153
+4 sat=41 type=           GLONASS-M code=R09 off= -0.4900  -0.1270   2.3153   -0.4900  -0.1270   2.3153
+4 sat=41 type=          GLONASS-K1 code=R09 off=  0.0000   0.0000   2.0267    0.0000   0.0000   2.0267
+4 sat=42 type=             GLONASS code=R10 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=42 type=           GLONASS-M code=R10 off= -0.5450   0.0000   2.2510   -0.5450   0.0000   2.2510
+4 sat=42 type=           GLONASS-M code=R10 off= -0.6670   0.0460   2.2462   -0.6670   0.0460   2.2462
+4 sat=43 type=             GLONASS code=R11 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=43 type=           GLONASS-M code=R11 off= -0.5450   0.0000   2.2462   -0.5450   0.0000   2.2462
+4 sat=43 type=           GLONASS-M code=R11 off= -0.6670   0.0460   2.2462   -0.6670   0.0460   2.2462
+4 sat=43 type=           GLONASS-M code=R11 off= -0.5450   0.0000   2.3543   -0.5450   0.0000   2.3543
+4 sat=43 type=          GLONASS-K1 code=R11 off=  0.0000   0.0000   1.8744    0.0000   0.0000   1.8744
+4 sat=44 type=             GLONASS code=R12 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=44 type=           GLONASS-M code=R12 off= -0.5450   0.0000   2.3838   -0.5450   0.0000   2.3838
+4 sat=44 type=           GLONASS-M code=R12 off= -0.6700  -0.0150   2.2772   -0.6700  -0.0150   2.2772
+4 sat=44 type=           GLONASS-M code=R12 off= -0.6260   0.0250   2.2772   -0.6260   0.0250   2.2772
+4 sat=44 type=           GLONASS-M code=R12 off= -0.6670   0.0460   2.2462   -0.6670   0.0460   2.2462
+4 sat=44 type=           GLONASS-M code=R12 off= -0.5450   0.0000   2.3118   -0.5450   0.0000   2.3118
+4 sat=45 type=             GLONASS code=R13 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=45 type=           GLONASS-M code=R13 off= -0.5450   0.0000   2.3099   -0.5450   0.0000   2.3099
+4 sat=46 type=             GLONASS code=R14 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=46 type=           GLONASS-M code=R14 off= -0.5450   0.0000   2.2236   -0.5450   0.0000   2.2236
+4 sat=46 type=           GLONASS-M code=R14 off= -0.5450   0.0000   2.4545   -0.5450   0.0000   2.4545
+4 sat=46 type=           GLONASS-M code=R14 off= -0.5450   0.0000   2.2236   -0.5450   0.0000   2.2236
+4 sat=46 type=          GLONASS-K1 code=R14 off=  0.0000   0.0000   1.9847    0.0000   0.0000   1.9847
+4 sat=46 type=           GLONASS-M code=R14 off= -0.5450   0.0000   2.2728   -0.5450   0.0000   2.2728
+4 sat=47 type=             GLONASS code=R15 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=47 type=             GLONASS code=R15 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=47 type=           GLONASS-M code=R15 off= -0.5450   0.0000   2.3716   -0.5450   0.0000   2.3716
+4 sat=47 type=           GLONASS-M code=R15 off= -0.5450   0.0000   2.4748   -0.5450   0.0000   2.4748
+4 sat=48 type=             GLONASS code=R16 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=48 type=           GLONASS-M code=R16 off= -0.5450   0.0000   2.3153   -0.5450   0.0000   2.3153
+4 sat=48 type=           GLONASS-M code=R16 off= -0.5450   0.0000   2.3737   -0.5450   0.0000   2.3737
+4 sat=48 type=           GLONASS-M code=R16 off= -0.5260  -0.1340   2.3153   -0.5260  -0.1340   2.3153
+4 sat=48 type=           GLONASS-M code=R16 off= -0.5450   0.0000   2.4587   -0.5450   0.0000   2.4587
+4 sat=49 type=             GLONASS code=R17 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=49 type=             GLONASS code=R17 off=  0.0000   0.0000   2.0614    0.0000   0.0000   2.0614
+4 sat=49 type=           GLONASS-M code=R17 off= -0.5450   0.0000   2.4411   -0.5450   0.0000   2.4411
+4 sat=49 type=           GLONASS-M code=R17 off= -0.3940  -0.0590   1.9859   -0.3940  -0.0590   1.9859
+4 sat=49 type=           GLONASS-M code=R17 off= -0.5450   0.0000   2.6423   -0.5450   0.0000   2.6423
+4 sat=49 type=           GLONASS-M code=R17 off= -0.5450   0.0000   1.9859   -0.5450   0.0000   1.9859
+4 sat=49 type=          GLONASS-K1 code=R17 off=  0.0000   0.0000   2.0267    0.0000   0.0000   2.0267
+4 sat=49 type=           GLONASS-M code=R17 off= -0.5450   0.0000   1.9859   -0.5450   0.0000   1.9859
+4 sat=49 type=           GLONASS-M code=R17 off= -0.5450   0.0000   2.3278   -0.5450   0.0000   2.3278
+4 sat=50 type=             GLONASS code=R18 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=50 type=             GLONASS code=R18 off=  0.0000   0.0000   1.9086    0.0000   0.0000   1.9086
+4 sat=50 type=           GLONASS-M code=R18 off= -0.5450   0.0000   2.3313   -0.5450   0.0000   2.3313
+4 sat=50 type=           GLONASS-M code=R18 off= -0.3940  -0.0590   1.9859   -0.3940  -0.0590   1.9859
+4 sat=50 type=           GLONASS-M code=R18 off= -0.5450   0.0000   2.4483   -0.5450   0.0000   2.4483
+4 sat=51 type=             GLONASS code=R19 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=51 type=             GLONASS code=R19 off=  0.0000   0.0000   2.0130    0.0000   0.0000   2.0130
+4 sat=51 type=           GLONASS-M code=R19 off= -0.5450   0.0000   2.4208   -0.5450   0.0000   2.4208
+4 sat=51 type=          GLONASS-K1 code=R19 off=  0.0000   0.0000   1.8744    0.0000   0.0000   1.8744
+4 sat=52 type=             GLONASS code=R20 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=52 type=             GLONASS code=R20 off=  0.0000   0.0000   1.9680    0.0000   0.0000   1.9680
+4 sat=52 type=           GLONASS-M code=R20 off= -0.5450   0.0000   2.3513   -0.5450   0.0000   2.3513
+4 sat=53 type=             GLONASS code=R21 off=  0.0000   0.0000   1.9657    0.0000   0.0000   1.9657
+4 sat=53 type=           GLONASS-M code=R21 off= -0.5450   0.0000   2.1487   -0.5450   0.0000   2.1487
+4 sat=53 type=           GLONASS-M code=R21 off= -0.6450   0.0140   2.1487   -0.6450   0.0140   2.1487
+4 sat=53 type=           GLONASS-M code=R21 off= -0.5450   0.0000   2.3576   -0.5450   0.0000   2.3576
+4 sat=54 type=             GLONASS code=R22 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=54 type=             GLONASS code=R22 off=  0.0000   0.0000   1.9533    0.0000   0.0000   1.9533
+4 sat=54 type=             GLONASS code=R22 off=  0.0000   0.0000   2.0130    0.0000   0.0000   2.0130
+4 sat=54 type=           GLONASS-M code=R22 off= -0.5450   0.0000   2.2963   -0.5450   0.0000   2.2963
+4 sat=54 type=           GLONASS-M code=R22 off= -0.5450   0.0000   2.2949   -0.5450   0.0000   2.2949
+4 sat=54 type=           GLONASS-M code=R22 off= -0.5450   0.0000   2.4342   -0.5450   0.0000   2.4342
+4 sat=54 type=          GLONASS-K1 code=R22 off=  0.0000   0.0000   1.8744    0.0000   0.0000   1.8744
+4 sat=55 type=             GLONASS code=R23 off=  0.0000   0.0000   1.9400    0.0000   0.0000   1.9400
+4 sat=55 type=             GLONASS code=R23 off=  0.0000   0.0000   1.9680    0.0000   0.0000   1.9680
+4 sat=55 type=           GLONASS-M code=R23 off= -0.3940  -0.0590   1.9859   -0.3940  -0.0590   1.9859
+4 sat=55 type=           GLONASS-M code=R23 off= -0.5450   0.0000   2.1989   -0.5450   0.0000   2.1989
+4 sat=56 type=             GLONASS code=R24 off=  0.0000   0.0000   2.0651    0.0000   0.0000   2.0651
+4 sat=56 type=           GLONASS-M code=R24 off= -0.5450   0.0000   2.3722   -0.5450   0.0000   2.3722
+4 sat=56 type=           GLONASS-M code=R24 off= -0.5450   0.0000   2.4342   -0.5450   0.0000   2.4342
+4 sat=56 type=           GLONASS-M code=R24 off= -0.5450   0.0000   2.4587   -0.5450   0.0000   2.4587
+4 sat=57 type=          GLONASS-K1 code=R25 off=  0.0000   0.0000   1.8744    0.0000   0.0000   1.8744
+4 sat=57 type=          GLONASS-K1 code=R25 off=  0.0000   0.0000   1.8744    0.0000   0.0000   1.8744
+4 sat=57 type=          GLONASS-K2 code=R25 off=  1.1000   0.0000   0.9000    1.1000   0.0000   0.9000
+4 sat=57 type=          GLONASS-K1 code=R25 off=  0.0000   0.0000   1.8744    0.0000   0.0000   1.8744
+4 sat=57 type=           GLONASS-M code=R25 off= -0.5450   0.0000   2.4208   -0.5450   0.0000   2.4208
+4 sat=58 type=          GLONASS-K1 code=R26 off=  0.0000   0.0000   1.9847    0.0000   0.0000   1.9847
+4 sat=58 type=          GLONASS-K1 code=R26 off=  0.0000   0.0000   1.9847    0.0000   0.0000   1.9847
+4 sat=58 type=          GLONASS-K1 code=R26 off=  0.0000   0.0000   1.9847    0.0000   0.0000   1.9847
+4 sat=58 type=          GLONASS-K2 code=R26 off=  1.1000   0.0000   0.9000    1.1000   0.0000   0.9000
+4 sat=58 type=          GLONASS-K1 code=R26 off=  0.0000   0.0000   1.8744    0.0000   0.0000   1.8744
+4 sat=58 type=          GLONASS-K2 code=R26 off=  1.1000   0.0000   0.9000    1.1000   0.0000   0.9000
+4 sat=58 type=           GLONASS-M code=R26 off= -0.5450   0.0000   2.3678   -0.5450   0.0000   2.3678
+4 sat=58 type=          GLONASS-K2 code=R26 off=  1.1000   0.0000   0.9000    1.1000   0.0000   0.9000
+4 sat=59 type=          GLONASS-K1 code=R27 off=  0.0000   0.0000   2.0267    0.0000   0.0000   2.0267
+4 sat=59 type=           GLONASS-M code=R27 off= -0.5450   0.0000   2.3716   -0.5450   0.0000   2.3716
+4 sat=59 type=          GLONASS-K2 code=R27 off=  1.1000   0.0000   0.9000    1.1000   0.0000   0.9000
+4 sat=60 type=           GALILEO-2 code=E01 off=  0.1213  -0.0080   0.8799    0.1228  -0.0090   0.8311
+4 sat=61 type=           GALILEO-2 code=E02 off=  0.1213  -0.0091   0.8818    0.1230  -0.0093   0.8159
+4 sat=62 type=           GALILEO-2 code=E03 off=  0.1160  -0.0092   0.8928    0.1177  -0.0102   0.8069
+4 sat=63 type=           GALILEO-2 code=E04 off=  0.1224  -0.0097   0.8905    0.1239  -0.0101   0.8079
+4 sat=64 type=           GALILEO-2 code=E05 off=  0.1214  -0.0094   0.9129    0.1228  -0.0095   0.8105
+4 sat=65 type=           GALILEO-2 code=E06 off=  0.1187  -0.0095   0.8976    0.1193  -0.0091   0.8102
+4 sat=66 type=           GALILEO-2 code=E07 off=  0.1192  -0.0098   0.8486    0.1209  -0.0094   0.8120
+4 sat=67 type=           GALILEO-2 code=E08 off=  0.1219  -0.0103   0.8794    0.1225  -0.0098   0.8055
+4 sat=68 type=           GALILEO-2 code=E09 off=  0.1208  -0.0093   0.8685    0.1216  -0.0093   0.8026
+4 sat=69 type=           GALILEO-2 code=E10 off=  0.1226  -0.0091   0.8765    0.1244  -0.0095   0.7885
+4 sat=70 type=           GALILEO-1 code=E11 off= -0.1694   0.0296   0.9675   -0.1701   0.0270   0.9537
+4 sat=71 type=           GALILEO-1 code=E12 off= -0.1716   0.0299   0.8591   -0.1712   0.0278   0.8233
+4 sat=72 type=           GALILEO-2 code=E13 off=  0.1217  -0.0098   0.8990    0.1230  -0.0086   0.7733
+4 sat=73 type=           GALILEO-2 code=E14 off=  0.1710  -0.0130   0.8777    0.1729  -0.0126   0.8130
+4 sat=74 type=           GALILEO-2 code=E15 off=  0.1208  -0.0104   0.8771    0.1218  -0.0097   0.8005
+4 sat=75 type=           GALILEO-2 code=E16 off=  0.1143  -0.0048   0.8816    0.1207  -0.0111   0.8143
+4 sat=77 type=           GALILEO-2 code=E18 off=  0.1765  -0.0133   0.8978    0.1783  -0.0133   0.8138
+4 sat=78 type=           GALILEO-1 code=E19 off= -0.1722   0.0299   0.9618   -0.1727   0.0283   0.9437
+4 sat=79 type=           GALILEO-1 code=E20 off= -0.1715   0.0282   0.9472   -0.1717   0.0275   0.9561
+4 sat=80 type=           GALILEO-2 code=E21 off=  0.1268  -0.0106   0.9356    0.1276  -0.0116   0.8055
+4 sat=81 type=           GALILEO-2 code=E22 off=  0.1185  -0.0080   0.8535    0.1218  -0.0096   0.8042
+4 sat=82 type=           GALILEO-2 code=E23 off=  0.1176  -0.0070   0.8689    0.1178  -0.0089   0.8280
+4 sat=83 type=           GALILEO-2 code=E24 off=  0.1174  -0.0092   0.8789    0.1201  -0.0099   0.8287
+4 sat=84 type=           GALILEO-2 code=E25 off=  0.1197  -0.0098   0.8869    0.1214  -0.0107   0.8000
+4 sat=85 type=           GALILEO-2 code=E26 off=  0.1188  -0.0086   0.9005    0.1204  -0.0085   0.8055
+4 sat=86 type=           GALILEO-2 code=E27 off=  0.1207  -0.0111   0.8987    0.1223  -0.0115   0.8277
+4 sat=88 type=           GALILEO-2 code=E29 off=  0.1206  -0.0085   0.8651    0.1213  -0.0104   0.8523
+4 sat=89 type=           GALILEO-2 code=E30 off=  0.1196  -0.0082   0.8531    0.1201  -0.0086   0.8115
+4 sat=90 type=           GALILEO-2 code=E31 off=  0.1224  -0.0108   0.8935    0.1221  -0.0103   0.8127
+4 sat=92 type=           GALILEO-2 code=E33 off=  0.1230  -0.0097   0.8872    0.1236  -0.0084   0.8050
+4 sat=93 type=           GALILEO-2 code=E34 off=  0.1223  -0.0109   0.8853    0.1254  -0.0114   0.8095
+4 sat=95 type=           GALILEO-2 code=E36 off=  0.1218  -0.0112   0.8724    0.1231  -0.0096   0.8041
+4 sat= 0 type=          GALILEO-0A code=E51 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=          GALILEO-0B code=E52 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat=106 type=           BEIDOU-2G code=C01 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=106 type=           BEIDOU-2G code=C01 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=107 type=           BEIDOU-2G code=C02 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=108 type=           BEIDOU-2G code=C03 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=108 type=           BEIDOU-2G code=C03 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=109 type=           BEIDOU-2G code=C04 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=110 type=           BEIDOU-2G code=C05 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=111 type=           BEIDOU-2I code=C06 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=112 type=           BEIDOU-2I code=C07 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=113 type=           BEIDOU-2I code=C08 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=114 type=           BEIDOU-2I code=C09 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=115 type=           BEIDOU-2I code=C10 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=116 type=           BEIDOU-2M code=C11 off=  0.0000   0.0000   0.0000    0.5800   0.0000   2.1200
+4 sat=117 type=           BEIDOU-2M code=C12 off=  0.0000   0.0000   0.0000    0.5800   0.0000   2.1200
+4 sat=118 type=           BEIDOU-2M code=C13 off=  0.0000   0.0000   0.0000    0.5800   0.0000   2.1200
+4 sat=118 type=           BEIDOU-2I code=C13 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=119 type=           BEIDOU-2M code=C14 off=  0.0000   0.0000   0.0000    0.5800   0.0000   2.1200
+4 sat=120 type=           BEIDOU-2I code=C15 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=121 type=     BEIDOU-3SI-SECM code=C16 off= -0.0500   0.0000   0.9000   -0.0500   0.0000   0.9000
+4 sat=121 type=           BEIDOU-2I code=C16 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=122 type=           BEIDOU-2G code=C17 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=123 type=     BEIDOU-3SI-CAST code=C18 off= -0.0500  -0.3000   2.5600   -0.0500  -0.3000   2.5600
+4 sat=123 type=           BEIDOU-2G code=C18 off=  0.0000   0.0000   0.0000    0.5800   0.0000   3.5000
+4 sat=124 type=      BEIDOU-3M-CAST code=C19 off= -0.2081  -0.0027   1.4872   -0.2081  -0.0027   1.4872
+4 sat=124 type=     BEIDOU-3SM-CAST code=C19 off= -0.2000   0.0100   1.5000   -0.2000   0.0100   1.5000
+4 sat=124 type=      BEIDOU-3M-CAST code=C19 off= -0.2081  -0.0027   1.4872   -0.2081  -0.0027   1.4872
+4 sat=125 type=      BEIDOU-3M-CAST code=C20 off= -0.2187   0.0010   1.5243   -0.2187   0.0010   1.5243
+4 sat=126 type=      BEIDOU-3M-CAST code=C21 off= -0.2089   0.0008   1.5033   -0.2089   0.0008   1.5033
+4 sat=127 type=      BEIDOU-3M-CAST code=C22 off= -0.2108  -0.0032   1.5057   -0.2108  -0.0032   1.5057
+4 sat=128 type=      BEIDOU-3M-CAST code=C23 off= -0.2096   0.0034   1.4944   -0.2096   0.0034   1.4944
+4 sat=129 type=      BEIDOU-3M-CAST code=C24 off= -0.2090   0.0030   1.5173   -0.2090   0.0030   1.5173
+4 sat=130 type=      BEIDOU-3M-SECM code=C25 off=  0.0735  -0.0035   1.0927    0.0735  -0.0035   1.0927
+4 sat=131 type=      BEIDOU-3M-SECM code=C26 off=  0.0729  -0.0051   1.0938    0.0729  -0.0051   1.0938
+4 sat=132 type=      BEIDOU-3M-SECM code=C27 off=  0.0274  -0.0046   1.1051    0.0274  -0.0046   1.1051
+4 sat=133 type=      BEIDOU-3M-SECM code=C28 off=  0.0259  -0.0047   1.1031    0.0259  -0.0047   1.1031
+4 sat=133 type=     BEIDOU-3SM-CAST code=C28 off= -0.2000   0.0100   1.5000   -0.2000   0.0100   1.5000
+4 sat=133 type=      BEIDOU-3M-SECM code=C28 off=  0.0259  -0.0047   1.1031    0.0259  -0.0047   1.1031
+4 sat=134 type=      BEIDOU-3M-SECM code=C29 off=  0.0284  -0.0070   1.1043    0.0284  -0.0070   1.1043
+4 sat=135 type=           BEIDOU-2M code=C30 off=  0.0000   0.0000   0.0000    0.5800   0.0000   2.1200
+4 sat=135 type=      BEIDOU-3M-SECM code=C30 off=  0.0288  -0.0057   1.0930    0.0288  -0.0057   1.0930
+4 sat=136 type=     BEIDOU-3SI-SECM code=C31 off= -0.0500   0.0000   0.9000   -0.0500   0.0000   0.9000
+4 sat=136 type=     BEIDOU-3SI-SECM code=C31 off= -0.0500   0.0000   0.9000   -0.0500   0.0000   0.9000
+4 sat=137 type=     BEIDOU-3SI-CAST code=C32 off= -0.0500  -0.3000   2.5600   -0.0500  -0.3000   2.5600
+4 sat=137 type=      BEIDOU-3M-CAST code=C32 off= -0.1850  -0.0018   1.4882   -0.1850  -0.0018   1.4882
+4 sat=138 type=     BEIDOU-3SM-CAST code=C33 off= -0.2000   0.0100   1.5000   -0.2000   0.0100   1.5000
+4 sat=138 type=      BEIDOU-3M-CAST code=C33 off= -0.1873  -0.0038   1.4700   -0.1873  -0.0038   1.4700
+4 sat=139 type=     BEIDOU-3SM-CAST code=C34 off= -0.2000   0.0100   1.5000   -0.2000   0.0100   1.5000
+4 sat=139 type=      BEIDOU-3M-SECM code=C34 off=  0.0897  -0.0093   1.0975    0.0897  -0.0093   1.0975
+4 sat=140 type=      BEIDOU-3M-SECM code=C35 off=  0.0894  -0.0110   1.0907    0.0894  -0.0110   1.0907
+4 sat=141 type=      BEIDOU-3M-CAST code=C36 off= -0.1952  -0.0097   1.3370   -0.1952  -0.0097   1.3370
+4 sat=142 type=      BEIDOU-3M-CAST code=C37 off= -0.1994  -0.0104   1.3381   -0.1994  -0.0104   1.3381
+4 sat=143 type=           BEIDOU-3I code=C38 off= -0.0696  -0.3099   1.9996   -0.0696  -0.3099   1.9996
+4 sat=144 type=           BEIDOU-3I code=C39 off= -0.0657  -0.3057   1.9726   -0.0657  -0.3057   1.9726
+4 sat=145 type=           BEIDOU-3I code=C40 off= -0.0671  -0.3082   1.9702   -0.0671  -0.3082   1.9702
+4 sat=146 type=      BEIDOU-3M-CAST code=C41 off= -0.1966  -0.0111   1.0542   -0.1966  -0.0111   1.0542
+4 sat=147 type=      BEIDOU-3M-CAST code=C42 off= -0.2010  -0.0092   1.0617   -0.2010  -0.0092   1.0617
+4 sat=148 type=      BEIDOU-3M-SECM code=C43 off=  0.0510  -0.0079   1.0951    0.0510  -0.0079   1.0951
+4 sat=149 type=      BEIDOU-3M-SECM code=C44 off=  0.0518  -0.0084   1.0928    0.0518  -0.0084   1.0928
+4 sat=150 type=      BEIDOU-3M-CAST code=C45 off= -0.2825  -0.0074   1.3952   -0.2825  -0.0074   1.3952
+4 sat=151 type=      BEIDOU-3M-CAST code=C46 off= -0.2831  -0.0029   1.3856   -0.2831  -0.0029   1.3856
+4 sat= 0 type=      BEIDOU-3M-CAST code=C47 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=      BEIDOU-3M-SECM code=C47 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=      BEIDOU-3M-SECM code=C48 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=      BEIDOU-3M-CAST code=C48 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=      BEIDOU-3M-SECM code=C49 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=      BEIDOU-3M-CAST code=C50 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=     BEIDOU-3SI-CAST code=C56 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=     BEIDOU-3SM-CAST code=C57 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=     BEIDOU-3SM-CAST code=C58 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=      BEIDOU-3G-CAST code=C59 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=      BEIDOU-3G-CAST code=C60 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=      BEIDOU-3G-CAST code=C61 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=      BEIDOU-3G-CAST code=C62 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat=96 type=                QZSS code=J01 off= -0.0011   0.0016   3.1993   -0.0011   0.0016   2.9943
+4 sat=97 type=             QZSS-2I code=J02 off=  0.0030  -0.0019   2.3944    0.0030  -0.0019   3.2094
+4 sat=98 type=             QZSS-2I code=J03 off=  0.0033  -0.0014   2.3874    0.0033  -0.0014   3.2424
+4 sat=99 type=             QZSS-2A code=J04 off= -0.0027   0.0021   2.9168   -0.0027   0.0021   2.7968
+4 sat=102 type=             QZSS-2G code=J07 off=  0.0002   0.0010   2.9622    0.0002   0.0010   2.8422
+4 sat=103 type=             QZSS-3G code=J08 off= -0.0028   0.0027   2.9003    0.0000   0.0000   0.0000
+4 sat=152 type=         IRNSS-1IGSO code=I01 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat=153 type=         IRNSS-1IGSO code=I02 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat=154 type=          IRNSS-1GEO code=I03 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat=155 type=         IRNSS-1IGSO code=I04 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat=156 type=         IRNSS-1IGSO code=I05 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat=157 type=          IRNSS-1GEO code=I06 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat=158 type=          IRNSS-1GEO code=I07 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat=160 type=         IRNSS-1IGSO code=I09 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat=161 type=          IRNSS-2GEO code=I10 off=  0.0000   0.0000   0.0000    0.0000   0.0000   0.0000
+4 sat= 0 type=3S-02-TSADM     NONE code= off=  0.0031   0.0024   0.2543    0.0035   0.0005   0.2840
+4 sat= 0 type=3S-02-TSATE     NONE code= off= -0.0005   0.0007   0.1528   -0.0007  -0.0003   0.1634
+4 sat= 0 type=AERAT1675_120   SPKE code= off=  0.0001   0.0016   0.0799   -0.0002   0.0006   0.0934
+4 sat= 0 type=AERAT1675_542E  NEVE code= off=  0.0008   0.0007   0.0537    0.0005  -0.0001   0.0604
+4 sat= 0 type=AERAT2775_43    NONE code= off= -0.0011   0.0030   0.0701   -0.0005  -0.0005   0.0865
+4 sat= 0 type=AERAT2775_43    SPKE code= off=  0.0003   0.0014   0.0714    0.0001  -0.0003   0.0858
+4 sat= 0 type=AOAD/M_B        NONE code= off= -0.0005   0.0007   0.0598   -0.0007  -0.0003   0.0884
+4 sat= 0 type=AOAD/M_T        NONE code= off= -0.0005   0.0007   0.0918   -0.0007  -0.0003   0.1204
+4 sat= 0 type=AOAD/M_T        DUTD code= off= -0.0001   0.0003   0.0878    0.0002   0.0008   0.1190
+4 sat= 0 type=AOAD/M_T_RFI_GL NONE code= off=  0.0003   0.0007   0.0909    0.0001  -0.0001   0.1182
+4 sat= 0 type=AOAD/M_T_RFI_T  NONE code= off=  0.0002   0.0002   0.0897    0.0007  -0.0006   0.1166
+4 sat= 0 type=AOAD/M_T_RFI_T  SCIS code= off=  0.0002   0.0002   0.0864    0.0004  -0.0006   0.1156
+4 sat= 0 type=AOAD/M_TA_NGS   NONE code= off= -0.0005   0.0007   0.0918   -0.0007  -0.0003   0.1204
+4 sat= 0 type=APSAPS-3        NONE code= off=  0.0004   0.0003   0.0906    0.0010   0.0011   0.0812
+4 sat= 0 type=ARFAS13DFS      ARFS code= off= -0.0002   0.0005   0.1141   -0.0003   0.0009   0.1265
+4 sat= 0 type=ARFAS1FS        ARFC code= off=  0.0005  -0.0001   0.0795    0.0004  -0.0004   0.0884
+4 sat= 0 type=ASH700228A      NONE code= off= -0.0014  -0.0027   0.0585    0.0020  -0.0036   0.0648
+4 sat= 0 type=ASH700228B      NONE code= off= -0.0014  -0.0027   0.0585    0.0020  -0.0036   0.0648
+4 sat= 0 type=ASH700228C      NONE code= off= -0.0011  -0.0016   0.0686    0.0043  -0.0023   0.0710
+4 sat= 0 type=ASH700228D      NONE code= off= -0.0013  -0.0021   0.0612    0.0020  -0.0034   0.0671
+4 sat= 0 type=ASH700228E      NONE code= off= -0.0013  -0.0021   0.0612    0.0020  -0.0034   0.0671
+4 sat= 0 type=ASH700699.L1    NONE code= off= -0.0005   0.0007   0.0333    0.0000   0.0000   0.0000
+4 sat= 0 type=ASH700700.A     NONE code= off= -0.0018  -0.0010   0.0237   -0.0026   0.0011   0.0425
+4 sat= 0 type=ASH700700.B     NONE code= off= -0.0020  -0.0011   0.0333   -0.0027   0.0008   0.0518
+4 sat= 0 type=ASH700700.C     NONE code= off= -0.0020  -0.0011   0.0333   -0.0027   0.0008   0.0518
+4 sat= 0 type=ASH700718A      NONE code= off= -0.0005  -0.0017   0.0695   -0.0013   0.0009   0.0502
+4 sat= 0 type=ASH700718B      NONE code= off= -0.0005  -0.0017   0.0695   -0.0013   0.0009   0.0502
+4 sat= 0 type=ASH700829.2     SNOW code= off= -0.0013  -0.0005   0.0695   -0.0023   0.0006   0.0522
+4 sat= 0 type=ASH700829.3     SNOW code= off= -0.0013  -0.0005   0.0695   -0.0023   0.0006   0.0522
+4 sat= 0 type=ASH700829.A     SNOW code= off= -0.0013  -0.0005   0.0695   -0.0023   0.0006   0.0522
+4 sat= 0 type=ASH700829.A1    SNOW code= off= -0.0013  -0.0005   0.0695   -0.0023   0.0006   0.0522
+4 sat= 0 type=ASH700936A_M    NONE code= off=  0.0000   0.0002   0.0910    0.0005   0.0001   0.1199
+4 sat= 0 type=ASH700936A_M    SNOW code= off= -0.0002   0.0002   0.0896    0.0004  -0.0000   0.1193
+4 sat= 0 type=ASH700936B_M    NONE code= off=  0.0000   0.0002   0.0910    0.0005   0.0001   0.1199
+4 sat= 0 type=ASH700936B_M    SNOW code= off= -0.0002   0.0002   0.0896    0.0004  -0.0000   0.1193
+4 sat= 0 type=ASH700936C_M    NONE code= off= -0.0006   0.0003   0.0907    0.0001   0.0001   0.1200
+4 sat= 0 type=ASH700936C_M    SNOW code= off= -0.0003   0.0000   0.0893    0.0004  -0.0002   0.1196
+4 sat= 0 type=ASH700936D_M    NONE code= off= -0.0003   0.0004   0.0910   -0.0001  -0.0001   0.1204
+4 sat= 0 type=ASH700936D_M    SCIS code= off=  0.0002   0.0002   0.0881   -0.0000  -0.0002   0.1175
+4 sat= 0 type=ASH700936D_M    SNOW code= off= -0.0002   0.0003   0.0909    0.0001   0.0001   0.1192
+4 sat= 0 type=ASH700936E      NONE code= off= -0.0003   0.0002   0.0895    0.0001   0.0001   0.1198
+4 sat= 0 type=ASH700936E      SCIS code= off= -0.0001   0.0004   0.0884   -0.0000  -0.0003   0.1201
+4 sat= 0 type=ASH700936E      SNOW code= off= -0.0002   0.0002   0.0896    0.0001  -0.0001   0.1182
+4 sat= 0 type=ASH700936E_C    NONE code= off= -0.0003   0.0002   0.0895    0.0001   0.0001   0.1198
+4 sat= 0 type=ASH700936E_C    SNOW code= off= -0.0002   0.0002   0.0896    0.0001  -0.0001   0.1182
+4 sat= 0 type=ASH700936F_C    NONE code= off= -0.0003   0.0002   0.0895    0.0001   0.0001   0.1198
+4 sat= 0 type=ASH700936F_C    SNOW code= off= -0.0002   0.0002   0.0896    0.0001  -0.0001   0.1182
+4 sat= 0 type=ASH701008.01B   NONE code= off=  0.0002  -0.0000   0.0650   -0.0027   0.0012   0.0541
+4 sat= 0 type=ASH701023.A     NONE code= off= -0.0018   0.0019   0.0334    0.0000   0.0000   0.0000
+4 sat= 0 type=ASH701073.1     NONE code= off=  0.0009   0.0005   0.0896    0.0016  -0.0005   0.1166
+4 sat= 0 type=ASH701073.1     SCIS code= off=  0.0009   0.0005   0.0861    0.0014  -0.0005   0.1152
+4 sat= 0 type=ASH701073.1     SNOW code= off=  0.0010   0.0005   0.0890    0.0015  -0.0004   0.1163
+4 sat= 0 type=ASH701073.3     NONE code= off=  0.0009   0.0005   0.0896    0.0016  -0.0005   0.1166
+4 sat= 0 type=ASH701933A_M    NONE code= off= -0.0008   0.0004   0.0893    0.0004  -0.0004   0.1189
+4 sat= 0 type=ASH701933A_M    SNOW code= off= -0.0007   0.0005   0.0892    0.0004  -0.0004   0.1170
+4 sat= 0 type=ASH701933B_M    NONE code= off= -0.0008   0.0004   0.0893    0.0004  -0.0004   0.1189
+4 sat= 0 type=ASH701933B_M    SNOW code= off= -0.0007   0.0005   0.0892    0.0004  -0.0004   0.1170
+4 sat= 0 type=ASH701933C_M    NONE code= off= -0.0008   0.0004   0.0893    0.0004  -0.0004   0.1189
+4 sat= 0 type=ASH701933C_M    SCIS code= off= -0.0008   0.0008   0.0873   -0.0005  -0.0011   0.1179
+4 sat= 0 type=ASH701933C_M    SCIT code= off= -0.0011   0.0010   0.0884   -0.0010  -0.0005   0.1177
+4 sat= 0 type=ASH701933C_M    SNOW code= off= -0.0007   0.0005   0.0892    0.0004  -0.0004   0.1170
+4 sat= 0 type=ASH701941.1     NONE code= off= -0.0004   0.0005   0.0898   -0.0005  -0.0006   0.1191
+4 sat= 0 type=ASH701941.2     NONE code= off= -0.0004   0.0005   0.0898   -0.0005  -0.0006   0.1191
+4 sat= 0 type=ASH701941.A     NONE code= off= -0.0004   0.0005   0.0898   -0.0005  -0.0006   0.1191
+4 sat= 0 type=ASH701941.B     NONE code= off= -0.0004   0.0005   0.0898   -0.0005  -0.0006   0.1191
+4 sat= 0 type=ASH701941.B     SCIS code= off=  0.0002  -0.0006   0.0851    0.0009  -0.0007   0.1197
+4 sat= 0 type=ASH701945B_M    NONE code= off= -0.0006   0.0002   0.0912    0.0001   0.0009   0.1189
+4 sat= 0 type=ASH701945B_M    SCIS code= off= -0.0005   0.0010   0.0884    0.0002  -0.0002   0.1184
+4 sat= 0 type=ASH701945B_M    SCIT code= off= -0.0004   0.0008   0.0892   -0.0005  -0.0004   0.1179
+4 sat= 0 type=ASH701945B_M    SNOW code= off=  0.0004   0.0002   0.0899    0.0002  -0.0008   0.1195
+4 sat= 0 type=ASH701945B.99   NONE code= off= -0.0001   0.0000   0.0895   -0.0001   0.0001   0.1167
+4 sat= 0 type=ASH701945B.99   SCIS code= off= -0.0001   0.0002   0.0866   -0.0001   0.0001   0.1160
+4 sat= 0 type=ASH701945B.99   SCIT code= off=  0.0006   0.0004   0.0869    0.0009   0.0003   0.1167
+4 sat= 0 type=ASH701945C_M    NONE code= off=  0.0005   0.0001   0.0909    0.0001  -0.0003   0.1176
+4 sat= 0 type=ASH701945C_M    OLGA code= off= -0.0010   0.0001   0.0839    0.0012   0.0007   0.1166
+4 sat= 0 type=ASH701945C_M    PFAN code= off= -0.0006   0.0003   0.0856    0.0017  -0.0000   0.1181
+4 sat= 0 type=ASH701945C_M    SCIS code= off= -0.0002   0.0000   0.0887   -0.0005   0.0003   0.1156
+4 sat= 0 type=ASH701945C_M    SCIT code= off= -0.0004   0.0008   0.0892   -0.0005  -0.0004   0.1179
+4 sat= 0 type=ASH701945C_M    SNOW code= off=  0.0004   0.0002   0.0899    0.0002  -0.0008   0.1195
+4 sat= 0 type=ASH701945D_M    NONE code= off= -0.0009  -0.0000   0.0899   -0.0002  -0.0002   0.1160
+4 sat= 0 type=ASH701945D_M    SCIS code= off= -0.0008   0.0001   0.0878   -0.0002  -0.0004   0.1144
+4 sat= 0 type=ASH701945D_M    SCIT code= off= -0.0004   0.0008   0.0892   -0.0005  -0.0004   0.1179
+4 sat= 0 type=ASH701945D_M    SNOW code= off=  0.0004   0.0002   0.0899    0.0002  -0.0008   0.1195
+4 sat= 0 type=ASH701945E_M    NONE code= off= -0.0010   0.0005   0.0902    0.0003   0.0014   0.1190
+4 sat= 0 type=ASH701945E_M    SCIS code= off= -0.0005   0.0010   0.0884    0.0002  -0.0002   0.1184
+4 sat= 0 type=ASH701945E_M    SCIT code= off=  0.0006  -0.0009   0.0842    0.0009  -0.0024   0.1155
+4 sat= 0 type=ASH701945E_M    SNOW code= off= -0.0007   0.0010   0.0902    0.0004   0.0005   0.1159
+4 sat= 0 type=ASH701945G_M    NONE code= off= -0.0001   0.0001   0.0895   -0.0001  -0.0007   0.1162
+4 sat= 0 type=ASH701945G_M    SCIS code= off= -0.0005   0.0002   0.0862   -0.0001  -0.0009   0.1139
+4 sat= 0 type=ASH701945G_M    SCIT code= off= -0.0004   0.0008   0.0892   -0.0005  -0.0004   0.1179
+4 sat= 0 type=ASH701945G_M    SNOW code= off= -0.0003   0.0013   0.0915    0.0001  -0.0002   0.1202
+4 sat= 0 type=ASH701946.2     NONE code= off= -0.0006   0.0006   0.0892    0.0002  -0.0004   0.1200
+4 sat= 0 type=ASH701946.2     SNOW code= off= -0.0005   0.0017   0.0899    0.0003   0.0004   0.1197
+4 sat= 0 type=ASH701946.3     NONE code= off= -0.0006   0.0006   0.0892    0.0002  -0.0004   0.1200
+4 sat= 0 type=ASH701946.3     SNOW code= off= -0.0005   0.0017   0.0899    0.0003   0.0004   0.1197
+4 sat= 0 type=ASH701975.01A   NONE code= off= -0.0046  -0.0014   0.0382   -0.0039  -0.0020   0.0546
+4 sat= 0 type=ASH701975.01AGP NONE code= off= -0.0038  -0.0013   0.0378   -0.0034  -0.0023   0.0385
+4 sat= 0 type=CHAPS9017       NONE code= off=  0.0001  -0.0001   0.0770    0.0003  -0.0001   0.0859
+4 sat= 0 type=CHCC220GR       CHCD code= off=  0.0003  -0.0001   0.1153    0.0001  -0.0002   0.1385
+4 sat= 0 type=CHCC220GR2      CHCD code= off=  0.0003   0.0004   0.1203   -0.0003   0.0002   0.1421
+4 sat= 0 type=CHCI76          NONE code= off= -0.0001  -0.0008   0.0553    0.0006   0.0001   0.0534
+4 sat= 0 type=CHCI80          NONE code= off= -0.0005  -0.0001   0.1310   -0.0012  -0.0015   0.1078
+4 sat= 0 type=CHCI83PRO       NONE code= off= -0.0019   0.0013   0.0758   -0.0011   0.0017   0.0653
+4 sat= 0 type=CHCI89          NONE code= off=  0.0004   0.0007   0.0769    0.0001   0.0016   0.0646
+4 sat= 0 type=CHCI93          NONE code= off= -0.0008   0.0016   0.0784   -0.0008   0.0020   0.0665
+4 sat= 0 type=CHCX91+S        NONE code= off=  0.0002   0.0003   0.0807    0.0008   0.0004   0.0866
+4 sat= 0 type=CNTAT340        NONE code= off= -0.0001  -0.0006   0.0530   -0.0000   0.0004   0.0524
+4 sat= 0 type=CNTAT350        CNTS code= off= -0.0002   0.0008   0.1260   -0.0002   0.0007   0.1447
+4 sat= 0 type=CNTAT500        CNTS code= off=  0.0001   0.0001   0.1200   -0.0001  -0.0001   0.1359
+4 sat= 0 type=CNTAT600        CNTS code= off=  0.0000   0.0006   0.1975   -0.0005   0.0004   0.2039
+4 sat= 0 type=CNTMARSPRO      NONE code= off= -0.0000  -0.0006   0.0715    0.0007  -0.0004   0.0627
+4 sat= 0 type=CNTT30          NONE code= off= -0.0007   0.0012   0.0667    0.0005   0.0041   0.0623
+4 sat= 0 type=CNTT300         NONE code= off=  0.0014   0.0021   0.0753    0.0015  -0.0012   0.0626
+4 sat= 0 type=CNTT300PLUS     NONE code= off=  0.0004   0.0006   0.0707   -0.0013  -0.0019   0.0641
+4 sat= 0 type=DREPOZP5        NONE code= off=  0.0006  -0.0001   0.0847   -0.0011   0.0005   0.0734
+4 sat= 0 type=EFIF8           NONE code= off=  0.0003   0.0001   0.0756    0.0003   0.0005   0.0636
+4 sat= 0 type=EML_REACH_RS2   NONE code= off=  0.0019  -0.0010   0.1349   -0.0001  -0.0004   0.1371
+4 sat= 0 type=EML_REACH_RS2+  NONE code= off=  0.0019  -0.0010   0.1349   -0.0001  -0.0004   0.1371
+4 sat= 0 type=EML_REACH_RS3   NONE code= off=  0.0019  -0.0010   0.1349   -0.0001  -0.0004   0.1371
+4 sat= 0 type=EML_REACH_RX    NONE code= off= -0.0012  -0.0005   0.1471   -0.0010  -0.0016   0.1490
+4 sat= 0 type=ESVUA92         NONE code= off=  0.0003  -0.0007   0.1338    0.0001  -0.0007   0.1396
+4 sat= 0 type=FOIA90          NONE code= off=  0.0004  -0.0012   0.0709    0.0011  -0.0024   0.0622
+4 sat= 0 type=GINCYF90        NONE code= off= -0.0002  -0.0005   0.0689    0.0007  -0.0020   0.0623
+4 sat= 0 type=GING20M         NONE code= off=  0.0002  -0.0009   0.0624   -0.0013  -0.0006   0.0519
+4 sat= 0 type=GING30          NONE code= off=  0.0004  -0.0015   0.0734   -0.0016  -0.0009   0.0670
+4 sat= 0 type=GING40          NONE code= off=  0.0014  -0.0000   0.0677    0.0005  -0.0009   0.0655
+4 sat= 0 type=GING40PLUS      NONE code= off= -0.0002   0.0017   0.0736   -0.0009   0.0015   0.0647
+4 sat= 0 type=GING50          NONE code= off=  0.0008  -0.0005   0.0818    0.0002  -0.0009   0.0699
+4 sat= 0 type=GMTGAT10        GMTD code= off=  0.0000  -0.0005   0.1230   -0.0003  -0.0005   0.1447
+4 sat= 0 type=GMXZENITH06     NONE code= off=  0.0008   0.0032   0.1287    0.0035   0.0027   0.1219
+4 sat= 0 type=GMXZENITH06PRO  NONE code= off=  0.0008   0.0032   0.1287    0.0035   0.0027   0.1219
+4 sat= 0 type=GMXZENITH10     NONE code= off= -0.0003   0.0008   0.0867   -0.0000   0.0005   0.0917
+4 sat= 0 type=GMXZENITH15     NONE code= off=  0.0023  -0.0007   0.0865   -0.0028   0.0007   0.0940
+4 sat= 0 type=GMXZENITH16     NONE code= off= -0.0003  -0.0003   0.0922    0.0003  -0.0001   0.0890
+4 sat= 0 type=GMXZENITH20     NONE code= off= -0.0003   0.0008   0.0867   -0.0000   0.0005   0.0917
+4 sat= 0 type=GMXZENITH25     NONE code= off=  0.0019   0.0003   0.0857   -0.0010   0.0010   0.0899
+4 sat= 0 type=GMXZENITH25PRO  NONE code= off=  0.0019   0.0003   0.0857   -0.0010   0.0010   0.0899
+4 sat= 0 type=GMXZENITH35     NONE code= off=  0.0002  -0.0008   0.1251   -0.0004   0.0004   0.1321
+4 sat= 0 type=GMXZENITH40     NONE code= off=  0.0001   0.0001   0.0915   -0.0002  -0.0000   0.0901
+4 sat= 0 type=GMXZENITH55     NONE code= off=  0.0006  -0.0003   0.0719    0.0004  -0.0020   0.0632
+4 sat= 0 type=GMXZENITH60     NONE code= off=  0.0006  -0.0003   0.0719    0.0004  -0.0020   0.0632
+4 sat= 0 type=GMXZENITH60PRO  NONE code= off=  0.0006  -0.0003   0.0719    0.0004  -0.0020   0.0632
+4 sat= 0 type=GPPVC6050       NONE code= off=  0.0010   0.0006   0.1278    0.0001  -0.0003   0.1378
+4 sat= 0 type=GPPVC6050       GPP1 code= off=  0.0007   0.0010   0.1273   -0.0001  -0.0002   0.1395
+4 sat= 0 type=HEMS631         NONE code= off=  0.0002   0.0002   0.0701   -0.0016  -0.0018   0.0629
+4 sat= 0 type=HGGCYH8372      HGGS code= off=  0.0008  -0.0001   0.1817    0.0003  -0.0000   0.1895
+4 sat= 0 type=HITAT45101CP    HITZ code= off=  0.0001  -0.0001   0.1436   -0.0006  -0.0001   0.1562
+4 sat= 0 type=HXCCGX601A      HXCS code= off=  0.0001  -0.0000   0.2100   -0.0003  -0.0000   0.2167
+4 sat= 0 type=HXCCGX611A      HXCM code= off=  0.0002  -0.0006   0.0964   -0.0002  -0.0003   0.0942
+4 sat= 0 type=IGAIG8          NONE code= off=  0.0003  -0.0008   0.1140    0.0005   0.0025   0.0911
+4 sat= 0 type=ITT3750323      SCIS code= off= -0.0007   0.0004   0.0892    0.0003   0.0011   0.1205
+4 sat= 0 type=JAV_GRANT-G3T   NONE code= off=  0.0019   0.0001   0.0511   -0.0014  -0.0027   0.0490
+4 sat= 0 type=JAV_GRANT-G3T+G JVSD code= off=  0.0017   0.0011   0.0383   -0.0033   0.0026   0.0394
+4 sat= 0 type=JAV_RINGANT_G3T NONE code= off=  0.0022   0.0005   0.0551   -0.0030   0.0063   0.0586
+4 sat= 0 type=JAV_RINGANT_G3T JAVC code= off= -0.0025  -0.0009   0.0496    0.0030  -0.0073   0.0555
+4 sat= 0 type=JAV_RINGANT_G3T JAVD code= off= -0.0022  -0.0007   0.0476    0.0030  -0.0068   0.0525
+4 sat= 0 type=JAVGRANT_3L     NONE code= off=  0.0021   0.0014   0.0517   -0.0009  -0.0017   0.0510
+4 sat= 0 type=JAVGRANT_3L+GP  JVSD code= off=  0.0005   0.0018   0.0403   -0.0029   0.0022   0.0420
+4 sat= 0 type=JAVGRANT_3LS    NONE code= off=  0.0014   0.0014   0.0516   -0.0012  -0.0016   0.0499
+4 sat= 0 type=JAVGRANT_3LS+GP JVSD code= off= -0.0000   0.0015   0.0401   -0.0029   0.0022   0.0420
+4 sat= 0 type=JAVGRANT_G3T+   NONE code= off=  0.0005   0.0025   0.0520    0.0006  -0.0011   0.0501
+4 sat= 0 type=JAVGRANT_G3T+GP JVSD code= off=  0.0005   0.0021   0.0400   -0.0025   0.0030   0.0416
+4 sat= 0 type=JAVGRANT_G5T+GP JVSD code= off=  0.0012   0.0013   0.0385   -0.0024   0.0018   0.0410
+4 sat= 0 type=JAVGRANT_G5TLBI NONE code= off=  0.0013   0.0004   0.0517   -0.0010  -0.0036   0.0488
+4 sat= 0 type=JAVRINGANT_3L   NONE code= off=  0.0019   0.0022   0.0494   -0.0035   0.0038   0.0566
+4 sat= 0 type=JAVRINGANT_3L   JAVD code= off=  0.0019   0.0023   0.0500   -0.0036   0.0036   0.0557
+4 sat= 0 type=JAVRINGANT_DM   NONE code= off=  0.0013   0.0001   0.0901   -0.0001  -0.0002   0.1178
+4 sat= 0 type=JAVRINGANT_DM   JVDM code= off=  0.0007   0.0009   0.0888   -0.0003  -0.0000   0.1185
+4 sat= 0 type=JAVRINGANT_DM   SCIS code= off=  0.0015   0.0003   0.0859    0.0001   0.0002   0.1166
+4 sat= 0 type=JAVRINGANT_DMT  NONE code= off=  0.0011   0.0010   0.1277    0.0001   0.0001   0.1377
+4 sat= 0 type=JAVRINGANT_DMT  SCIS code= off=  0.0010   0.0011   0.1268    0.0001   0.0000   0.1377
+4 sat= 0 type=JAVRINGANT_G5T  NONE code= off=  0.0023   0.0008   0.0481   -0.0029   0.0054   0.0553
+4 sat= 0 type=JAVRINGANT_G5T  JAVC code= off=  0.0024   0.0004   0.0485   -0.0028   0.0054   0.0546
+4 sat= 0 type=JAVRINGANT_G5T  JAVD code= off=  0.0022   0.0004   0.0494   -0.0026   0.0056   0.0545
+4 sat= 0 type=JAVTRIUMPH_1M   NONE code= off=  0.0014   0.0013   0.0911   -0.0019   0.0026   0.0910
+4 sat= 0 type=JAVTRIUMPH_1MPR NONE code= off=  0.0007   0.0019   0.0918   -0.0018   0.0011   0.0946
+4 sat= 0 type=JAVTRIUMPH_1MR  NONE code= off=  0.0016   0.0016   0.0892   -0.0013   0.0030   0.0908
+4 sat= 0 type=JAVTRIUMPH_2A   NONE code= off= -0.0005   0.0028   0.0503    0.0019  -0.0032   0.0356
+4 sat= 0 type=JAVTRIUMPH_2A+G JVGR code= off= -0.0025   0.0009   0.0480    0.0037  -0.0021   0.0572
+4 sat= 0 type=JAVTRIUMPH_2A+P JVGR code= off= -0.0018   0.0011   0.0547    0.0005  -0.0001   0.0509
+4 sat= 0 type=JAVTRIUMPH_2A+P JVSD code= off= -0.0002   0.0021   0.0525   -0.0011  -0.0001   0.0509
+4 sat= 0 type=JAVTRIUMPH_3A   NONE code= off=  0.0019  -0.0006   0.0746    0.0012   0.0017   0.0722
+4 sat= 0 type=JAVTRIUMPH_3A1  NONE code= off=  0.0012  -0.0007   0.0741    0.0019   0.0019   0.0744
+4 sat= 0 type=JAVTRIUMPH_3NRA NONE code= off=  0.0001  -0.0001   0.0580   -0.0012  -0.0046   0.0386
+4 sat= 0 type=JAVTRIUMPH_LSA  NONE code= off=  0.0007  -0.0004   0.1144    0.0009   0.0001   0.1309
+4 sat= 0 type=JAVTRIUMPH_LSPA NONE code= off=  0.0005  -0.0004   0.1170   -0.0015   0.0007   0.1333
+4 sat= 0 type=JNSCR_C146-22-1 NONE code= off= -0.0011  -0.0008   0.0894   -0.0000   0.0000   0.1194
+4 sat= 0 type=JNSMARANT_GGD   NONE code= off= -0.0000   0.0020   0.0633   -0.0007  -0.0020   0.0721
+4 sat= 0 type=JPLD/M_R        NONE code= off= -0.0005   0.0007   0.0598   -0.0007  -0.0003   0.0884
+4 sat= 0 type=JPLD/M_RA_SOP   NONE code= off= -0.0005   0.0007   0.0598   -0.0007  -0.0003   0.0884
+4 sat= 0 type=JPSLEGANT_E     NONE code= off= -0.0004   0.0014   0.0354   -0.0018   0.0014   0.0542
+4 sat= 0 type=JPSODYSSEY_I    NONE code= off= -0.0024   0.0011   0.0703   -0.0024  -0.0006   0.0813
+4 sat= 0 type=JPSREGANT_DD_E  NONE code= off= -0.0003   0.0001   0.1008    0.0002   0.0002   0.1165
+4 sat= 0 type=JPSREGANT_DD_E1 NONE code= off=  0.0002   0.0006   0.1007    0.0005  -0.0000   0.1107
+4 sat= 0 type=JPSREGANT_DD_E2 NONE code= off= -0.0003  -0.0001   0.1006    0.0002   0.0002   0.1194
+4 sat= 0 type=JPSREGANT_SD_E  NONE code= off= -0.0003  -0.0004   0.0913   -0.0001   0.0003   0.1189
+4 sat= 0 type=JPSREGANT_SD_E1 NONE code= off= -0.0002  -0.0007   0.0912   -0.0000   0.0000   0.1154
+4 sat= 0 type=JPSREGANT_SD_E2 NONE code= off= -0.0003  -0.0002   0.0911   -0.0001   0.0005   0.1219
+4 sat= 0 type=KOLK6           NONE code= off= -0.0003  -0.0011   0.0745   -0.0004  -0.0004   0.0696
+4 sat= 0 type=KRL_FTYPE       NONE code= off=  0.0011  -0.0033   0.1814   -0.0017  -0.0046   0.1812
+4 sat= 0 type=LEIAR10         NONE code= off= -0.0000   0.0004   0.0875   -0.0004  -0.0001   0.0829
+4 sat= 0 type=LEIAR20         NONE code= off=  0.0001   0.0005   0.1223   -0.0006   0.0001   0.1318
+4 sat= 0 type=LEIAR20         LEIM code= off=  0.0001   0.0005   0.1249   -0.0002   0.0001   0.1335
+4 sat= 0 type=LEIAR25         NONE code= off=  0.0010   0.0014   0.1553    0.0003  -0.0001   0.1640
+4 sat= 0 type=LEIAR25         LEIT code= off=  0.0005   0.0009   0.1566    0.0001   0.0002   0.1615
+4 sat= 0 type=LEIAR25.R3      NONE code= off=  0.0006   0.0008   0.1606    0.0001  -0.0001   0.1587
+4 sat= 0 type=LEIAR25.R3      LEIT code= off=  0.0010  -0.0001   0.1610    0.0001  -0.0004   0.1578
+4 sat= 0 type=LEIAR25.R4      NONE code= off=  0.0010   0.0006   0.1596    0.0002   0.0008   0.1561
+4 sat= 0 type=LEIAR25.R4      LEIT code= off=  0.0012   0.0007   0.1590   -0.0000   0.0001   0.1550
+4 sat= 0 type=LEIAR25.R4      SCIT code= off= -0.0005   0.0011   0.1642   -0.0014   0.0002   0.1473
+4 sat= 0 type=LEIAS05         NONE code= off= -0.0005   0.0016   0.0634    0.0000   0.0000   0.0000
+4 sat= 0 type=LEIAS10         NONE code= off=  0.0014  -0.0010   0.0583   -0.0024  -0.0002   0.0555
+4 sat= 0 type=LEIAS11         NONE code= off=  0.0002   0.0003   0.0506    0.0022  -0.0030   0.0540
+4 sat= 0 type=LEIAT202+GP     NONE code= off=  0.0014   0.0055   0.0310   -0.0059   0.0031   0.0342
+4 sat= 0 type=LEIAT202-GP     NONE code= off= -0.0004  -0.0000   0.0404    0.0014  -0.0019   0.0407
+4 sat= 0 type=LEIAT302+GP     NONE code= off=  0.0014   0.0055   0.0310   -0.0059   0.0031   0.0342
+4 sat= 0 type=LEIAT302-GP     NONE code= off= -0.0004  -0.0000   0.0404    0.0014  -0.0019   0.0407
+4 sat= 0 type=LEIAT303        NONE code= off=  0.0008  -0.0004   0.0608    0.0002   0.0003   0.0846
+4 sat= 0 type=LEIAT303        LEIC code= off=  0.0006  -0.0005   0.0616    0.0001  -0.0001   0.0861
+4 sat= 0 type=LEIAT502        NONE code= off=  0.0015   0.0010   0.0436    0.0011  -0.0017   0.0578
+4 sat= 0 type=LEIAT503        NONE code= off= -0.0010   0.0017   0.0600    0.0001   0.0015   0.0863
+4 sat= 0 type=LEIAT503        LEIC code= off= -0.0006   0.0014   0.0605   -0.0005   0.0014   0.0833
+4 sat= 0 type=LEIAT504        NONE code= off=  0.0015   0.0011   0.0893   -0.0000   0.0005   0.1176
+4 sat= 0 type=LEIAT504        LEIS code= off=  0.0001   0.0006   0.0885    0.0001  -0.0002   0.1153
+4 sat= 0 type=LEIAT504        OLGA code= off= -0.0008  -0.0012   0.0829    0.0003  -0.0004   0.1128
+4 sat= 0 type=LEIAT504        SCIS code= off= -0.0004  -0.0002   0.0856    0.0001  -0.0002   0.1154
+4 sat= 0 type=LEIAT504GG      NONE code= off=  0.0012   0.0007   0.0889   -0.0001  -0.0001   0.1175
+4 sat= 0 type=LEIAT504GG      LEIS code= off=  0.0012   0.0004   0.0871   -0.0003   0.0001   0.1175
+4 sat= 0 type=LEIAT504GG      SCIS code= off=  0.0012   0.0016   0.0873    0.0000  -0.0004   0.1176
+4 sat= 0 type=LEIAT504GG      SCIT code= off=  0.0025   0.0018   0.0884    0.0008  -0.0002   0.1175
+4 sat= 0 type=LEIATX1230      NONE code= off=  0.0020   0.0011   0.0924   -0.0012  -0.0002   0.0973
+4 sat= 0 type=LEIATX1230+GNSS NONE code= off=  0.0013  -0.0013   0.0872   -0.0012   0.0002   0.0847
+4 sat= 0 type=LEIATX1230GG    NONE code= off=  0.0020   0.0011   0.0924   -0.0012  -0.0002   0.0973
+4 sat= 0 type=LEIAX1202       NONE code= off= -0.0001   0.0014   0.0643    0.0000  -0.0003   0.0629
+4 sat= 0 type=LEIAX1202GG     NONE code= off= -0.0005   0.0016   0.0634    0.0002  -0.0012   0.0621
+4 sat= 0 type=LEIAX1203+GNSS  NONE code= off=  0.0014  -0.0010   0.0583   -0.0024  -0.0002   0.0555
+4 sat= 0 type=LEICGA100       NONE code= off=  0.0002   0.0003   0.0506    0.0022  -0.0030   0.0540
+4 sat= 0 type=LEICGA60        NONE code= off=  0.0005   0.0018   0.0585    0.0024  -0.0002   0.0568
+4 sat= 0 type=LEIFLX100       NONE code= off=  0.0008   0.0032   0.1287    0.0035   0.0027   0.1219
+4 sat= 0 type=LEIGG02PLUS     NONE code= off=  0.0013  -0.0013   0.0872   -0.0012   0.0002   0.0847
+4 sat= 0 type=LEIGG03         NONE code= off=  0.0014   0.0010   0.0624   -0.0005   0.0006   0.0627
+4 sat= 0 type=LEIGG04         NONE code= off=  0.0014   0.0010   0.0624   -0.0005   0.0006   0.0627
+4 sat= 0 type=LEIGG04PLUS     NONE code= off=  0.0014   0.0010   0.0624   -0.0005   0.0006   0.0627
+4 sat= 0 type=LEIGS05         NONE code= off=  0.0004   0.0005   0.0653   -0.0005  -0.0011   0.0592
+4 sat= 0 type=LEIGS08         NONE code= off=  0.0013  -0.0013   0.0872   -0.0012   0.0002   0.0847
+4 sat= 0 type=LEIGS08PLUS     NONE code= off=  0.0014   0.0010   0.0624   -0.0005   0.0006   0.0627
+4 sat= 0 type=LEIGS09         NONE code= off=  0.0013  -0.0013   0.0872   -0.0012   0.0002   0.0847
+4 sat= 0 type=LEIGS12         NONE code= off=  0.0013  -0.0013   0.0872   -0.0012   0.0002   0.0847
+4 sat= 0 type=LEIGS14         NONE code= off= -0.0002  -0.0002   0.0887    0.0000   0.0018   0.0887
+4 sat= 0 type=LEIGS15         NONE code= off= -0.0005  -0.0008   0.2021    0.0021   0.0008   0.2007
+4 sat= 0 type=LEIGS15.R2      NONE code= off= -0.0003  -0.0007   0.1999    0.0022  -0.0001   0.1983
+4 sat= 0 type=LEIGS16         NONE code= off= -0.0002  -0.0002   0.0887    0.0000   0.0018   0.0887
+4 sat= 0 type=LEIGS18         NONE code= off= -0.0003  -0.0010   0.0999    0.0024  -0.0005   0.1074
+4 sat= 0 type=LEIICG160       NONE code= off=  0.0016  -0.0013   0.1064    0.0005   0.0014   0.1192
+4 sat= 0 type=LEIICG60        NONE code= off= -0.0003  -0.0004   0.1296    0.0017   0.0034   0.1345
+4 sat= 0 type=LEIICG70        NONE code= off= -0.0003  -0.0010   0.0999    0.0024  -0.0005   0.1074
+4 sat= 0 type=LEIMNA950GG     NONE code= off=  0.0001   0.0005   0.0911    0.0005   0.0008   0.0904
+4 sat= 0 type=LEISR299_INT    NONE code= off=  0.0009   0.0037   0.1102   -0.0018   0.0021   0.1144
+4 sat= 0 type=LEISR399_INT    NONE code= off=  0.0011   0.0033   0.0924   -0.0029  -0.0001   0.1021
+4 sat= 0 type=LEISR399_INTA   NONE code= off=  0.0009   0.0037   0.1102   -0.0018   0.0021   0.1144
+4 sat= 0 type=MAC4647942      NONE code= off= -0.0087   0.0029   0.1449    0.0013   0.0040   0.0837
+4 sat= 0 type=MAC4647942      MMAC code= off=  0.0023  -0.0007   0.1214    0.0026   0.0002   0.0935
+4 sat= 0 type=MPL_WAAS_2224NW NONE code= off= -0.0048   0.0003   0.4491   -0.0046  -0.0008   0.4589
+4 sat= 0 type=MPL_WAAS_2225NW NONE code= off= -0.0040   0.0009   0.4444   -0.0011  -0.0011   0.4571
+4 sat= 0 type=MPLL1/L2_SURV   NONE code= off= -0.0005   0.0007   0.0614   -0.0007  -0.0003   0.0856
+4 sat= 0 type=MVECR152GNSSA   NONE code= off= -0.0027  -0.0035   0.0632    0.0004  -0.0013   0.0873
+4 sat= 0 type=MVEGA152GNSSA   NONE code= off= -0.0004  -0.0035   0.0344    0.0028  -0.0029   0.0333
+4 sat= 0 type=NAVAN2004T      NONE code= off= -0.0011  -0.0008   0.0405   -0.0020  -0.0036   0.0633
+4 sat= 0 type=NAVAN2008T      NONE code= off= -0.0000   0.0015   0.0114   -0.0011   0.0000   0.0262
+4 sat= 0 type=NAX3G+C         NONE code= off= -0.0002  -0.0003   0.0605    0.0005   0.0004   0.0575
+4 sat= 0 type=NOV_WAAS_600    NONE code= off= -0.0003  -0.0015   0.3748   -0.0040  -0.0033   0.3899
+4 sat= 0 type=NOV501          NONE code= off=  0.0015  -0.0001   0.0376    0.0000   0.0000   0.0000
+4 sat= 0 type=NOV501+CR       NONE code= off=  0.0016  -0.0003   0.0788    0.0000   0.0000   0.0000
+4 sat= 0 type=NOV502          NONE code= off= -0.0018  -0.0004   0.0418   -0.0024   0.0001   0.0594
+4 sat= 0 type=NOV502+CR       NONE code= off= -0.0029  -0.0006   0.0292   -0.0014   0.0004   0.0681
+4 sat= 0 type=NOV503+CR       NONE code= off= -0.0019   0.0030   0.0683   -0.0004  -0.0004   0.0847
+4 sat= 0 type=NOV503+CR       SPKE code= off= -0.0020   0.0014   0.0727   -0.0013  -0.0015   0.0875
+4 sat= 0 type=NOV531          NONE code= off= -0.0017   0.0017   0.0471    0.0000   0.0000   0.0000
+4 sat= 0 type=NOV531+CR       NONE code= off= -0.0023   0.0022   0.0335    0.0000   0.0000   0.0000
+4 sat= 0 type=NOV533+CR       NOVC code= off= -0.0007   0.0003   0.0714   -0.0006   0.0002   0.0621
+4 sat= 0 type=NOV600          NONE code= off=  0.0010  -0.0019   0.0735    0.0011   0.0005   0.0773
+4 sat= 0 type=NOV702          NONE code= off=  0.0020   0.0006   0.0656    0.0008  -0.0006   0.0642
+4 sat= 0 type=NOV702GG        NONE code= off=  0.0000   0.0014   0.0667   -0.0000  -0.0006   0.0646
+4 sat= 0 type=NOV703GGG.R2    NONE code= off=  0.0009   0.0013   0.0617    0.0020   0.0001   0.0600
+4 sat= 0 type=NOV750.R4       NONE code= off= -0.0002   0.0003   0.1613   -0.0005  -0.0002   0.1583
+4 sat= 0 type=NOV750.R4       NOVS code= off= -0.0002   0.0002   0.1694   -0.0004  -0.0004   0.1567
+4 sat= 0 type=NOV750.R5       NOVS code= off=  0.0004   0.0006   0.1673    0.0005  -0.0004   0.1553
+4 sat= 0 type=NOV850          NONE code= off=  0.0003   0.0005   0.0522    0.0014  -0.0013   0.0524
+4 sat= 0 type=PRNI20AR        NONE code= off= -0.0001  -0.0008   0.0553    0.0006   0.0001   0.0534
+4 sat= 0 type=PRNI30VR        NONE code= off=  0.0004   0.0007   0.0769    0.0001   0.0016   0.0646
+4 sat= 0 type=PRNI90VR        NONE code= off= -0.0008   0.0016   0.0784   -0.0008   0.0020   0.0665
+4 sat= 0 type=RNG80971.00     NONE code= off=  0.0003   0.0008   0.0642    0.0011  -0.0001   0.0583
+4 sat= 0 type=RSIROVA1S       NONE code= off= -0.0003  -0.0011   0.0745   -0.0004  -0.0004   0.0696
+4 sat= 0 type=SEN67157596+CR  NONE code= off=  0.0008   0.0019   0.0138   -0.0008   0.0017   0.0266
+4 sat= 0 type=SEPALTUS_NR3    NONE code= off= -0.0009   0.0015   0.0685    0.0006  -0.0003   0.0619
+4 sat= 0 type=SEPCHOKE_B3E6   NONE code= off= -0.0002   0.0001   0.1248    0.0000  -0.0002   0.1380
+4 sat= 0 type=SEPCHOKE_B3E6   SPKE code= off= -0.0006   0.0009   0.1274   -0.0004   0.0002   0.1414
+4 sat= 0 type=SEPCHOKE_MC     NONE code= off=  0.0003   0.0003   0.0772    0.0002  -0.0001   0.0914
+4 sat= 0 type=SEPCHOKE_MC     SPKE code= off=  0.0006   0.0003   0.0790    0.0002  -0.0003   0.0941
+4 sat= 0 type=SEPPOLANT_X_MF  NONE code= off=  0.0013  -0.0001   0.0533    0.0003   0.0002   0.0591
+4 sat= 0 type=SEPVC6150L      NONE code= off=  0.0011   0.0010   0.1277    0.0001   0.0001   0.1377
+4 sat= 0 type=SEPVC6150L      SCIS code= off=  0.0010   0.0011   0.1268    0.0001   0.0000   0.1377
+4 sat= 0 type=SJTTL111        NONE code= off=  0.0007   0.0093   0.0386    0.0000   0.0000   0.0000
+4 sat= 0 type=SLGAT45101CP    SLGZ code= off=  0.0002  -0.0000   0.1470    0.0000  -0.0003   0.1585
+4 sat= 0 type=SOK_RADIAN_IS   NONE code= off= -0.0012   0.0009   0.1456   -0.0008  -0.0024   0.1543
+4 sat= 0 type=SOK502          NONE code= off= -0.0018  -0.0004   0.0418   -0.0024   0.0001   0.0594
+4 sat= 0 type=SOK600          NONE code= off= -0.0002  -0.0006   0.0723   -0.0011  -0.0001   0.0842
+4 sat= 0 type=SOK702          NONE code= off= -0.0010   0.0031   0.0690   -0.0015  -0.0008   0.0712
+4 sat= 0 type=SOKGCX3         NONE code= off=  0.0007  -0.0003   0.1567    0.0013   0.0002   0.1546
+4 sat= 0 type=SOKGRX3         NONE code= off= -0.0029   0.0033   0.0587    0.0032   0.0049   0.0528
+4 sat= 0 type=SOKSA500        NONE code= off=  0.0002   0.0003   0.0437    0.0003   0.0003   0.0374
+4 sat= 0 type=SPP135000.00    NONE code= off=  0.0000   0.0004   0.0617    0.0027  -0.0005   0.0565
+4 sat= 0 type=SPP571212238+GP NONE code= off=  0.0015   0.0010   0.0767    0.0024  -0.0017   0.0689
+4 sat= 0 type=SPPSP100        NONE code= off= -0.0002   0.0007   0.1249   -0.0004   0.0010   0.1146
+4 sat= 0 type=SPPSP85         NONE code= off= -0.0011  -0.0010   0.0618   -0.0001   0.0020   0.0643
+4 sat= 0 type=SPPSP85UHF      NONE code= off= -0.0010  -0.0006   0.0592   -0.0006   0.0014   0.0636
+4 sat= 0 type=STCSDI          NONE code= off= -0.0014   0.0023   0.0751   -0.0000   0.0004   0.0663
+4 sat= 0 type=STCSELITE       NONE code= off=  0.0021  -0.0025   0.0664   -0.0000   0.0008   0.0641
+4 sat= 0 type=STHCR3-G3       STHC code= off= -0.0002  -0.0008   0.1230   -0.0001  -0.0002   0.1420
+4 sat= 0 type=STHG4           NONE code= off= -0.0012   0.0031   0.0739    0.0003   0.0028   0.0688
+4 sat= 0 type=STHINNO8        NONE code= off=  0.0005  -0.0001   0.0918   -0.0019   0.0008   0.0861
+4 sat= 0 type=STHINSIGHTV2    NONE code= off= -0.0003  -0.0011   0.0745   -0.0004  -0.0004   0.0696
+4 sat= 0 type=STXS10SX017A    NONE code= off=  0.0002  -0.0009   0.1343    0.0001   0.0010   0.1269
+4 sat= 0 type=STXS700A        NONE code= off= -0.0001  -0.0001   0.0698    0.0010   0.0009   0.0633
+4 sat= 0 type=STXS800         NONE code= off= -0.0002  -0.0009   0.0663    0.0005  -0.0011   0.0586
+4 sat= 0 type=STXS800A        NONE code= off= -0.0003  -0.0010   0.0682    0.0007  -0.0010   0.0607
+4 sat= 0 type=STXS850         NONE code= off=  0.0005  -0.0014   0.0640    0.0006   0.0009   0.0572
+4 sat= 0 type=STXS880         NONE code= off=  0.0026   0.0006   0.0514    0.0010   0.0000   0.0500
+4 sat= 0 type=STXS8PX003A     NONE code= off= -0.0007   0.0027   0.0871   -0.0005   0.0001   0.0928
+4 sat= 0 type=STXS900         NONE code= off= -0.0004  -0.0011   0.0701    0.0009  -0.0022   0.0608
+4 sat= 0 type=STXS900A        NONE code= off= -0.0001  -0.0009   0.0710    0.0007  -0.0022   0.0639
+4 sat= 0 type=STXS990A        NONE code= off=  0.0002  -0.0010   0.0924    0.0007  -0.0005   0.0765
+4 sat= 0 type=STXS999         NONE code= off= -0.0002   0.0003   0.0730   -0.0007   0.0015   0.0600
+4 sat= 0 type=STXS9I          NONE code= off= -0.0001  -0.0002   0.0850    0.0030  -0.0009   0.0784
+4 sat= 0 type=STXS9PX001A     NONE code= off=  0.0001   0.0025   0.0880    0.0007   0.0027   0.0915
+4 sat= 0 type=STXS9SA7224V3.0 NONE code= off= -0.0004   0.0011   0.0920    0.0007   0.0025   0.0980
+4 sat= 0 type=STXSA1000       NONE code= off=  0.0003  -0.0007   0.1338    0.0001  -0.0007   0.1396
+4 sat= 0 type=STXSA1100       STXM code= off=  0.0005  -0.0000   0.0970    0.0000   0.0002   0.0936
+4 sat= 0 type=STXSA1200       STXR code= off= -0.0001  -0.0012   0.1346   -0.0004  -0.0014   0.1499
+4 sat= 0 type=STXSA1500       STXG code= off= -0.0000   0.0002   0.1229    0.0001   0.0003   0.1436
+4 sat= 0 type=STXSA1800       STXS code= off=  0.0000  -0.0001   0.2101   -0.0001  -0.0001   0.2169
+4 sat= 0 type=TIAPENG2100B    NONE code= off=  0.0018   0.0004   0.0981   -0.0035  -0.0002   0.1002
+4 sat= 0 type=TIAPENG2100R    NONE code= off=  0.0018   0.0004   0.0981   -0.0035  -0.0002   0.1002
+4 sat= 0 type=TIAPENG3100R1   NONE code= off=  0.0005  -0.0006   0.0974    0.0016  -0.0004   0.0942
+4 sat= 0 type=TIAPENG3100R2   NONE code= off= -0.0001  -0.0005   0.0981    0.0002   0.0000   0.0963
+4 sat= 0 type=TIAPENG6J2      NONE code= off= -0.0007  -0.0007   0.0996   -0.0011  -0.0021   0.0810
+4 sat= 0 type=TIAPENG7H+      NONE code= off=  0.0008  -0.0019   0.1012    0.0005   0.0009   0.0841
+4 sat= 0 type=TIAPENG7N       NONE code= off= -0.0001  -0.0001   0.1003   -0.0011  -0.0017   0.0819
+4 sat= 0 type=TIAPENGX2A      NONE code= off=  0.0008   0.0001   0.0795    0.0014   0.0007   0.0743
+4 sat= 0 type=TNVT10PRO       NONE code= off= -0.0011   0.0004   0.0601   -0.0006  -0.0009   0.0571
+4 sat= 0 type=TNVT20          NONE code= off= -0.0000   0.0004   0.0840   -0.0003  -0.0008   0.0719
+4 sat= 0 type=TNVT20PRO       NONE code= off=  0.0000   0.0005   0.0838    0.0000  -0.0008   0.0723
+4 sat= 0 type=TNVT5           NONE code= off= -0.0009  -0.0007   0.0655   -0.0013   0.0001   0.0597
+4 sat= 0 type=TNVT5LITE       NONE code= off=  0.0001   0.0006   0.0626   -0.0007  -0.0003   0.0548
+4 sat= 0 type=TOP700779A      NONE code= off=  0.0005   0.0041   0.0691   -0.0020   0.0028   0.0558
+4 sat= 0 type=TOP72110        NONE code= off=  0.0068  -0.0032   0.1289    0.0058  -0.0047   0.1202
+4 sat= 0 type=TPSCR.G3        NONE code= off=  0.0007  -0.0003   0.0860   -0.0002   0.0001   0.1172
+4 sat= 0 type=TPSCR.G3        SCIS code= off=  0.0008  -0.0004   0.0842   -0.0003  -0.0000   0.1178
+4 sat= 0 type=TPSCR.G3        TPSH code= off=  0.0004  -0.0002   0.0835    0.0004   0.0006   0.1176
+4 sat= 0 type=TPSCR.G5        NONE code= off=  0.0006   0.0001   0.0949    0.0004  -0.0000   0.1179
+4 sat= 0 type=TPSCR.G5        TPSH code= off=  0.0003   0.0002   0.0912    0.0006   0.0004   0.1177
+4 sat= 0 type=TPSCR.G5C       NONE code= off=  0.0005   0.0004   0.0933    0.0001   0.0002   0.1177
+4 sat= 0 type=TPSCR.G5C       TPSH code= off=  0.0005   0.0004   0.0910    0.0006   0.0007   0.1172
+4 sat= 0 type=TPSCR3_GGD      NONE code= off= -0.0001  -0.0000   0.0628    0.0002   0.0008   0.0982
+4 sat= 0 type=TPSCR3_GGD      CONE code= off=  0.0003  -0.0002   0.0619    0.0003   0.0002   0.0944
+4 sat= 0 type=TPSCR3_GGD      OLGA code= off= -0.0002  -0.0008   0.0543   -0.0001   0.0006   0.0945
+4 sat= 0 type=TPSCR3_GGD      PFAN code= off= -0.0005  -0.0005   0.0617   -0.0000   0.0007   0.0948
+4 sat= 0 type=TPSCR4          NONE code= off= -0.0005   0.0007   0.0918   -0.0007  -0.0003   0.1204
+4 sat= 0 type=TPSCR4          CONE code= off=  0.0001   0.0009   0.0910   -0.0014  -0.0003   0.1192
+4 sat= 0 type=TPSG3_A1        NONE code= off= -0.0006   0.0009   0.0333   -0.0009  -0.0002   0.0413
+4 sat= 0 type=TPSG3_A1        TPSD code= off= -0.0003   0.0011   0.0331    0.0000   0.0003   0.0424
+4 sat= 0 type=TPSG5_A1        NONE code= off=  0.0002   0.0003   0.0437    0.0003   0.0003   0.0374
+4 sat= 0 type=TPSHIPER_CR     NONE code= off=  0.0007  -0.0003   0.1567    0.0013   0.0002   0.1546
+4 sat= 0 type=TPSHIPER_GD     NONE code= off= -0.0013  -0.0010   0.0878   -0.0015  -0.0015   0.0935
+4 sat= 0 type=TPSHIPER_GGD    NONE code= off= -0.0013  -0.0010   0.0878   -0.0015  -0.0015   0.0935
+4 sat= 0 type=TPSHIPER_HR     NONE code= off= -0.0009   0.0010   0.0947   -0.0004   0.0037   0.0910
+4 sat= 0 type=TPSHIPER_HR+PS  NONE code= off= -0.0008   0.0002   0.0958   -0.0007   0.0029   0.0970
+4 sat= 0 type=TPSHIPER_LITE   NONE code= off=  0.0016   0.0008   0.0879    0.0009  -0.0002   0.0881
+4 sat= 0 type=TPSHIPER_PLUS   NONE code= off=  0.0011  -0.0001   0.0877    0.0000  -0.0010   0.0895
+4 sat= 0 type=TPSHIPER_VR     NONE code= off= -0.0029   0.0033   0.0587    0.0032   0.0049   0.0528
+4 sat= 0 type=TPSLEGANT_G     NONE code= off= -0.0002   0.0032   0.0607    0.0000   0.0000   0.0000
+4 sat= 0 type=TPSLEGANT2      NONE code= off= -0.0010   0.0007   0.0395   -0.0019  -0.0002   0.0573
+4 sat= 0 type=TPSLEGANT3_UHF  NONE code= off=  0.0001  -0.0000   0.0959   -0.0004  -0.0003   0.1050
+4 sat= 0 type=TPSODYSSEY_I    NONE code= off= -0.0024   0.0011   0.0703   -0.0024  -0.0006   0.0813
+4 sat= 0 type=TPSPG_A1        NONE code= off=  0.0017   0.0014   0.0361   -0.0009   0.0001   0.0529
+4 sat= 0 type=TPSPG_A1+GP     NONE code= off=  0.0000  -0.0001   0.0348   -0.0003  -0.0000   0.0400
+4 sat= 0 type=TPSPN.A5        NONE code= off=  0.0002  -0.0000   0.2199    0.0012   0.0002   0.2208
+4 sat= 0 type=TRM105000.10    NONE code= off=  0.0000   0.0004   0.0617    0.0027  -0.0005   0.0565
+4 sat= 0 type=TRM115000.00    NONE code= off=  0.0001   0.0002   0.0660    0.0001   0.0003   0.0580
+4 sat= 0 type=TRM115000.00    TZGD code= off= -0.0000   0.0006   0.0644    0.0002   0.0007   0.0573
+4 sat= 0 type=TRM115000.00+S  SCIT code= off=  0.0011  -0.0001   0.0655    0.0005   0.0002   0.0558
+4 sat= 0 type=TRM115000.10    NONE code= off=  0.0001   0.0008   0.0662    0.0003   0.0008   0.0577
+4 sat= 0 type=TRM14177.00     NONE code= off= -0.0033  -0.0004   0.0748   -0.0009  -0.0032   0.0670
+4 sat= 0 type=TRM14532.00     NONE code= off= -0.0033  -0.0004   0.0748   -0.0009  -0.0032   0.0670
+4 sat= 0 type=TRM14532.10     NONE code= off=  0.0004  -0.0009   0.0778    0.0034   0.0013   0.0868
+4 sat= 0 type=TRM159800.00    NONE code= off=  0.0011   0.0007   0.0906   -0.0001   0.0003   0.1175
+4 sat= 0 type=TRM159800.00    SCIS code= off=  0.0013   0.0009   0.0869   -0.0001   0.0003   0.1162
+4 sat= 0 type=TRM159800.00    SCIT code= off=  0.0013  -0.0001   0.0855    0.0000  -0.0007   0.1172
+4 sat= 0 type=TRM159900.00    NONE code= off=  0.0001   0.0006   0.1141    0.0005   0.0003   0.1240
+4 sat= 0 type=TRM159900.00    SCIS code= off=  0.0000   0.0008   0.1118    0.0004   0.0004   0.1245
+4 sat= 0 type=TRM159900.00    SCIT code= off= -0.0001   0.0013   0.1118    0.0002   0.0007   0.1262
+4 sat= 0 type=TRM22020.00+GP  NONE code= off= -0.0014   0.0013   0.0706    0.0014  -0.0015   0.0630
+4 sat= 0 type=TRM22020.00-GP  NONE code= off=  0.0004   0.0038   0.0684   -0.0008   0.0009   0.0741
+4 sat= 0 type=TRM23903.00     NONE code= off= -0.0014   0.0014   0.0735    0.0015  -0.0014   0.0665
+4 sat= 0 type=TRM27947.00+GP  NONE code= off= -0.0009   0.0023   0.0570    0.0021  -0.0007   0.0680
+4 sat= 0 type=TRM27947.00-GP  NONE code= off= -0.0004   0.0041   0.0735    0.0014  -0.0017   0.0873
+4 sat= 0 type=TRM29659.00     NONE code= off=  0.0011   0.0005   0.0905    0.0007   0.0002   0.1177
+4 sat= 0 type=TRM29659.00     OLGA code= off= -0.0010  -0.0007   0.0832   -0.0003  -0.0005   0.1146
+4 sat= 0 type=TRM29659.00     SCIS code= off=  0.0007   0.0002   0.0877   -0.0002  -0.0000   0.1194
+4 sat= 0 type=TRM29659.00     SCIT code= off=  0.0008   0.0012   0.0860   -0.0006   0.0006   0.1184
+4 sat= 0 type=TRM29659.00     SNOW code= off=  0.0008   0.0000   0.0914   -0.0005   0.0003   0.1205
+4 sat= 0 type=TRM29659.00     TCWD code= off= -0.0002   0.0000   0.0956   -0.0004  -0.0003   0.1241
+4 sat= 0 type=TRM29659.00     UNAV code= off=  0.0004   0.0001   0.0892    0.0005   0.0005   0.1172
+4 sat= 0 type=TRM33429.00+GP  NONE code= off= -0.0006  -0.0001   0.0696   -0.0002   0.0001   0.0620
+4 sat= 0 type=TRM33429.00-GP  NONE code= off= -0.0009   0.0006   0.0623   -0.0016   0.0005   0.0718
+4 sat= 0 type=TRM33429.20+GP  NONE code= off= -0.0008   0.0001   0.0733   -0.0004  -0.0001   0.0669
+4 sat= 0 type=TRM33429.20+GP  TCWD code= off= -0.0009  -0.0004   0.0722   -0.0003  -0.0001   0.0765
+4 sat= 0 type=TRM33429.20+GP  UNAV code= off= -0.0008   0.0001   0.0576   -0.0021  -0.0013   0.0693
+4 sat= 0 type=TRM39105.00     NONE code= off=  0.0005  -0.0003   0.0559    0.0016  -0.0006   0.0526
+4 sat= 0 type=TRM41249.00     NONE code= off=  0.0005   0.0003   0.0559    0.0005   0.0001   0.0580
+4 sat= 0 type=TRM41249.00     SCIT code= off= -0.0001   0.0005   0.0548   -0.0001   0.0003   0.0576
+4 sat= 0 type=TRM41249.00     TZGD code= off=  0.0004   0.0006   0.0555    0.0005   0.0003   0.0580
+4 sat= 0 type=TRM41249USCG    SCIT code= off= -0.0024  -0.0027   0.0631   -0.0022  -0.0040   0.0613
+4 sat= 0 type=TRM4800         NONE code= off=  0.0010   0.0005   0.1577    0.0006  -0.0009   0.1713
+4 sat= 0 type=TRM55970.00     NONE code= off= -0.0006   0.0006   0.0632    0.0020   0.0000   0.0566
+4 sat= 0 type=TRM55971.00     NONE code= off=  0.0003   0.0009   0.0642    0.0007   0.0003   0.0584
+4 sat= 0 type=TRM55971.00     SCIT code= off=  0.0011   0.0024   0.0677    0.0009   0.0006   0.0602
+4 sat= 0 type=TRM55971.00     TZGD code= off=  0.0001   0.0014   0.0637    0.0005   0.0008   0.0564
+4 sat= 0 type=TRM57970.00     NONE code= off= -0.0006   0.0006   0.0632    0.0020   0.0000   0.0566
+4 sat= 0 type=TRM57971.00     NONE code= off=  0.0003   0.0008   0.0642    0.0011  -0.0001   0.0583
+4 sat= 0 type=TRM57971.00     SCIT code= off= -0.0000  -0.0010   0.0578    0.0016  -0.0021   0.0523
+4 sat= 0 type=TRM57971.00     TZGD code= off=  0.0001   0.0002   0.0643    0.0011  -0.0003   0.0573
+4 sat= 0 type=TRM5800         NONE code= off=  0.0010   0.0009   0.0748   -0.0023  -0.0001   0.0773
+4 sat= 0 type=TRM59800.00     NONE code= off=  0.0014   0.0007   0.0894    0.0000  -0.0002   0.1178
+4 sat= 0 type=TRM59800.00     SCIS code= off=  0.0002   0.0007   0.0866   -0.0001   0.0003   0.1171
+4 sat= 0 type=TRM59800.00     SCIT code= off=  0.0019   0.0006   0.0866    0.0008  -0.0003   0.1174
+4 sat= 0 type=TRM59800.00C    NONE code= off=  0.0005   0.0002   0.0907   -0.0001  -0.0002   0.1207
+4 sat= 0 type=TRM59800.80     NONE code= off=  0.0014   0.0007   0.0894    0.0000  -0.0002   0.1178
+4 sat= 0 type=TRM59800.80     SCIS code= off=  0.0002   0.0007   0.0866   -0.0001   0.0003   0.1171
+4 sat= 0 type=TRM59800.80     SCIT code= off=  0.0019   0.0006   0.0866    0.0008  -0.0003   0.1174
+4 sat= 0 type=TRM59800.99     NONE code= off=  0.0013   0.0004   0.0898    0.0000   0.0000   0.1180
+4 sat= 0 type=TRM59800.99     SCIS code= off=  0.0014   0.0004   0.0875   -0.0002  -0.0002   0.1176
+4 sat= 0 type=TRM59800.99     SCIT code= off=  0.0017  -0.0017   0.0857    0.0008  -0.0022   0.1166
+4 sat= 0 type=TRM59900.00     NONE code= off= -0.0004   0.0010   0.1135    0.0005   0.0004   0.1245
+4 sat= 0 type=TRM59900.00     SCIS code= off= -0.0007   0.0009   0.1104    0.0002   0.0001   0.1250
+4 sat= 0 type=TRMDA2          NONE code= off=  0.0003   0.0005   0.0537    0.0003   0.0004   0.0528
+4 sat= 0 type=TRMR10          NONE code= off= -0.0007  -0.0009   0.1284   -0.0064  -0.0027   0.1197
+4 sat= 0 type=TRMR10-2        NONE code= off=  0.0012   0.0000   0.1286    0.0000  -0.0025   0.1152
+4 sat= 0 type=TRMR12          NONE code= off=  0.0011  -0.0002   0.1288   -0.0001  -0.0021   0.1168
+4 sat= 0 type=TRMR12I         NONE code= off=  0.0011  -0.0004   0.1293    0.0010  -0.0002   0.1136
+4 sat= 0 type=TRMR2           NONE code= off= -0.0004   0.0001   0.0912   -0.0012   0.0011   0.0984
+4 sat= 0 type=TRMR4-3         NONE code= off= -0.0010   0.0006   0.0837   -0.0011  -0.0003   0.0702
+4 sat= 0 type=TRMR580         NONE code= off=  0.0004  -0.0043   0.0943   -0.0008   0.0005   0.0978
+4 sat= 0 type=TRMR6-4         NONE code= off= -0.0011   0.0008   0.0839   -0.0011   0.0001   0.0709
+4 sat= 0 type=TRMR780         NONE code= off= -0.0005   0.0005   0.1248   -0.0008   0.0015   0.1157
+4 sat= 0 type=TRMR780-2       NONE code= off=  0.0000   0.0009   0.1249   -0.0006   0.0014   0.1151
+4 sat= 0 type=TRMR8-4         NONE code= off= -0.0008   0.0011   0.0841   -0.0013   0.0001   0.0702
+4 sat= 0 type=TRMR8_GNSS      NONE code= off= -0.0002   0.0006   0.0837   -0.0003  -0.0007   0.0721
+4 sat= 0 type=TRMR8_GNSS3     NONE code= off= -0.0004   0.0009   0.0847   -0.0004  -0.0009   0.0734
+4 sat= 0 type=TRMR8S          NONE code= off= -0.0011   0.0012   0.0827   -0.0009  -0.0003   0.0713
+4 sat= 0 type=TRMR980         NONE code= off= -0.0011  -0.0001   0.1311   -0.0004  -0.0006   0.1260
+4 sat= 0 type=TRMSPS985       NONE code= off=  0.0001   0.0014   0.1235    0.0003   0.0016   0.1135
+4 sat= 0 type=TRMSPS986       NONE code= off= -0.0002   0.0007   0.1239    0.0008   0.0017   0.1130
+4 sat= 0 type=TRSAX4E02       NONE code= off=  0.0011  -0.0014   0.0547    0.0003  -0.0012   0.0565
+4 sat= 0 type=TWI3972XF_CONE  NONE code= off=  0.0007  -0.0002   0.0115    0.0010   0.0001   0.0170
+4 sat= 0 type=TWIVC6050       NONE code= off=  0.0011   0.0010   0.1277    0.0001   0.0001   0.1377
+4 sat= 0 type=TWIVC6050       SCIS code= off=  0.0010   0.0011   0.1268    0.0001   0.0000   0.1377
+4 sat= 0 type=TWIVC6050       SCIT code= off= -0.0000   0.0004   0.1272   -0.0009  -0.0007   0.1393
+4 sat= 0 type=TWIVC6150       NONE code= off=  0.0010   0.0006   0.1270    0.0003  -0.0001   0.1374
+4 sat= 0 type=TWIVC6150       SCIS code= off=  0.0012   0.0008   0.1264    0.0001  -0.0001   0.1380
+4 sat= 0 type=TWIVP6000       NONE code= off=  0.0009   0.0000   0.0966   -0.0000   0.0005   0.0950
+4 sat= 0 type=TWIVP6050_CONE  NONE code= off= -0.0001  -0.0005   0.1022   -0.0003   0.0001   0.1005
+4 sat= 0 type=TWIVSP6037L     NONE code= off= -0.0007   0.0004   0.0488    0.0003  -0.0015   0.0514
+3 execses_b: n=6 outfile=test_debug89.pos
+2 readpreceph: n=6
+3 readpephs: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o
+3 readpephs: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O
+3 readpephs: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n
+3 readpephs: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3 nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3
+3 readsp3h:
+3 readsp3b: type=P ns=81 index=0 opt=0
+3 combpeph: ne=577
+4 combpeph: ne=577
+3 readpephs: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK
+3 combpeph: ne=577
+4 combpeph: ne=577
+3 readpephs: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g
+3 combpeph: ne=577
+4 combpeph: ne=577
+3 readrnxc: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o
+3 readrnxfile: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o flag=1 index=0
+3 rtk_uncompress: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o
+3 rtk_uncompress: stat=0
+3 readrnxfp: flag=1 index=0
+3 readrnxh:
+2 not supported satellite system: M
+3 readrnxc: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O
+3 readrnxfile: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O flag=1 index=0
+3 rtk_uncompress: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O
+3 rtk_uncompress: stat=0
+3 readrnxfp: flag=1 index=0
+3 readrnxh:
+4 decode_obsh: ver=2.10
+4 decode_obsh: ver=2.10
+4 decode_obsh: ver=2.10
+4 decode_obsh: ver=2.10
+4 decode_obsh: ver=2.10
+4 decode_obsh: ver=2.10
+4 decode_obsh: ver=2.10
+4 decode_obsh: ver=2.10
+3 convcode: ver=2.10 sys= 1 type= C1 -> C1C
+3 convcode: ver=2.10 sys= 4 type= C1 -> C1C
+3 convcode: ver=2.10 sys= 8 type= C1 -> C1X
+3 convcode: ver=2.10 sys=16 type= C1 -> C1C
+3 convcode: ver=2.10 sys= 2 type= C1 -> C1C
+3 convcode: ver=2.10 sys=32 type= C1 ->    
+3 convcode: ver=2.10 sys= 1 type= L1 -> L1C
+3 convcode: ver=2.10 sys= 4 type= L1 -> L1C
+3 convcode: ver=2.10 sys= 8 type= L1 -> L1X
+3 convcode: ver=2.10 sys=16 type= L1 -> L1C
+3 convcode: ver=2.10 sys= 2 type= L1 -> L1C
+3 convcode: ver=2.10 sys=32 type= L1 ->    
+3 convcode: ver=2.10 sys= 1 type= D1 -> D1C
+3 convcode: ver=2.10 sys= 4 type= D1 -> D1C
+3 convcode: ver=2.10 sys= 8 type= D1 -> D1X
+3 convcode: ver=2.10 sys=16 type= D1 -> D1C
+3 convcode: ver=2.10 sys= 2 type= D1 -> D1C
+3 convcode: ver=2.10 sys=32 type= D1 ->    
+3 convcode: ver=2.10 sys= 1 type= S1 -> S1C
+3 convcode: ver=2.10 sys= 4 type= S1 -> S1C
+3 convcode: ver=2.10 sys= 8 type= S1 -> S1X
+3 convcode: ver=2.10 sys=16 type= S1 -> S1C
+3 convcode: ver=2.10 sys= 2 type= S1 -> S1C
+3 convcode: ver=2.10 sys=32 type= S1 ->    
+3 convcode: ver=2.10 sys= 1 type= P2 -> C2W
+3 convcode: ver=2.10 sys= 4 type= P2 -> C2P
+3 convcode: ver=2.10 sys= 8 type= P2 ->    
+3 convcode: ver=2.10 sys=16 type= P2 ->    
+3 convcode: ver=2.10 sys= 2 type= P2 ->    
+3 convcode: ver=2.10 sys=32 type= P2 ->    
+3 convcode: ver=2.10 sys= 1 type= L2 -> L2W
+3 convcode: ver=2.10 sys= 4 type= L2 -> L2P
+3 convcode: ver=2.10 sys= 8 type= L2 ->    
+3 convcode: ver=2.10 sys=16 type= L2 -> L2X
+3 convcode: ver=2.10 sys= 2 type= L2 ->    
+3 convcode: ver=2.10 sys=32 type= L2 -> L2X
+3 convcode: ver=2.10 sys= 1 type= D2 -> D2W
+3 convcode: ver=2.10 sys= 4 type= D2 -> D2P
+3 convcode: ver=2.10 sys= 8 type= D2 ->    
+3 convcode: ver=2.10 sys=16 type= D2 -> D2X
+3 convcode: ver=2.10 sys= 2 type= D2 ->    
+3 convcode: ver=2.10 sys=32 type= D2 -> D2X
+3 convcode: ver=2.10 sys= 1 type= S2 -> S2W
+3 convcode: ver=2.10 sys= 4 type= S2 -> S2P
+3 convcode: ver=2.10 sys= 8 type= S2 ->    
+3 convcode: ver=2.10 sys=16 type= S2 -> S2X
+3 convcode: ver=2.10 sys= 2 type= S2 ->    
+3 convcode: ver=2.10 sys=32 type= S2 -> S2X
+4 decode_obsh: ver=2.10
+4 decode_obsh: ver=2.10
+4 decode_obsh: ver=2.10
+4 decode_obsh: ver=2.10
+3 readrnxc: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n
+3 readrnxfile: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n flag=1 index=0
+3 rtk_uncompress: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n
+3 rtk_uncompress: stat=0
+3 readrnxfp: flag=1 index=0
+3 readrnxh:
+3 readrnxc: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3 nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3
+3 readrnxfile: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3 flag=1 index=0
+3 rtk_uncompress: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3
+3 rtk_uncompress: stat=0
+3 readrnxfp: flag=1 index=0
+3 readrnxh:
+3 readrnxc: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK
+3 readrnxfile: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK flag=1 index=0
+3 rtk_uncompress: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK
+3 rtk_uncompress: stat=0
+3 readrnxfp: flag=1 index=0
+3 readrnxh:
+3 readrnxclk: index=0
+3 combpclk: nc=2880
+4 combpclk: nc=2880
+3 readrnxc: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g
+3 readrnxfile: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g flag=1 index=0
+3 rtk_uncompress: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g
+3 rtk_uncompress: stat=0
+3 readrnxfp: flag=1 index=0
+3 readrnxh:
+3 sbsreadmsg: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o sel=0
+3 sbsreadmsgt: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o sel=0
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o
+3 sbsreadmsg: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O sel=0
+3 sbsreadmsgt: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O sel=0
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O
+3 sbsreadmsg: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n sel=0
+3 sbsreadmsgt: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n sel=0
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25n
+3 sbsreadmsg: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3 sel=0
+3 sbsreadmsgt: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3 sel=0
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3 nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\COD0OPSULT_20252131800_02D_05M_ORB.SP3
+3 sbsreadmsg: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK sel=0
+3 sbsreadmsgt: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK sel=0
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\ESA0OPSFIN_20252100000_01D_30S_CLK.CLK
+3 sbsreadmsg: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g sel=0
+3 sbsreadmsgt: file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g sel=0
+3 expath  : path=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g nmax=1024
+3 expath  : file=C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25g
+3 execses_r: n=6 outfile=test_debug89.pos
+3 execses : n=6 outfile=test_debug89.pos

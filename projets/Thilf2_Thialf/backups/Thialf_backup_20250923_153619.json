@@ -1,0 +1,284 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-08-06T16:03:44.364196+00:00",
+    "last_modified": "2025-09-23T13:35:51.588698+00:00",
+    "company": "Herema",
+    "vessel": "Thilf2",
+    "engineer": "AME",
+    "description": ""
+  },
+  "project_structure": {
+    "base_path": "C:\\1-Data\\01-Projet\\ProjetPY\\DynaCalibration_GNSS\\projets\\Thilf2_Thialf",
+    "data_dir": "data",
+    "reports_dir": "reports",
+    "logs_dir": "logs",
+    "cache_dir": "cache",
+    "backup_dir": "backups"
+  },
+  "workflow_status": {
+    "dimcon": {
+      "completed": true,
+      "timestamp": "2025-09-23T13:35:42.992474+00:00",
+      "progress": 100.0
+    },
+    "gnss": {
+      "completed": false,
+      "timestamp": "2025-09-23T05:54:34.063862+00:00",
+      "progress": 70
+    },
+    "observation": {
+      "completed": false,
+      "timestamp": null,
+      "progress": 0
+    },
+    "qc": {
+      "completed": false,
+      "timestamp": null,
+      "progress": 0
+    },
+    "gnss_import": {
+      "completed": true,
+      "timestamp": "2025-09-23T13:35:51.586689+00:00",
+      "progress": 100.0
+    },
+    "gnss_baseline1": {
+      "completed": true,
+      "timestamp": "2025-09-23T05:54:22.879856+00:00",
+      "progress": 100.0
+    }
+  },
+  "dimcon_data": {
+    "points": {
+      "Bow": {
+        "X": -15.008,
+        "Y": 109.291,
+        "Z": 37.713
+      },
+      "Port": {
+        "X": -19.624,
+        "Y": 72.164,
+        "Z": 38.375
+      },
+      "Stb": {
+        "X": 23.587,
+        "Y": 77.564,
+        "Z": 36.858
+      }
+    },
+    "validated": true
+  },
+  "gnss_config": {
+    "use_sp3": true,
+    "meridian_convergence": 0.0,
+    "scale_factor": 1.0,
+    "time_offset": 0.0,
+    "base_station": {
+      "position_name": "Bow/Stern",
+      "coordinates_xyz": {
+        "x": 1400397.0035,
+        "y": -4664126.1638,
+        "z": 4105125.1618
+      },
+      "coordinates_source": "rinex_approx",
+      "obs_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\merde.25o",
+      "nav_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\merde.25n"
+    },
+    "rovers": [
+      {
+        "position_name": "Port",
+        "obs_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\Prt_214A.25o",
+        "nav_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\Prt_214A.25n",
+        "rover_index": 0
+      },
+      {
+        "position_name": "Starboard",
+        "obs_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\Stbd214A.25o",
+        "nav_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\Stbd214A.25n",
+        "rover_index": 1
+      }
+    ],
+    "sp3_metadata": {
+      "downloaded": [],
+      "status": "pending"
+    },
+    "processing_stats": {},
+    "file_paths": {
+      "bow_stern": {
+        "obs_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\merde.25o",
+        "nav_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\merde.25n"
+      },
+      "port": {
+        "obs_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\Prt_214A.25o",
+        "nav_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\Prt_214A.25n"
+      },
+      "starboard": {
+        "obs_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\Stbd214A.25o",
+        "nav_file": "C:\\1-Data\\01-Projet\\ProjetPY\\Thialf\\DC-250802\\GNSS\\Stbd214A.25n"
+      }
+    },
+    "sp3_clk_status": {
+      "sp3_available": false,
+      "clk_available": false,
+      "sp3_files_count": 0,
+      "clk_files_count": 0,
+      "first_sp3_file": "",
+      "first_clk_file": "",
+      "message": "Vérification SP3/CLK non disponible",
+      "checked_at": "2025-09-23T15:31:00.379159"
+    },
+    "processing_ready": true,
+    "sp3_processing_ready": false,
+    "import_timestamp": "2025-09-23T15:31:00.379159",
+    "metadata": {
+      "metadata_version": "1.0",
+      "export_timestamp": "2025-09-23T15:35:02.860572",
+      "reference_station": {
+        "coordinates_source": "rinex_header",
+        "updated_at": "2025-09-23T13:30:45.774326+00:00",
+        "coordinates_xyz": {
+          "x": 1400397.0035,
+          "y": -4664126.1638,
+          "z": 4105125.1618
+        },
+        "receiver_type": "TRIMBLE BD920",
+        "antenna_type": "TRM126000_00    NONE",
+        "antenna_height": 0.0
+      },
+      "session_info": {},
+      "rinex_files": {
+        "files_by_position": {},
+        "total_files": 0,
+        "last_updated": null
+      },
+      "sp3_clk_summary": {
+        "coverage_status": "unknown",
+        "files_status": "not_checked",
+        "date_range_needed": null,
+        "coverage_statistics": null,
+        "checked_at": "2025-09-23T15:30:45.774326"
+      },
+      "processing_parameters": {
+        "meridian_convergence": 0.0,
+        "scale_factor": 1.0,
+        "time_offset": 0.0,
+        "use_sp3": true
+      },
+      "completeness_check": {
+        "is_complete": false,
+        "completion_percentage": 30.0,
+        "required_elements": {
+          "reference_coordinates": {
+            "present": true,
+            "weight": 30,
+            "description": "Coordonnées XYZ de la station de référence"
+          },
+          "session_times": {
+            "present": false,
+            "weight": 20,
+            "description": "Temps de début et fin de session"
+          },
+          "rinex_files_imported": {
+            "present": false,
+            "weight": 25,
+            "description": "Fichiers RINEX des 3 positions importés"
+          },
+          "sp3_availability_checked": {
+            "present": false,
+            "weight": 15,
+            "description": "Vérification disponibilité SP3/CLK"
+          },
+          "mobile_points_data": {
+            "present": false,
+            "weight": 10,
+            "description": "Données des points mobiles"
+          }
+        },
+        "missing_elements": [
+          "Temps de début et fin de session",
+          "Fichiers RINEX des 3 positions importés",
+          "Vérification disponibilité SP3/CLK",
+          "Données des points mobiles"
+        ],
+        "warnings": [
+          "Session GNSS courte (< 1h) - précision limitée"
+        ],
+        "checked_at": "2025-09-23T15:35:02.860572"
+      },
+      "mobile_points_summary": {}
+    },
+    "last_metadata_update": "2025-09-23T13:35:02.860572+00:00"
+  },
+  "observation_sensors": [],
+  "qc_metrics": {
+    "global_score": 50.0,
+    "gnss_score": 0.0,
+    "sensors_score": 0.0,
+    "recommendations": []
+  },
+  "gnss_results": {
+    "baselines": {
+      "baseline_1": {
+        "baseline_name": "Baseline 1 (Bow/Stern → Port)",
+        "length_m": 45.677,
+        "quality_stats": {
+          "q1_percent": 67.0,
+          "q2_percent": 23.0,
+          "q5_percent": 10.0
+        },
+        "rms_horizontal_mm": 14.9,
+        "rms_vertical_mm": 22.4,
+        "epochs_processed": 100,
+        "start_time": "2025-09-23T07:54:22.877753",
+        "use_sp3": true,
+        "config_used": {
+          "pos1-posmode": "kinematic",
+          "pos1-frequency": "l1+l2",
+          "pos1-soltype": "combined",
+          "pos1-elmask": 15,
+          "pos1-snrmask_r": "off",
+          "pos1-dynamics": "off",
+          "pos2-armode": "continuous",
+          "pos2-gloarmode": "off",
+          "pos2-arthres": 3,
+          "out-solformat": "llh",
+          "out-outhead": "on",
+          "out-outopt": "on"
+        },
+        "processing_time_seconds": 10.157055
+      },
+      "baseline_2": {
+        "baseline_name": "Baseline 2 (Bow/Stern → Starboard)",
+        "length_m": 38.235,
+        "quality_stats": {
+          "q1_percent": 70.0,
+          "q2_percent": 20.0,
+          "q5_percent": 10.0
+        },
+        "rms_horizontal_mm": 14.5,
+        "rms_vertical_mm": 21.8,
+        "epochs_processed": 100,
+        "start_time": "2025-09-23T07:54:34.058478",
+        "use_sp3": true,
+        "config_used": {
+          "pos1-posmode": "kinematic",
+          "pos1-frequency": "l1+l2",
+          "pos1-soltype": "combined",
+          "pos1-elmask": 15,
+          "pos1-snrmask_r": "off",
+          "pos1-dynamics": "off",
+          "pos2-armode": "continuous",
+          "pos2-gloarmode": "off",
+          "pos2-arthres": 3,
+          "out-solformat": "llh",
+          "out-outhead": "on",
+          "out-outopt": "on"
+        },
+        "processing_time_seconds": 10.161661
+      }
+    },
+    "processing_timestamp": "2025-09-23T07:54:34.075307",
+    "sp3_used": true,
+    "total_processing_time": 20.318716000000002
+  }
+}

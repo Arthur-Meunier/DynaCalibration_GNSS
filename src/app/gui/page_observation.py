@@ -27,7 +27,7 @@ class ObservationWidget(QWidget):
         self.calc_timer.setSingleShot(True)
         self.calc_timer.timeout.connect(self.perform_background_calculation)
         
-        print("✓ Page Observation initialisée")
+        print("[OK] Page Observation initialisée")
     
     def set_data_model(self, app_data):
         """Définit le modèle de données utilisé par ce widget"""

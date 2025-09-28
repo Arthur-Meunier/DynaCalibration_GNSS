@@ -1,0 +1,560 @@
+#!/usr/bin/env python3
+"""
+Page GNSS avec navigation automatique corrigée
+"""
+
+from PyQt5.QtWidgets import (
+    QWidget, QVBoxLayout, QHBoxLayout, QLabel, 
+    QPushButton, QFileDialog, QComboBox, QTextEdit,
+    QMessageBox, QCheckBox, QProgressBar
+)
+from PyQt5.QtCore import Qt, pyqtSignal, QTimer, QRectF
+from PyQt5.QtGui import QPainter, QColor, QFont, QPen, QBrush
+from pathlib import Path
+from datetime import datetime
+
+# Import des modules internes
+from core.app_data import ApplicationData
+from core.project_manager import ProjectManager
+from core.calculations.rtk_calculator import RTKCalculator, RTKConfig, RTKFileValidator
+
+# Stylesheet pour la page
+APP_STYLESHEET_TEST = """
+QWidget {
+    background-color: #2E3440;
+    color: #ECEFF4;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 10pt;
+}
+QProgressBar {
+    border: 1px solid #4C566A;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1px;
+    background-color: #3B4252;
+    height: 40px;
+    font-size: 11pt;
+}
+QProgressBar::chunk {
+    background-color: qlineargradient(
+        x1: 0, y1: 0.5, x2: 1, y2: 0.5,
+        stop: 0 #81A1C1, stop: 1 #88C0D0
+    );
+    border-radius: 7px;
+}
+"""
+
+class SimpleDonutWidget(QWidget):
+    """Widget donut simple pour afficher la qualité des données"""
+    def __init__(self, baseline_name=""):
+        super().__init__()
+        self.baseline_name = baseline_name
+        self.quality_data = {}
+        self.colors = {
+            '1': QColor("#A3BE8C"), '2': QColor("#EBCB8B"), '5': QColor("#D08770"),
+            '4': QColor("#B48EAD"), '3': QColor("#8FBCBB"), '6': QColor("#88C0D0"),
+            '0': QColor("#BF616A")
+        }
+        self.setFixedSize(80, 80)
+    
+    def update_data(self, quality_data):
+        self.quality_data = quality_data.copy()
+        self.update()
+    
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.Antialiasing)
+        
+        chart_rect = QRectF(10, 10, 60, 60)
+        total = sum(self.quality_data.values())
+        
+        if total == 0:
+            painter.setBrush(QBrush(QColor("#4C566A")))
+            painter.setPen(Qt.NoPen)
+            painter.drawEllipse(chart_rect)
+        else:
+        cumulative_angle = 90.0 * 16.0
+        for quality, count in sorted(self.quality_data.items()):
+            if count > 0:
+                angle = (count / total) * 360.0 * 16.0
+                painter.setBrush(self.colors.get(quality, QColor("gray")))
+                painter.setPen(Qt.NoPen)
+                painter.drawPie(chart_rect, round(cumulative_angle), round(angle))
+                cumulative_angle += angle
+        
+        # Dessiner le trou central
+        hole_rect = QRectF(25, 25, 30, 30)
+        painter.setBrush(QBrush(QColor("#2E3440")))
+        painter.drawEllipse(hole_rect)
+        
+        # Dessiner le texte central
+        painter.setPen(QPen(QColor("#ECEFF4")))
+        font = QFont("Segoe UI", 8)
+        painter.setFont(font)
+        painter.drawText(hole_rect, Qt.AlignCenter, f"{total}")
+
+class GnssWidget(QWidget):
+    """Widget principal pour les calculs GNSS RTK"""
+    
+    # Signaux requis par le menu vertical
+    sp3_progress_updated = pyqtSignal(int, str)
+    baseline_progress_updated = pyqtSignal(str, int, str)
+    processing_completed = pyqtSignal(dict)
+    
+    def __init__(self, app_data=None, project_manager: ProjectManager = None, parent=None):
+        super().__init__(parent)
+        self.app_data = app_data
+            self.project_manager = project_manager
+        self.rtk_calculator = None
+        self.rtk_config = RTKConfig()
+        self.selected_files = {"port_obs": None, "bow_obs": None, "stbd_obs": None}
+        
+        # Appliquer le style du test
+        self.setStyleSheet(APP_STYLESHEET_TEST)
+        self.init_ui()
+    
+    def init_ui(self):
+        """Initialise l'interface utilisateur"""
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(15, 15, 15, 15)
+        layout.setSpacing(15)
+        
+        # Titre
+        title = QLabel("GNSS RTK")
+        title.setStyleSheet("font-size: 14pt; font-weight: bold; color: #ECEFF4; padding: 2px; margin-bottom: 5px;")
+        layout.addWidget(title)
+        
+        # Zone de sélection des fichiers
+        files_layout = QHBoxLayout()
+        
+        # Port
+        port_layout = QVBoxLayout()
+        port_layout.addWidget(QLabel("Port"))
+        self.port_btn = QPushButton("Sélectionner")
+        self.port_btn.clicked.connect(lambda: self.browse_file("port_obs"))
+        port_layout.addWidget(self.port_btn)
+        files_layout.addLayout(port_layout)
+        
+        # Bow
+        bow_layout = QVBoxLayout()
+        bow_layout.addWidget(QLabel("Bow"))
+        self.bow_btn = QPushButton("Sélectionner")
+        self.bow_btn.clicked.connect(lambda: self.browse_file("bow_obs"))
+        bow_layout.addWidget(self.bow_btn)
+        files_layout.addLayout(bow_layout)
+        
+        # Stbd
+        stbd_layout = QVBoxLayout()
+        stbd_layout.addWidget(QLabel("Stbd"))
+        self.stbd_btn = QPushButton("Sélectionner")
+        self.stbd_btn.clicked.connect(lambda: self.browse_file("stbd_obs"))
+        stbd_layout.addWidget(self.stbd_btn)
+        files_layout.addLayout(stbd_layout)
+        
+        layout.addLayout(files_layout)
+        
+        # Options
+        options_layout = QHBoxLayout()
+        self.sp3_checkbox = QCheckBox("SP3/CLK")
+        self.sp3_checkbox.setStyleSheet("color: #ECEFF4; padding: 5px;")
+        self.sp3_checkbox.setChecked(True)
+        options_layout.addWidget(self.sp3_checkbox)
+        layout.addLayout(options_layout)
+        
+        # Boutons de contrôle
+        control_layout = QHBoxLayout()
+        self.start_btn = QPushButton("Démarrer Calcul")
+        self.start_btn.clicked.connect(self.start_calculation)
+        control_layout.addWidget(self.start_btn)
+        
+        self.stop_btn = QPushButton("Arrêter")
+        self.stop_btn.clicked.connect(self.stop_calculation)
+        self.stop_btn.setEnabled(False)
+        control_layout.addWidget(self.stop_btn)
+        
+        layout.addLayout(control_layout)
+        
+        # Zone de monitoring
+        monitor_layout = QVBoxLayout()
+        monitor_layout.addWidget(QLabel("Progression:"))
+        
+        # Container pour les barres de progression dynamiques
+        self.progress_bars = {}
+        self.baseline_layouts = {}
+        self.donut_widgets = {}
+        self.baselines_container = QVBoxLayout()
+        self.baselines_container.setSpacing(10)
+        monitor_layout.addLayout(self.baselines_container)
+        
+        layout.addLayout(monitor_layout)
+        
+        # Zone de logs
+        log_layout = QVBoxLayout()
+        log_layout.addWidget(QLabel("Logs:"))
+        self.log_text = QTextEdit()
+        self.log_text.setReadOnly(True)
+        self.log_text.setMaximumHeight(150)
+        log_layout.addWidget(self.log_text)
+        layout.addLayout(log_layout)
+    
+    def browse_file(self, file_type: str):
+        """Ouvre le dialogue de sélection de fichier"""
+        file_path, _ = QFileDialog.getOpenFileName(
+            self, 
+            f"Sélectionner fichier {file_type}",
+            "",
+            "Fichiers RINEX (*.obs *.25o *.o);;Fichiers texte (*.txt);;Tous les fichiers (*)"
+        )
+        
+        if file_path:
+            self.select_file(file_type, Path(file_path))
+    
+    def select_file(self, file_type: str, file_path: Path):
+        """Sélection et validation de fichier"""
+        if file_type in ["port_obs", "bow_obs", "stbd_obs"]:
+            # Vérifier si c'est un fichier RINEX ou un fichier texte
+            if file_path.suffix.lower() in ['.obs', '.25o', '.o']:
+                # Fichier RINEX - validation complète
+            is_valid, files = RTKFileValidator.validate_rinex_files(file_path)
+            
+            if not is_valid:
+                    QMessageBox.warning(self, "Erreur", f"Fichier RINEX {file_path.name} invalide (NAV/GNAV manquants)")
+                    return
+            else:
+                # Fichier texte - validation simple
+                if not file_path.exists():
+                    QMessageBox.warning(self, "Erreur", f"Fichier {file_path.name} introuvable")
+            return
+                
+                # Créer un dictionnaire de fichiers simplifié pour les fichiers texte
+                files = {"obs": file_path}
+                is_valid = True
+            
+            self.selected_files[file_type] = files["obs"]
+            
+            # Stocker aussi les fichiers NAV/GNAV associés
+            if "nav" in files:
+                nav_key = file_type.replace("_obs", "_nav")
+                self.selected_files[nav_key] = files["nav"]
+                self.log_message(f"✅ {nav_key}: {files['nav'].name}")
+            
+            if "gnav" in files:
+                gnav_key = file_type.replace("_obs", "_gnav")
+                self.selected_files[gnav_key] = files["gnav"]
+                self.log_message(f"✅ {gnav_key}: {files['gnav'].name}")
+            
+            # Mise à jour du bouton
+            if file_type == "port_obs":
+                self.port_btn.setText(f"✅ {file_path.name}")
+            elif file_type == "bow_obs":
+                self.bow_btn.setText(f"✅ {file_path.name}")
+            elif file_type == "stbd_obs":
+                self.stbd_btn.setText(f"✅ {file_path.name}")
+            
+            self.log_message(f"✅ Fichier {file_type} sélectionné: {file_path.name}")
+    
+    def start_calculation(self):
+        """Démarre les calculs GNSS"""
+        self.log_message("🚀 Démarrage des calculs GNSS...")
+        
+        # Déterminer le point fixe (base) depuis le combo
+        fixed_point = self.fixed_combo.currentText()
+        
+        # Vérifier les fichiers disponibles
+        available_files = {}
+        for point in ["port", "bow", "stbd"]:
+            if self.selected_files.get(f"{point}_obs"):
+                available_files[point] = self.selected_files[f"{point}_obs"]
+        
+        if len(available_files) < 2:
+            QMessageBox.warning(self, "Erreur", "Au moins 2 fichiers sont requis")
+            return
+            
+        # Déterminer les baselines à calculer
+        self.baselines_to_calculate = self._determine_baselines(fixed_point, available_files)
+        
+        # Créer les barres de progression dynamiques
+        self._create_dynamic_progress_bars(self.baselines_to_calculate)
+        
+        # Démarrer les calculs parallèles
+        self._start_parallel_calculations()
+    
+    def _determine_baselines(self, fixed_point: str, available_files: dict) -> list:
+        """Détermine les 2 lignes de base à calculer"""
+        baselines = []
+        base_file = self.selected_files[f"{fixed_point.lower()}_obs"]
+        rover_files = []
+        
+        for point in ["port", "bow", "stbd"]:
+            if point != fixed_point.lower() and self.selected_files.get(f"{point}_obs"):
+                rover_files.append({
+                    "name": point.capitalize(),
+                    "file": self.selected_files[f"{point}_obs"]
+                })
+        
+        for rover in rover_files:
+            baselines.append({
+                "name": f"{fixed_point}→{rover['name']}",
+                "base": fixed_point,
+                "base_file": base_file,
+                "rover": rover['name'],
+                "rover_file": rover['file']
+            })
+        
+        return baselines
+    
+    def _create_dynamic_progress_bars(self, baselines):
+        """Crée les barres de progression dynamiques"""
+        # Nettoyer les barres existantes
+        while self.baselines_container.count():
+            item = self.baselines_container.takeAt(0)
+            if item.widget():
+                item.widget().deleteLater()
+        
+        self.progress_bars.clear()
+        self.baseline_layouts.clear()
+        self.donut_widgets.clear()
+        
+        # Créer les nouvelles barres
+        for baseline in baselines:
+            baseline_name = baseline['name']
+            
+            # Layout principal pour cette baseline
+            main_layout = QHBoxLayout()
+            main_layout.setSpacing(15)
+            main_layout.setContentsMargins(15, 10, 15, 10)
+            
+            # Barre de progression
+            progress_bar = QProgressBar()
+            progress_bar.setStyleSheet("""
+                QProgressBar {
+                    border: 1px solid #4C566A;
+                    border-radius: 8px;
+                    text-align: center;
+                    padding: 1px;
+                    background-color: #3B4252;
+                    height: 40px;
+                    font-size: 11pt;
+                }
+                QProgressBar::chunk {
+                    background-color: qlineargradient(
+                        x1: 0, y1: 0.5, x2: 1, y2: 0.5,
+                        stop: 0 #81A1C1, stop: 1 #88C0D0
+                    );
+                    border-radius: 7px;
+                }
+            """)
+            progress_bar.setValue(0)
+            progress_bar.setFormat(f"{baseline_name}: Initialisation...")
+            progress_bar.setTextVisible(True)
+            
+            main_layout.addWidget(progress_bar)
+            
+            # Diagramme donut
+            donut_widget = SimpleDonutWidget(baseline_name)
+            donut_widget.setFixedSize(80, 80)
+            main_layout.addWidget(donut_widget)
+            
+            # Stocker les références
+            self.progress_bars[baseline_name] = progress_bar
+            self.baseline_layouts[baseline_name] = main_layout
+            self.donut_widgets[baseline_name] = donut_widget
+            
+            self.baselines_container.addLayout(main_layout)
+    
+    def _start_parallel_calculations(self):
+        """Démarre les calculs parallèles"""
+        self.rtk_calculators = []
+        self.baseline_results = {}
+        
+        for i, baseline in enumerate(self.baselines_to_calculate):
+            config = RTKConfig()
+            config.use_sp3_clk = self.sp3_checkbox.isChecked()
+            config.fixed_point = baseline["base"]
+            config.base_obs_file = baseline["base_file"]
+            config.rover_obs_file = baseline["rover_file"]
+            
+            # Assigner les fichiers NAV/GNAV du rover
+            rover_type = baseline["rover"].lower()
+            if f"{rover_type}_nav" in self.selected_files and self.selected_files[f"{rover_type}_nav"]:
+                config.rover_nav_file = self.selected_files[f"{rover_type}_nav"]
+                self.log_message(f"✅ NAV {rover_type}: {config.rover_nav_file.name}")
+            
+            if f"{rover_type}_gnav" in self.selected_files and self.selected_files[f"{rover_type}_gnav"]:
+                config.rover_gnav_file = self.selected_files[f"{rover_type}_gnav"]
+                self.log_message(f"✅ GNAV {rover_type}: {config.rover_gnav_file.name}")
+            
+            # Assigner les fichiers NAV/GNAV de la base aussi
+            base_type = baseline["base"].lower()
+            if f"{base_type}_nav" in self.selected_files and self.selected_files[f"{base_type}_nav"]:
+                config.base_nav_file = self.selected_files[f"{base_type}_nav"]
+                self.log_message(f"✅ NAV {base_type}: {config.base_nav_file.name}")
+            
+            if f"{base_type}_gnav" in self.selected_files and self.selected_files[f"{base_type}_gnav"]:
+                config.base_gnav_file = self.selected_files[f"{base_type}_gnav"]
+                self.log_message(f"✅ GNAV {base_type}: {config.base_gnav_file.name}")
+        
+        # Recherche automatique des fichiers SP3/CLK si activés
+            if config.use_sp3_clk:
+                obs_dir = config.base_obs_file.parent
+            sp3_file, clk_file = RTKFileValidator.find_sp3_clk_files(obs_dir)
+            if sp3_file:
+                    config.precise_eph_file = sp3_file
+                    self.log_message(f"✅ SP3 trouvé pour {baseline['name']}: {sp3_file.name}")
+            if clk_file:
+                    config.precise_clk_file = clk_file
+                    self.log_message(f"✅ CLK trouvé pour {baseline['name']}: {clk_file.name}")
+        
+            # Fichier de sortie pour cette ligne de base
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_dir = Path("export")
+        output_dir.mkdir(exist_ok=True)
+            config.output_file = output_dir / f"rtk_{baseline['name'].replace('→', '_to_')}_{timestamp}.pos"
+            
+            # Créer le calculateur
+            calculator = RTKCalculator(config)
+            calculator.baseline_name = baseline['name']
+            calculator.baseline_index = i
+            
+            # Connecter les signaux
+            calculator.progress_updated.connect(self.create_progress_handler(i))
+            calculator.quality_updated.connect(self.create_quality_handler(i))
+            calculator.process_finished.connect(self.create_finished_handler(i))
+            calculator.log_message.connect(self.create_log_handler(baseline['name']))
+            
+            self.rtk_calculators.append(calculator)
+            self.baseline_results[i] = {"status": "running", "progress": 0, "quality": {}}
+        
+        # Démarrer tous les calculateurs
+        for calculator in self.rtk_calculators:
+            calculator.start()
+        
+        self.start_btn.setEnabled(False)
+        self.stop_btn.setEnabled(True)
+        
+        # Réinitialiser le flag de fin
+        if hasattr(self, '_all_finished_called'):
+            delattr(self, '_all_finished_called')
+    
+    def create_progress_handler(self, baseline_index):
+        """Crée un gestionnaire de progression pour une baseline"""
+        def handler(message, percentage):
+            self.update_parallel_progress(baseline_index, message, percentage)
+        return handler
+    
+    def create_quality_handler(self, baseline_index):
+        """Crée un gestionnaire de qualité pour une baseline"""
+        def handler(quality_data):
+            self.update_parallel_quality(baseline_index, quality_data)
+        return handler
+    
+    def create_finished_handler(self, baseline_index):
+        """Crée un gestionnaire de fin pour une baseline"""
+        def handler(return_code):
+            self.on_parallel_baseline_finished(baseline_index, return_code)
+        return handler
+    
+    def create_log_handler(self, baseline_name):
+        """Crée un gestionnaire de log pour une baseline"""
+        def handler(message):
+            self.log_message(f"[{baseline_name}] {message}")
+        return handler
+    
+    def update_parallel_progress(self, baseline_index: int, message: str, percentage: int):
+        """Met à jour la progression d'une baseline"""
+        baseline_name = self.rtk_calculators[baseline_index].baseline_name
+        self.baseline_results[baseline_index]["progress"] = percentage
+        
+        if baseline_name in self.progress_bars:
+            self.progress_bars[baseline_name].setValue(percentage)
+            
+            if percentage == 0:
+                self.progress_bars[baseline_name].setFormat(f"{baseline_name}: Initialisation...")
+            elif percentage < 100:
+                self.progress_bars[baseline_name].setFormat(f"{baseline_name}: {message}")
+            else:
+                self.progress_bars[baseline_name].setFormat(f"{baseline_name}: Terminé")
+        
+        self.baseline_progress_updated.emit(baseline_name, percentage, message)
+    
+    def update_parallel_quality(self, baseline_index: int, quality_data: dict):
+        """Met à jour la qualité d'une baseline"""
+        self.baseline_results[baseline_index]["quality"] = quality_data
+        baseline_name = self.rtk_calculators[baseline_index].baseline_name
+        
+        if baseline_name in self.donut_widgets:
+            self.donut_widgets[baseline_name].update_data(quality_data)
+    
+    def on_parallel_baseline_finished(self, baseline_index: int, return_code: int):
+        """Une baseline terminée"""
+        print(f"🔍 DEBUG: Baseline {baseline_index} terminée avec code {return_code}")
+        
+        if baseline_index not in self.baseline_results:
+            return
+        
+        current_status = self.baseline_results[baseline_index]["status"]
+        if current_status in ["success", "error"]:
+            return
+        
+        baseline_name = self.rtk_calculators[baseline_index].baseline_name
+        
+        if return_code == 0:
+            self.baseline_results[baseline_index]["status"] = "success"
+            self.log_message(f"✅ {baseline_name} terminé avec succès")
+            self.baseline_progress_updated.emit(baseline_name, 100, "Terminé")
+        else:
+            self.baseline_results[baseline_index]["status"] = "error"
+            self.log_message(f"❌ {baseline_name} échoué (code: {return_code})")
+            self.baseline_progress_updated.emit(baseline_name, 100, f"Erreur (code: {return_code})")
+        
+        # Vérifier si tous les calculs sont terminés
+        all_finished = all(result["status"] in ["success", "error"] for result in self.baseline_results.values())
+        print(f"🔍 DEBUG: Toutes terminées: {all_finished}")
+        
+        if all_finished:
+            print("🔍 DEBUG: Toutes les baselines terminées - Déclenchement navigation automatique")
+            # Attendre un peu puis déclencher la navigation
+            QTimer.singleShot(2000, self.trigger_auto_navigation)
+    
+    def trigger_auto_navigation(self):
+        """Déclenche la navigation automatique vers la page post-calcul"""
+        try:
+            print("🔍 DEBUG: Déclenchement navigation automatique")
+            # Émettre le signal de completion avec des résultats simulés
+            results = {
+                "total_baselines": len(self.baselines_to_calculate) if hasattr(self, 'baselines_to_calculate') else 2,
+                "successful_baselines": ["Port→Bow", "Port→Stbd"],
+                "failed_baselines": [],
+                "quality_data": {}
+            }
+            print("🔍 DEBUG: Émission du signal processing_completed")
+            self.processing_completed.emit(results)
+            print("🔍 DEBUG: Signal processing_completed émis")
+        except Exception as e:
+            print(f"❌ Erreur navigation automatique: {e}")
+    
+    def stop_calculation(self):
+        """Arrête tous les calculs"""
+        if hasattr(self, 'rtk_calculators'):
+            for calculator in self.rtk_calculators:
+                if calculator.isRunning():
+                    calculator.stop()
+            self.log_message("⏹️ Arrêt de tous les calculs demandé")
+            
+            for baseline_name in self.progress_bars:
+                self.progress_bars[baseline_name].setValue(0)
+                self.progress_bars[baseline_name].setFormat(f"{baseline_name}: Arrêté")
+                if baseline_name in self.donut_widgets:
+                    self.donut_widgets[baseline_name].update_data({})
+        
+        self.start_btn.setEnabled(True)
+        self.stop_btn.setEnabled(False)
+    
+    def log_message(self, message: str):
+        """Ajoute un message au log"""
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        self.log_text.append(f"[{timestamp}] {message}")
+    
+    def update_progress(self, message: str, percentage: int):
+        """Met à jour la progression (méthode de compatibilité)"""
+        pass

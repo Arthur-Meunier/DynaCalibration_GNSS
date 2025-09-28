@@ -1,0 +1,68 @@
+2025-07-30 01:28:52 - app.gui.page_Dimcon - INFO - 🚀 Initialisation de la page DIMCON
+2025-07-30 01:28:52 - app.gui.page_Dimcon.project - INFO - ✓ ProjectManager connecté
+2025-07-30 01:28:52 - app.gui.page_Dimcon.project - INFO - ✓ ProjectManager connecté
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - INFO - 📊 Points par défaut chargés: ['Bow', 'Port', 'Stb']
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - INFO - 📊 Points par défaut chargés: ['Bow', 'Port', 'Stb']
+2025-07-30 01:28:52 - app.gui.page_Dimcon.project - INFO - 📂 Chargement des données depuis le projet
+2025-07-30 01:28:52 - app.gui.page_Dimcon.project - INFO - 📂 Chargement des données depuis le projet
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - DEBUG - 📊 Données DIMCON trouvées: ['points', 'validated']
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - DEBUG - 📊 Données DIMCON trouvées: ['points', 'validated']
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - INFO - ✅ Points chargés: ['Bow', 'Port', 'Stb']
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - INFO - ✅ Points chargés: ['Bow', 'Port', 'Stb']
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - DEBUG -   - Bow: X=0.000000, Y=0.000000, Z=0.000000
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - DEBUG -   - Bow: X=0.000000, Y=0.000000, Z=0.000000
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - DEBUG -   - Port: X=0.000000, Y=0.000000, Z=0.000000
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - DEBUG -   - Port: X=0.000000, Y=0.000000, Z=0.000000
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - DEBUG -   - Stb: X=0.000000, Y=0.000000, Z=0.000000
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - DEBUG -   - Stb: X=0.000000, Y=0.000000, Z=0.000000
+2025-07-30 01:28:52 - app.gui.page_Dimcon.validation - INFO - ℹ Configuration non validée dans le projet
+2025-07-30 01:28:52 - app.gui.page_Dimcon.validation - INFO - ℹ Configuration non validée dans le projet
+2025-07-30 01:28:52 - app.gui.page_Dimcon.project - INFO - 📋 Projet chargé: a
+2025-07-30 01:28:52 - app.gui.page_Dimcon.project - INFO - 📋 Projet chargé: a
+2025-07-30 01:28:52 - app.gui.page_Dimcon - INFO - ✅ Page DIMCON initialisée avec succès
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - INFO - 🔗 Modèle de données connecté à DIMCON
+2025-07-30 01:28:52 - app.gui.page_Dimcon.data - INFO - 🔗 Modèle de données connecté à DIMCON
+2025-07-30 01:28:52 - app.gui.page_Dimcon - INFO - ✅ Compatibilité app_data assurée
+2025-07-30 01:38:19 - app.gui.page_Dimcon - INFO - 🚀 Initialisation page DIMCON épurée
+2025-07-30 01:38:19 - app.gui.page_Dimcon - INFO - 📂 Points DIMCON chargés depuis le projet
+2025-07-30 01:38:19 - app.gui.page_Dimcon - INFO - ✅ Page DIMCON initialisée
+2025-07-30 01:38:19 - app.gui.page_Dimcon - INFO - 🔗 Modèle de données connecté
+2025-07-30 01:42:17 - app.gui.page_Dimcon - INFO - 🚀 Initialisation page DIMCON épurée
+2025-07-30 01:42:17 - app.gui.page_Dimcon - ERROR - ❌ Erreur affichage forme navire: float division by zero
+2025-07-30 01:42:17 - app.gui.page_Dimcon - INFO - 📂 Points DIMCON chargés depuis le projet
+2025-07-30 01:42:17 - app.gui.page_Dimcon - INFO - ✅ Page DIMCON initialisée
+2025-07-30 01:42:17 - app.gui.page_Dimcon - INFO - 🔗 Modèle de données connecté
+2025-07-30 01:42:22 - app.gui.page_Dimcon - INFO - ✏ Fenêtre d'édition ouverte
+2025-07-30 01:42:29 - app.gui.page_Dimcon - ERROR - ❌ Erreur affichage forme navire: float division by zero
+2025-07-30 01:42:29 - app.gui.page_Dimcon - INFO - 🔄 Valeurs par défaut restaurées
+2025-07-30 01:42:37 - app.gui.page_Dimcon - INFO - ✅ Validation et sauvegarde des points DIMCON
+2025-07-30 01:42:37 - app.gui.page_Dimcon - INFO - 📊 Validation DIMCON:
+2025-07-30 01:42:37 - app.gui.page_Dimcon - INFO -   • Bow: X=-0.269318, Y=-64.232461, Z=10.888350
+2025-07-30 01:42:37 - app.gui.page_Dimcon - INFO -   • Port: X=-9.346890, Y=-27.956415, Z=13.491246
+2025-07-30 01:42:37 - app.gui.page_Dimcon - INFO -   • Stb: X=9.391560, Y=-27.827088, Z=13.505628
+2025-07-30 01:42:37 - app.gui.page_Dimcon - INFO - 📐 Métriques: Aire=341.342m², Distance P-S=18.739m
+2025-07-30 01:42:38 - app.gui.page_Dimcon - INFO - ✅ Sauvegarde réussie - Validation #1
+2025-07-30 01:42:50 - app.gui.page_Dimcon - INFO - ✏ Fenêtre d'édition ouverte
+2025-07-30 01:43:21 - app.gui.page_Dimcon - INFO - ✅ Validation et sauvegarde des points DIMCON
+2025-07-30 01:43:21 - app.gui.page_Dimcon - INFO - 📊 Validation DIMCON:
+2025-07-30 01:43:21 - app.gui.page_Dimcon - INFO -   • Bow: X=-0.269318, Y=-64.232461, Z=10.888350
+2025-07-30 01:43:21 - app.gui.page_Dimcon - INFO -   • Port: X=-9.346890, Y=-27.956415, Z=13.491246
+2025-07-30 01:43:21 - app.gui.page_Dimcon - INFO -   • Stb: X=9.391560, Y=-27.827088, Z=13.505628
+2025-07-30 01:43:21 - app.gui.page_Dimcon - INFO - 📐 Métriques: Aire=341.342m², Distance P-S=18.739m
+2025-07-30 01:43:22 - app.gui.page_Dimcon - INFO - ✅ Sauvegarde réussie - Validation #2
+2025-07-30 01:49:30 - app.gui.page_Dimcon - INFO - 🚀 Initialisation page DIMCON épurée
+2025-07-30 01:49:30 - app.gui.page_Dimcon - INFO - 📂 Points DIMCON chargés depuis le projet
+2025-07-30 01:49:30 - app.gui.page_Dimcon - INFO - ✅ Page DIMCON initialisée
+2025-07-30 01:49:30 - app.gui.page_Dimcon - INFO - 🔗 Modèle de données connecté
+2025-07-30 01:55:28 - app.gui.page_Dimcon - INFO - 🚀 Initialisation page DIMCON épurée
+2025-07-30 01:55:28 - app.gui.page_Dimcon - INFO - 📂 Points DIMCON chargés depuis le projet
+2025-07-30 01:55:28 - app.gui.page_Dimcon - INFO - ✅ Page DIMCON initialisée
+2025-07-30 01:55:28 - app.gui.page_Dimcon - INFO - 🔗 Modèle de données connecté
+2025-07-30 02:00:18 - app.gui.page_Dimcon - INFO - 🚀 Initialisation page DIMCON épurée
+2025-07-30 02:00:18 - app.gui.page_Dimcon - INFO - 📂 Points DIMCON chargés depuis le projet
+2025-07-30 02:00:18 - app.gui.page_Dimcon - INFO - ✅ Page DIMCON initialisée
+2025-07-30 02:00:18 - app.gui.page_Dimcon - INFO - 🔗 Modèle de données connecté
+2025-07-30 02:10:59 - app.gui.page_Dimcon - INFO - 🚀 Initialisation page DIMCON épurée
+2025-07-30 02:10:59 - app.gui.page_Dimcon - INFO - 📂 Points DIMCON chargés depuis le projet
+2025-07-30 02:10:59 - app.gui.page_Dimcon - INFO - ✅ Page DIMCON initialisée
+2025-07-30 02:11:00 - app.gui.page_Dimcon - INFO - 🔗 Modèle de données connecté

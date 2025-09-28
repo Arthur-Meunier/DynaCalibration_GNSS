@@ -1,0 +1,26 @@
+% program   : RTKLIB ver.EX 2.5.0
+% inp file  : C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25o
+% inp file  : C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\Prt_214A.25O
+% inp file  : C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25N
+% inp file  : C:\1-Data\01-Projet\ProjetPY\Thialf\DC-250802\GNSS\merde.25G
+% obs start : 2025/08/01 23:59:42.0 UTC (week2377 518400.0s)
+% obs end   : 2025/08/02 07:15:32.0 UTC (week2377 544550.0s)
+% pos mode  : Kinematic
+% freqs     : L1+L2/E5b+L5+L6
+% solution  : Combined-Phase Reset
+% elev mask : 13.0 deg
+% dynamics  : off
+% tidecorr  :
+% ionos opt : Broadcast
+% tropo opt : OFF
+% ephemeris : Precise
+% navi sys  : GPS GLONASS Galileo QZSS
+% amb res   : Fix and Hold
+% amb glo   : Fix and Hold
+% val thres : 3.0
+% antenna1  :                       ( 0.0000  0.0000  0.0000)
+% antenna2  :                       ( 0.0000  0.0000  0.0000)
+% ref pos   :  40.321125120  -73.251730626     7.5671
+%
+% (e/n/u-baseline=WGS84,Q=1:fix,2:float,3:sbas,4:dgps,5:single,6:ppp,ns=# of satellites)
+%  UTC                   e-baseline(m)  n-baseline(m)  u-baseline(m)   Q  ns   sde(m)   sdn(m)   sdu(m)  sden(m)  sdnu(m)  sdue(m) age(s)  ratio

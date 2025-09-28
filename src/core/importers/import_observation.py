@@ -16,20 +16,79 @@ from PyQt5.QtGui import QFont
 class ObservationImportDialog(QDialog):
     """Dialogue pour importer des données d'observation selon le type de capteur"""
     
-    def __init__(self, sensor_type, parent=None):
+    def __init__(self, sensor_type, app_data=None, parent=None):
         super().__init__(parent)
         self.sensor_type = sensor_type
+        self.app_data = app_data  # NOUVEAU: Référence vers ApplicationData
         self.file_path = ""
         self.data_frame = None
         self.raw_data_lines = []
         
-        # Définir les colonnes attendues selon le type de capteur
+        # Votre code existant inchangé...
         self.expected_columns = self.get_expected_columns()
-        
         self.setupUI()
         self.apply_styles()
+    
+    def accept(self):
+        """MODIFICATION: Intégration avec ApplicationData optimisée"""
+        if self.data_frame is not None and self.app_data is not None:
+            
+            # Collecter métadonnées d'import (votre logique existante)
+            import_metadata = {
+                'file_path': self.file_path,
+                'sensor_type': self.sensor_type,
+                'separator': self.get_separator(),
+                'header_lines': self.header_lines_spin.value(),
+                'column_mapping': {col: spinbox.value() 
+                                 for col, spinbox in self.column_spinboxes.items()},
+                'import_timestamp': datetime.now().isoformat(),
+                'file_size_bytes': os.path.getsize(self.file_path) if os.path.exists(self.file_path) else 0,
+                'processing_params': self.get_processing_params()
+            }
+            
+            # NOUVEAU: Générer ID unique pour ce capteur
+            existing_sensors = self.app_data.get_sensors_by_type(self.sensor_type)
+            sensor_id = f"{self.sensor_type}_{len(existing_sensors) + 1}"
+            
+            # NOUVEAU: Stocker dans ApplicationData optimisée (RAM + HDF5 automatique)
+            self.app_data.add_sensor_data(
+                sensor_id=sensor_id,
+                dataframe=self.data_frame,
+                import_metadata=import_metadata
+            )
+            
+            print(f"✅ Import {self.sensor_type} terminé: {sensor_id} → ApplicationData")
+            
+            # Notification utilisateur
+            QMessageBox.information(
+                self, 
+                "Import Réussi", 
+                f"Capteur {sensor_id} importé avec succès !\n"
+                f"📊 {len(self.data_frame)} mesures\n"
+                f"💾 Sauvegarde automatique HDF5 effectuée"
+            )
         
-        print(f"✓ Dialogue d'import initialisé pour {sensor_type}")
+        # Appel parent inchangé
+        super().accept()
+    
+    def get_processing_params(self):
+        """NOUVEAU: Collecte les paramètres de traitement pour métadonnées"""
+        params = {}
+        
+        # Paramètres d'angles si applicables
+        if hasattr(self, 'angle_format_combo'):
+            params['angle_format'] = self.angle_format_combo.currentText()
+        
+        if hasattr(self, 'pitch_range_combo'):
+            params['pitch_range'] = self.pitch_range_combo.currentText()
+        
+        if hasattr(self, 'roll_range_combo'):
+            params['roll_range'] = self.roll_range_combo.currentText()
+        
+        if hasattr(self, 'heading_range_combo'):
+            params['heading_range'] = self.heading_range_combo.currentText()
+        
+        return params
     
     def get_expected_columns(self):
         """Retourne les colonnes attendues selon le type de capteur"""
